@@ -25,16 +25,16 @@ INSERT INTO quotes (quote_text,quote_author) VALUES ("A pessimist sees the diffi
 INSERT INTO quotes (quote_text,quote_author) VALUES ("Courage starts with showing up and letting ourselves be seen.", "Brene Brown");
 INSERT INTO quotes (quote_text,quote_author) VALUES ("The voyage of discovery is not in looking for new landscapes, but in looking with new eyes.","Anonymous");
 INSERT INTO quotes (quote_text,quote_author) VALUES ("Only those who dare to fail greatly can ever achieve greatly.", "Robert F. Kennedy");
-INSERT INTO quotes (quote_text,quote_author) VALUES ("All of the darkness of the world cannot put out the light of one small candle.", "Anonymous");
+INSERT INTO quotes (quote_text,quote_author) VALUES ("All of the darkness of the world cannot put out the light of one small candle.","Anonymous");
 INSERT INTO quotes (quote_text,quote_author) VALUES ("If one advances confidently in the direction of his dreams,and endeavors to live the life which he has imagined,he will meet with a success unexpected in common hours.","Henry David Thoreau");
-INSERT INTO quotes (quote_text,quote_author) VALUES ("Excellence is to do a common thing in an uncommon way.", "Booker T. Washington");
+INSERT INTO quotes (quote_text,quote_author) VALUES ("Excellence is to do a common thing in an uncommon way.","Booker T. Washington");
 INSERT INTO quotes (quote_text,quote_author) VALUES ("Don’t be afraid to go out on a limb. That’s where the fruit is.", "H. Jackson Browne");
-INSERT INTO quotes (quote_text,quote_author) VALUES ("Don't be afraid to fail. Don't waste energy trying to cover up failure. Learn from your failures and go on to the next challenge. It's OK to fail. If you're not failing, you're not growing.","H. Stanley Judd);
-INSERT INTO quotes (quote_text,quote_author) VALUES ("Opportunities don't often come along. So, when they do, you have to grab them."  "Audrey Hepburn");
+INSERT INTO quotes (quote_text,quote_author) VALUES ("Don't be afraid to fail. Don't waste energy trying to cover up failure. Learn from your failures and go on to the next challenge. It's OK to fail. If you're not failing, you're not growing.","H. Stanley Judd");
+INSERT INTO quotes (quote_text,quote_author) VALUES ("Opportunities don't often come along. So, when they do, you have to grab them.","Audrey Hepburn");
 INSERT INTO quotes (quote_text,quote_author) VALUES ("When one door closes, another opens; but we often look so long and so regretfully upon the closed door that we do not see the one which has opened for us.", "Alexander Graham Bell");
-INSERT INTO quotes (quote_text,quote_author) VALUES ("Never tell me the sky’s the limit when there are footprints on the moon.", "Author Unknown");
+INSERT INTO quotes (quote_text,quote_author) VALUES ("Never tell me the sky’s the limit when there are footprints on the moon.","Author Unknown");
 INSERT INTO quotes (quote_text,quote_author) VALUES ("Every experience in your life is being orchestrated to teach you something you need to know to move forward.", "Brian Tracy");
-INSERT INTO quotes (quote_text,quote_author) VALUES("Take risks: if you win, you will be happy; if you lose, you will be wise.", "Author Unknown")
+INSERT INTO quotes (quote_text,quote_author) VALUES("Take risks: if you win, you will be happy; if you lose, you will be wise.","Author Unknown");
 
 
 
