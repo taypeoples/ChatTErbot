@@ -1,12 +1,13 @@
 package com.techelevator.model;
 
-public class Quotes {
+public class Quote {
     private int id;
     private String quoteText;
     private String author;
 
+public Quote(){};
 
-    public Quotes(int id, String quoteText, String author) {
+    public Quote(int id, String quoteText, String author) {
         this.id = id;
         this.quoteText = quoteText;
         this.author = author;
