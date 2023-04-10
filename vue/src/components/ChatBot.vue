@@ -34,24 +34,54 @@ export default {
         setNickname(){
             return null;
         },
+
+        grabStoredNickName(){
+            if (this.$store.state.user.nickname != null){
+                return this.$store.user.nickname;
+            }
+            
+             return null ;
+        },
+        
     },
+
+    mounted() {
+        this.pageOpen();
+    },
+      
 
 
     methods: {
         handleSubmit(){
             this.messages.push(this.userMessage);
             this.handleResponse(this.userMessage);
-            this.message = '';
+            this.userMessage = '';
         },
         greetUser(){
-            return null;
+            return ;
         },
         handleResponse(userMessage){
             ResponseService.getBotMessage(userMessage).then( response =>{
                const responseMessage = response.data.messageText;
                this.messages.push(responseMessage);
             })
-        }
+        },
+        pageOpen(){
+            let Greeting = '';
+            if(this.$store.user.nickname != null){
+                Greeting = ` Hello ${this.$store.user.nickname}`;
+            } else {
+               let nickname = this.promptForNickname();
+                Greeting = ` Hello ${nickname}`;
+            }
+            
+            this.messages.push(Greeting);
+        },
+        promptForNickname(){
+            this.messages.push('Hello, what should I call you?');
+            const userSetNickname = window.prompt('Enter your nick-name');
+            return userSetNickname;
+        }  
         
     },
 
