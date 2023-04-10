@@ -24,6 +24,7 @@ export default {
     data(){
         return {
             userMessage: '',
+            responseMessage: '',
             messages: [],
             };
         },
@@ -47,7 +48,8 @@ export default {
         },
         handleResponse(userMessage){
             ResponseService.getBotMessage(userMessage).then( response =>{
-                return response;
+               const responseMessage = response.data.messageText;
+               this.messages.push(responseMessage);
             })
         }
         
