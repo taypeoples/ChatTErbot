@@ -8,8 +8,14 @@
 
 <script>
 import Quote from '../components/Quote.vue';
+
 export default {
-  components: { Quote },
+  components: { 
+    Quote,
+
+
+  
+  },
   name: "home"
 };
 </script>
