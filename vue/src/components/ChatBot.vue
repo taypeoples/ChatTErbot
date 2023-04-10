@@ -1,50 +1,54 @@
 <template>
   <div>
-    
-    <p>Whatever the chat bot is communicating</p><p>Chatbot</p>
+    <p v-for="message in messages" v-bind:key="message.id" >{{message}}</p>
 
-
-
-
-    <form v-on:submit.prevent = "handleSubmit">
-    <input id="chatEntry" type="text" class="" v-model="message" placeholder="Type your message here" />
-    <button>Submit</button>
+    <form v-on:submit.prevent="handleSubmit">
+      <input
+        id="chatEntry"
+        type="text"
+        class=""
+        v-model="userMessage"
+        placeholder="Type your message here"
+      />
+      <button>Submit</button>
     </form>
-    <p> Current User: {{this.$store.state.user.id}}</p>
+    <p>Current User: {{ this.$store.state.user.id }}</p>
   </div>
 </template>
 
 <script>
 /* import QuoteService from '../services/QuoteService.js' */
+import ResponseService from '../services/ResponseService.js'
 
 export default {
-
     data(){
         return {
-            message: '',
-
-
-
-            }
-
-        }
-    },
+            userMessage: '',
+            messages: [],
+            };
+        },
 
     computed: {
         /* todo: come back to this and implement greeting based on nickname */
         setNickname(){
             return null;
-        }
+        },
     },
 
 
     methods: {
         handleSubmit(){
-            console.log('Submitted message:', this.message)
+            this.messages.push(this.userMessage);
+            this.handleResponse(this.userMessage);
             this.message = '';
         },
         greetUser(){
-            
+            return null;
+        },
+        handleResponse(userMessage){
+            ResponseService.getBotMessage(userMessage).then( response =>{
+                return response;
+            })
         }
         
     },
