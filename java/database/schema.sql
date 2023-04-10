@@ -17,4 +17,9 @@ CREATE TABLE quotes (
 	CONSTRAINT PK_quotes PRIMARY KEY (quote_id)
 );
 
+CREATE TABLE bot_test_messages (
+	message_id SERIAL,
+	message_text varchar(500)
+);
+
 COMMIT TRANSACTION;

@@ -7,7 +7,7 @@ export default {
   },
 
   getBotMessage(userMessage){
-      return axios.get('/', userMessage);
+      return axios.post('/messages', userMessage);
   }
 
 }

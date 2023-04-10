@@ -35,6 +35,8 @@ INSERT INTO quotes (quote_text,quote_author) VALUES ('When one door closes, anot
 INSERT INTO quotes (quote_text,quote_author) VALUES ('Never tell me the sky’s the limit when there are footprints on the moon.','Author Unknown');
 INSERT INTO quotes (quote_text,quote_author) VALUES ('Every experience in your life is being orchestrated to teach you something you need to know to move forward.', 'Brian Tracy');
 
+INSERT INTO bot_test_messages (message_text) VALUES ('this is test data');
+
 
 
 
