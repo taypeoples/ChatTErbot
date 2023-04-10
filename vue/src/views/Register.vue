@@ -1,25 +1,29 @@
 <template>
-  <div id="register" class="text-center">
-    <form @submit.prevent="register">
-      <h1>Create Account</h1>
-      <div role="alert" v-if="registrationErrors">
-        {{ registrationErrorMsg }}
+  <div class="card">
+    <div class="card-body">
+      <div id="register" class="text-center">
+        <form @submit.prevent="register">
+          <h1>Create Account</h1>
+          <div role="alert" v-if="registrationErrors">
+            {{ registrationErrorMsg }}
+          </div>
+          <div class="form-input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" v-model="user.username" required autofocus />
+          </div>
+          <div class="form-input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" v-model="user.password" required />
+          </div>
+          <div class="form-input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
+          </div>
+          <button type="submit">Create Account</button>
+          <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
+        </form>
       </div>
-      <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
-      </div>
-      <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
-      </div>
-      <div class="form-input-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
-      </div>
-      <button type="submit">Create Account</button>
-      <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -74,10 +78,56 @@ export default {
 </script>
 
 <style scoped>
+
+body {
+  background-color: #aeaeff !important;
+}
+
+.card {
+  margin: 0 auto;
+  max-width: 400px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
 .form-input-group {
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
-label {
-  margin-right: 0.5rem;
+
+.form-input-group label {
+  margin-bottom: 5px;
 }
+
+.form-input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+   background-color: #2ccc00;
+   transition: background-color 0.3s ease-in;
+    
+}
+
+h1 {
+  text-align: center;
+}
+
 </style>
