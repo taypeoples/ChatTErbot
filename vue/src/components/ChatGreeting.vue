@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>'Hello, what should I call you?'</p>
-    <form v-on:submit.prevent="submitNickname">
+    <form v-if="showForm === true" v-on:submit.prevent="submitNickname">
       <input
         id="chatEntry"
         type="text"
@@ -16,10 +16,11 @@
 
 <script>
 export default {
-  data(){
-    return{
-      nickname: ''
-    }
+  data() {
+    return {
+      nickname: "",
+      showForm: true,
+    };
   },
   /* mounted() {
         
@@ -30,7 +31,8 @@ export default {
 
   methods: {
     submitNickname() {
-      this.$emit('passNickname', this.nickname);
+      this.$emit("passNickname", this.nickname);
+      this.showForm = false;
     },
   },
 };
