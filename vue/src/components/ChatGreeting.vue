@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>'Hello, what should I call you?'</p>
+    <p>'Welcome! What should I call you?'</p>
     <form v-if="showForm === true" v-on:submit.prevent="submitNickname">
       <input
         id="chatEntry"

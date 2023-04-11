@@ -13,7 +13,7 @@
       />
       <button>Submit</button>
     </form>
-    <p>Current User: {{ this.$store.state.user.id }}</p>
+    <!-- <p>Current User: {{ this.$store.state.user.id }}</p> -->
   </div>
 </template>
 
