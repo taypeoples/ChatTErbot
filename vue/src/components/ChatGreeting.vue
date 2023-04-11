@@ -1,7 +1,7 @@
 <template>
   <div>
-      <p> 'Hello, what should I call you?'</p>
-      <form v-on:submit.prevent="handleNickname">
+    <p>'Hello, what should I call you?'</p>
+    <form v-on:submit.prevent="submitNickname">
       <input
         id="chatEntry"
         type="text"
@@ -11,35 +11,30 @@
       />
       <button>Submit</button>
     </form>
-
   </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-           
-        }
+  data(){
+    return{
+      nickname: ''
+    }
+  },
+  /* mounted() {
         
-    }, 
-    mounted() {
-        
-            this.messages.push('Hello, what should I call you?');
-            const userSetNickname = window.prompt('Enter your nick-name');
+            /* this.messages.push('Hello, what should I call you?'); */
+  /*  const userSetNickname = window.prompt('Enter your nick-name');
             return userSetNickname;
-        },
-      
-    
-     methods: {
-         handleNickname(nickname) {
-             this.$store.commit("SET_NICKNAME", nickname);
-         }
-     },
+        }, */
 
-}
+  methods: {
+    submitNickname() {
+      this.$emit('passNickname', this.nickname);
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 </style>
