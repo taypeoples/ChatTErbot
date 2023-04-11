@@ -19,7 +19,8 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    nickname: ''
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -38,8 +39,8 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SET_NICKNAME(state, user, nickname) {
-      state.user.nickname = nickname;
+    SET_NICKNAME(state, nickname) {
+      state.nickname = nickname;
     }
   }
 })
