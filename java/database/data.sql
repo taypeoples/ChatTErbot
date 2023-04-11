@@ -37,7 +37,7 @@ INSERT INTO quotes (quote_text,quote_author) VALUES ('Every experience in your l
 
 INSERT INTO bot_test_messages (message_text) VALUES ('this is test data');
 
-INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First message','I can help you with pathway information or get you a motivational quote, which would you like?','default','default','default');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First message','I can help you with pathway information or get you a motivational quote, which would you like,','default','default','default');
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First pathway message','I can help you with your Resume, a Cover Letter, or Interview Prep. What would you like to talk about?','pathway','default','default');
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/resume main','I can break down the main parts of a resume or provide you with links to examples. Which would you like?','pathway','resume','default');
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/resume parts','Here are the main parts of a resume: ...','pathway','resume','parts');
