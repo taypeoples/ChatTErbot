@@ -22,4 +22,18 @@ CREATE TABLE bot_test_messages (
 	message_text varchar(500)
 );
 
+CREATE TABLE response (
+	response_id SERIAL,
+	need_category varchar(50),
+	response_description varchar (500),
+	response_text varchar(500),
+	keyword_1 varchar(50),
+	keyword_2 varchar(50),
+	CONSTRAINT PK_first_response PRIMARY KEY (response_id)
+);
+
+
+
+
+
 COMMIT TRANSACTION;

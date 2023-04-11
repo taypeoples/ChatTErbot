@@ -37,6 +37,10 @@ INSERT INTO quotes (quote_text,quote_author) VALUES ('Every experience in your l
 
 INSERT INTO bot_test_messages (message_text) VALUES ('this is test data');
 
+INSERT INTO response (response_description, response_text, need_category) VALUES ('This is what the chatbot can help with','I can help with information regarding the Pathway Program, your Coding Curriculum, and your Job Search. What do you need help with?', 'primary');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('These are what the chatbot can help with regarding the pathway program.','I can help with interview prep, your resume or cover letter, and with common star questions. What do you need help with?', 'pathway', 'test', 'test');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('Resume help','Here is how you would write a resume...', 'pathway', 'resume', 'formatting');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('Resume help','Here is how you would write a resume...', 'pathway', 'resume', 'formatting');
 
 
 

@@ -25,4 +25,28 @@ public class JdbcMessageDao implements MessageDao{
         }
         return null;
     }
+
+    @Override
+    public Message getFirstMessage() {
+        Message message = new Message();
+        String sql = "SELECT response_text FROM first_response WHERE response_id = 1;";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
+        if(result.next()){
+            message.setMessageText(result.getString("response_text"));
+            return message;
+        }
+        return null;
+    }
+
+    @Override
+    public Message getMessageByKeyWords(String needCategory, String keyword1, String keyword2) {
+        Message message = new Message();
+        String sql = "SELECT response_text FROM response WHERE need_category= ? AND keyword_1 = ? AND keyword_2 = ?;";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, needCategory, keyword1, keyword2);
+        if(result.next()){
+            message.setMessageText(result.getString("response_text"));
+            return  message;
+        }
+        return null;
+    }
 }
