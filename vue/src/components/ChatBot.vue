@@ -2,7 +2,6 @@
   <div>
     <chat-greeting v-on:passNickname="getNickname($event)" />
     <p v-for="message in messages" v-bind:key="message.id">{{ message }}</p>
-
     <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
       <input
         id="chatEntry"
@@ -15,12 +14,10 @@
     </form>
   </div>
 </template>
-
 <script>
 import QuoteService from '../services/QuoteService.js'
 import ResponseService from "../services/ResponseService.js";
 import ChatGreeting from "./ChatGreeting.vue";
-
 export default {
   components: {
     ChatGreeting,
@@ -34,20 +31,15 @@ export default {
       showForm: false
     };
   },
-
   // computed: {
   //     /* todo: come back to this and implement greeting based on nickname */
-
   //     // grabStoredNickName(){
   //     //     if (this.$store.state.user.nickname != null){
   //     //         return this.$store.user.nickname;
   //     //     }
-
   //     //      return null ;
   //     // },
-
   // },
-
   methods: {
     handleSubmit() {
       this.messages.push(this.userMessage);
@@ -115,7 +107,6 @@ export default {
         this.messages.push(firstResponse + ' ' + nickname + '?');
       })
       this.showForm = true;
-      
     },
     // pageOpen(){
     //     let Greeting = '';
@@ -125,7 +116,6 @@ export default {
     //        let nickname = this.promptForNickname();
     //         Greeting = ` Hello ${nickname}`;
     //     }
-
     // this.messages.push(Greeting);
   },
   // promptForNickname(){
@@ -135,6 +125,5 @@ export default {
   // }
 };
 </script>
-
 <style scoped>
 </style>
