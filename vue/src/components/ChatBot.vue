@@ -13,12 +13,11 @@
       />
       <button>Submit</button>
     </form>
-    <!-- <p>Current User: {{ this.$store.state.user.id }}</p> -->
   </div>
 </template>
 
 <script>
-/* import QuoteService from '../services/QuoteService.js' */
+import QuoteService from '../services/QuoteService.js'
 import ResponseService from "../services/ResponseService.js";
 import ChatGreeting from "./ChatGreeting.vue";
 
@@ -52,12 +51,58 @@ export default {
   methods: {
     handleSubmit() {
       this.messages.push(this.userMessage);
+      let inputArray = this.userMessage.split(" ");
+
+     /*  inputArray.includes("pathway")
+      this.$store.commit('SET_NEED_CATEGORY', 'pathway');
+
+      inputArray.includes("pathway")
+      this.$store.commit('SET_NEED_CATEGORY', ''); */
+
+
+
+
+      inputArray.forEach( word => {
+        if(word == "pathway"){
+          this.$store.commit('SET_NEED_CATEGORY', word);
+        } else if(word == "quote"){
+          QuoteService.quote;
+        } 
+
+        if(word == "resume"){
+          this.$store.commit('SET_KEYWORD1', word);
+        } else if (word == "interview"){
+          this.$store.commit('SET_KEYWORD1', word);
+        } else if (word == "cover"){
+          this.$store.commit('SET_KEYWORD1', word);
+        }
+
+        if(word == "parts"){
+          this.$store.commit('SET_KEYWORD2', word);
+        } else if (word == "links"){
+          this.$store.commit('SET_KEYWORD2', word);
+        } else if (word == "prep"){
+          this.$store.commit('SET_KEYWORD2', word);
+        } else if (word == "outfit"){
+          this.$store.commit('SET_KEYWORD2', word);
+        } else if (word == "star"){
+          this.$store.commit('SET_KEYWORD2', word);
+        }
+
+
+        
+        
+      });
+
+
+
+
       this.handleResponse(this.userMessage);
       this.userMessage = "";
     },
 
-    handleResponse(userMessage) {
-      ResponseService.getBotMessage(userMessage).then((response) => {
+    handleResponse() {
+      ResponseService.getBotResponse(this.$store.state.needCategory, this.$store.state.keyword1, this.$store.state.keyword2).then((response) => {
         const responseMessage = response.data.messageText;
         this.messages.push(responseMessage);
       });
@@ -65,7 +110,10 @@ export default {
     getNickname(nickname) {
       this.nickname = nickname;
       this.messages.push(nickname);
-      this.messages.push('What can I help you with, ' + nickname + '?');
+      ResponseService.getBotResponse('default', 'default', 'default').then(response => {
+        const firstResponse = response.data.messageText;
+        this.messages.push(firstResponse + ' ' + nickname + '?');
+      })
       this.showForm = true;
       
     },
