@@ -37,10 +37,19 @@ INSERT INTO quotes (quote_text,quote_author) VALUES ('Every experience in your l
 
 INSERT INTO bot_test_messages (message_text) VALUES ('this is test data');
 
-INSERT INTO response (response_description, response_text, need_category) VALUES ('This is what the chatbot can help with','I can help with information regarding the Pathway Program, your Coding Curriculum, and your Job Search. What do you need help with?', 'primary');
-INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('These are what the chatbot can help with regarding the pathway program.','I can help with interview prep, your resume or cover letter, and with common star questions. What do you need help with?', 'pathway', 'test', 'test');
-INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('Resume help','Here is how you would write a resume...', 'pathway', 'resume', 'formatting');
-INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('Resume help','Here is how you would write a resume...', 'pathway', 'resume', 'formatting');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First message','I can help you with pathway information or get you a motivational quote, which would you like?','default','default','default');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First pathway message','I can help you with your Resume, a Cover Letter, or Interview Prep. What would you like to talk about?','pathway','default','default');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/resume main','I can break down the main parts of a resume or provide you with links to examples. Which would you like?','pathway','resume','default');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/resume parts','Here are the main parts of a resume: ...','pathway','resume','parts');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/resume links','Here are a few example resumes!','pathway','resume','links');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/interview main','I can help you with Interview prep, following up with employers, what to wear to interviews, or common STAR questions. Which would you like help with?','pathway','interview','default');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/interview prep','Here are some tips to help you prepare for your interviews','pathway','interview','prep');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/interview outfit','Here are some links to help you understand what is appropriate dress for an interview','pathway','interview','outfit');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/interview star','Here is a list of common STAR questions and a form to help you keep track and brainstorm responses','pathway','interview','star');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/cover main','I can show you the components of a cover letter or examples of a cover letter. Which would you like?','pathway','cover','default');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/cover parts','The main parts of a cover letter are:','pathway','cover','parts');
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/cover examples','Here are a few example cover letters!','pathway','cover','links');
+
 
 
 
