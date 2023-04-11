@@ -20,7 +20,10 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    nickname: ''
+    nickname: '',
+    needCategory: 'default',
+    keyword1: 'default',
+    keyword2: 'default'
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -41,6 +44,15 @@ export default new Vuex.Store({
     },
     SET_NICKNAME(state, nickname) {
       state.nickname = nickname;
+    },
+    SET_NEED_CATEGORY(state, needCategory){
+      state.needCategory = needCategory;
+    },
+    SET_KEYWORD1(state,keyword1){
+      state.keyword1 = keyword1;
+    },
+    SET_KEYWORD2(state, keyword2){
+      state.keyword2 = keyword2;
     }
   }
 })
