@@ -1,27 +1,35 @@
 <template>
-  <div id="login">
-    <div class="login-container">
-      <form @submit.prevent="login">
-        <h1>Please Sign In</h1>
-        <div role="alert" v-if="invalidCredentials">
-          Invalid username and password!
-        </div>
-        <div role="alert" v-if="this.$route.query.registration">
-          Thank you for registering, please sign in.
-        </div>
-        <div class="form-input-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" v-model="user.username" required autofocus />
-        </div>
-        <div class="form-input-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" v-model="user.password" required />
-        </div>
-        <button type="submit">Sign in</button>
-        <p>
-          <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link>
-        </p>
-      </form>
+  <div class="box-form">
+    <div class="left">
+      <div class="overlay">
+        <h1>Welcome back!</h1>
+        <span>
+          <p>Enter your login details to access your account.</p>
+        </span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="login-container">
+        <form @submit.prevent="login">
+          <h1>Please Sign In</h1>
+          <div role="alert" v-if="invalidCredentials">
+            Invalid username and password!
+          </div>
+          <div role="alert" v-if="this.$route.query.registration">
+            Thank you for registering, please sign in.
+          </div>
+          <div class="form-input-group">
+            <input type="text" id="username" v-model="user.username" required autofocus placeholder="Enter your Username" />
+          </div>
+          <div class="form-input-group">
+            <input type="password" id="password" v-model="user.password" required placeholder="Enter your Password" />
+          </div>
+          <button type="submit">Sign in</button>
+          <p>
+            <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link>
+          </p>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -65,62 +73,183 @@ export default {
 </script>
 
 <style scoped>
-#login {
+body {
+  background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+}
+
+.box-form {
+  margin: 0 auto;
+  width: 80%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  flex: 1 1 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  box-shadow: 0 0 20px 6px #090b6f85;
 }
 
-.login-container {
-  background-color: #f1f1f1;
-  border-radius: 8px;
-  padding: 2rem;
-  max-width: 320px; 
-  width: 100%;
-  height: 400px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 980px) {
+  .box-form {
+    flex-flow: wrap;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }
 }
 
-.form-input-group {
-  margin-bottom: 1rem;
-  margin-top: 1.5rem;
+.box-form div {
+  height: auto;
 }
 
-label {
-  margin-right: 0.5rem;
-}
-
-button[type="submit"] {
-  background-color: #007bff;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-button[type="submit"]:hover {
-  background-color: #28a745;
-}
-
-h1 {
-  margin: 0;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  padding-bottom: 2rem;
-  background-color: #000000;
-  background-image: linear-gradient(to top, #08bdff 0%, #3e3d3d 100%);
+.box-form .left {
+  color: #FFFFFF;
   background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  
+  background-repeat: no-repeat;
+  background-image: url('/pictures/Capture 2 login.PNG');
+  overflow: hidden;
+}
+
+.box-form .left .overlay {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  background: #5961f9ad;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.box-form .left .overlay h1 {
+  font-size: 10vmax;
+  line-height: 1;
+  font-weight: 900;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.box-form .left .overlay span p {
+  margin-top: 30px;
+  font-weight: 900;
+}
+
+.box-form .left .overlay span a {
+  background: #3b5998;
+  color: #FFFFFF;
+  margin-top: 10px;
+  padding: 14px 50px;
+  border-radius: 100px;
+  display: inline-block;
+  box-shadow: 0 3px 6px 1px #042d4657;
+}
+
+.box-form .left .overlay span a:last-child {
+  background: #1dcaff;
+  margin-left: 30px;
+}
+
+.box-form .right {
+  padding: 40px;
+  overflow: hidden;
+}
+
+@media (max-width: 980px) {
+  .box-form .right {
+    width: 100%;
+  }
+}
+
+.box-form .right h5 {
+  font-size: 6vmax;
+  line-height: 0;
+}
+
+.box-form .right p {
+  font-size: 14px;
+  color: #B0B3B9;
+}
+
+.box-form .right .inputs {
+  overflow: hidden;
+}
+
+.box-form .right input[type="text"] {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+  margin-top: 25px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.box-form .right .remember-me--forget-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-form .right .remember-me--forget-password input {
+  margin: 0;
+}
+
+.box-form .right #username {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+}
+.box-form .right #password {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+}
+.box-form .right input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+  placeholder: "Enter your username";
+}
+
+.box-form .right input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+  placeholder: "Enter your password";
+}
+.box-form .right button[type="submit"] {
+  background-color: #3b5998;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 100px;
+  padding: 12px 60px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px 1px #042d4657;
+  margin-top: 25px;
+}
+
+.box-form .right button[type="submit"]:hover {
+  background-color: #237aec;
 }
 
 </style>
