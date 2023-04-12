@@ -21,3 +21,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+nav{
+background: #131313;
+}
+</style>
