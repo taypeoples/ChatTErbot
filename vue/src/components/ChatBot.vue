@@ -1,8 +1,7 @@
 <template>
   <div>
     <chat-greeting v-on:passNickname="getNickname($event)" />
-    <p v-for="message in messages" v-bind:key="message.id">{{ message }}</p>
-
+    <p v-for="message in messages" v-bind:key="message.id" class='textbox'>{{ message }}</p>
     <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
       <input
         id="chatEntry"
@@ -13,15 +12,12 @@
       />
       <button>Submit</button>
     </form>
-    <!-- <p>Current User: {{ this.$store.state.user.id }}</p> -->
   </div>
 </template>
-
 <script>
-/* import QuoteService from '../services/QuoteService.js' */
+import QuoteService from "../services/QuoteService.js";
 import ResponseService from "../services/ResponseService.js";
 import ChatGreeting from "./ChatGreeting.vue";
-
 export default {
   components: {
     ChatGreeting,
@@ -32,32 +28,69 @@ export default {
       responseMessage: "",
       messages: [],
       nickname: "",
-      showForm: false
+      showForm: false,
     };
   },
-
   // computed: {
   //     /* todo: come back to this and implement greeting based on nickname */
-
   //     // grabStoredNickName(){
   //     //     if (this.$store.state.user.nickname != null){
   //     //         return this.$store.user.nickname;
   //     //     }
-
   //     //      return null ;
   //     // },
-
   // },
-
   methods: {
     handleSubmit() {
       this.messages.push(this.userMessage);
+      let inputArray = this.userMessage.toLowerCase().split(" ");
+      this.filterKeywords(inputArray);
       this.handleResponse(this.userMessage);
       this.userMessage = "";
     },
 
-    handleResponse(userMessage) {
-      ResponseService.getBotMessage(userMessage).then((response) => {
+    filterKeywords(inputArray){
+      inputArray.forEach((word) => {
+        if (word == "quote") {
+          let quote = "";
+          QuoteService.quote().then((response) => {
+            quote = response.data.quoteText + " -" + response.data.author;
+            this.messages.push(quote);
+          });
+        }
+
+        if (word == "pathway") {
+          this.$store.commit("SET_NEED_CATEGORY", word);
+        }
+
+        if (word == "resume") {
+          this.$store.commit("SET_KEYWORD1", word);
+        } else if (word == "interview") {
+          this.$store.commit("SET_KEYWORD1", word);
+        } else if (word == "cover") {
+          this.$store.commit("SET_KEYWORD1", word);
+        }
+
+        if (word == "parts") {
+          this.$store.commit("SET_KEYWORD2", word);
+        } else if (word == "links") {
+          this.$store.commit("SET_KEYWORD2", word);
+        } else if (word == "prep") {
+          this.$store.commit("SET_KEYWORD2", word);
+        } else if (word == "outfit") {
+          this.$store.commit("SET_KEYWORD2", word);
+        } else if (word == "star") {
+          this.$store.commit("SET_KEYWORD2", word);
+        }
+      });
+    },
+
+    handleResponse() {
+      ResponseService.getBotResponse(
+        this.$store.state.needCategory,
+        this.$store.state.keyword1,
+        this.$store.state.keyword2
+      ).then((response) => {
         const responseMessage = response.data.messageText;
         this.messages.push(responseMessage);
       });
@@ -65,9 +98,13 @@ export default {
     getNickname(nickname) {
       this.nickname = nickname;
       this.messages.push(nickname);
-      this.messages.push('What can I help you with, ' + nickname + '?');
+      ResponseService.getBotResponse("default", "default", "default").then(
+        (response) => {
+          const firstResponse = response.data.messageText;
+          this.messages.push(firstResponse + " " + nickname + "?");
+        }
+      );
       this.showForm = true;
-      
     },
     // pageOpen(){
     //     let Greeting = '';
@@ -77,7 +114,6 @@ export default {
     //        let nickname = this.promptForNickname();
     //         Greeting = ` Hello ${nickname}`;
     //     }
-
     // this.messages.push(Greeting);
   },
   // promptForNickname(){
@@ -89,4 +125,21 @@ export default {
 </script>
 
 <style scoped>
+.textbox{
+border-width:3px;
+ border-style:solid;
+ border-color:#287EC7;
+ border-radius: 5px;
+ padding: 20px;
+ border-width: 80%;
+}
+
+button:hover{
+  background-color: rgb(212, 212, 212);
+  box-shadow: 3px 3px lightgray; 
+
+}
+
+
+
 </style>
