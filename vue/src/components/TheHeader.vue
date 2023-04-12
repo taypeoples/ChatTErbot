@@ -28,6 +28,9 @@ export default {
     padding: 0;
     font-size: 2rem;
     font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff, #4e9be4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .nav-container {
