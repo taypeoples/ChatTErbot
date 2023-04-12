@@ -1,7 +1,7 @@
 <template>
   <div>
     <chat-greeting v-on:passNickname="getNickname($event)" />
-    <p v-for="message in messages" v-bind:key="message.id">{{ message }}</p>
+    <p v-for="message in messages" v-bind:key="message.id" class='textbox'>{{ message }}</p>
     <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
       <input
         id="chatEntry"
@@ -123,5 +123,23 @@ export default {
   // }
 };
 </script>
+
 <style scoped>
+.textbox{
+border-width:3px;
+ border-style:solid;
+ border-color:#287EC7;
+ border-radius: 5px;
+ padding: 20px;
+ border-width: 80%;
+}
+
+button:hover{
+  background-color: rgb(212, 212, 212);
+  box-shadow: 3px 3px lightgray; 
+
+}
+
+
+
 </style>
