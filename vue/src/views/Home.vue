@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style scoped>
+
 body {
   font-family: fantasy;
   margin: 0;
