@@ -1,13 +1,18 @@
 <template>
   <div>
     <chat-greeting v-on:passNickname="getNickname($event)" />
-    <div v-for="message in messages" v-bind:key="message.id" class='textbox'>
+    <div
+      id="messageBox"
+      v-for="message in messages"
+      v-bind:key="message.id"
+      class="textbox"
+    >
       <p>{{ message }}</p>
-      <div v-if="link != ''" >
+      <!-- <div v-if="link != ''" >
         <a :href="link">Open Link</a>
-      </div>
+      </div> -->
     </div>
-  
+
     <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
       <input
         id="chatEntry"
@@ -36,6 +41,9 @@ export default {
       nickname: "",
       showForm: false,
       link: "",
+      needHelp: false,
+      assistanceBoolean: false,
+      isQuote: false
     };
   },
   // computed: {
@@ -51,15 +59,53 @@ export default {
     handleSubmit() {
       this.messages.push(this.userMessage);
       let inputArray = this.userMessage.toLowerCase().split(" ");
-      this.filterKeywords(inputArray);
-      this.handleResponse(this.userMessage);
+      this.filterHelp(inputArray);
+      if (this.needHelp == false) {
+        this.assistanceResponse(inputArray);
+      }
+      if (this.needHelp == false && this.assistanceBoolean == false) {
+        this.filterKeywords(inputArray);
+        if(this.isQuote == false){
+        this.handleResponse(this.userMessage);
+        }
+      }
       this.userMessage = "";
+      this.needHelp = false;
+      this.assistanceBoolean = false;
+      this.isQuote = false;
+    },
+
+    assistanceResponse(inputArray) {
+      let wordFound = false;
+      inputArray.forEach((word) => {
+        if (this.$store.state.allKeywords.includes(word)) {
+          wordFound = true;
+        }
+      });
+
+      if (wordFound == false) {
+        this.messages.push(
+          //maybe add more layers for each category vs only using main help message
+          "Sorry, I'm not sure how to help you, please type your response again or type 'assistance' to see your options"
+        );
+        this.assistanceBoolean = true;
+      }
+    },
+
+    filterHelp(inputArray) {
+      inputArray.forEach((word) => {
+        if (word == "assistance") {
+          this.needHelp = true;
+          this.getHelp();
+        }
+      });
     },
 
     filterKeywords(inputArray) {
       inputArray.forEach((word) => {
         if (word == "quote") {
           let quote = "";
+          this.isQuote = true;
           QuoteService.quote().then((response) => {
             quote = response.data.quoteText + " -" + response.data.author;
             this.messages.push(quote);
@@ -100,6 +146,14 @@ export default {
       ).then((response) => {
         const responseMessage = response.data.messageText;
         if (response.data.url != null) {
+          //adding element for url
+          const linkItem = document.getElementById("messageBox");
+
+          const content = document.createElement("a");
+          content.setAttribute("href", response.data.url);
+          content.innerText = "Open Link";
+          linkItem.insertAdjacentElement("afterend", content);
+
           this.link = response.data.url;
         }
         this.messages.push(responseMessage);
@@ -117,21 +171,15 @@ export default {
       );
       this.showForm = true;
     },
-    // pageOpen(){
-    //     let Greeting = '';
-    //     if(this.$store.user.nickname != null){
-    //         Greeting = ` Hello ${this.$store.user.nickname}`;
-    //     } else {
-    //        let nickname = this.promptForNickname();
-    //         Greeting = ` Hello ${nickname}`;
-    //     }
-    // this.messages.push(Greeting);
+    getHelp() {
+      ResponseService.getBotResponse("default", "default", "default").then(
+        (response) => {
+          const firstResponse = response.data.messageText;
+          this.messages.push(firstResponse + " " + this.nickname + "?");
+        }
+      );
+    },
   },
-  // promptForNickname(){
-  //     this.messages.push('Hello, what should I call you?');
-  //     const userSetNickname = window.prompt('Enter your nick-name');
-  //     return userSetNickname;
-  // }
 };
 </script>
 
