@@ -46,15 +46,7 @@ export default {
       isQuote: false
     };
   },
-  // computed: {
-  //     /* todo: come back to this and implement greeting based on nickname */
-  //     // grabStoredNickName(){
-  //     //     if (this.$store.state.user.nickname != null){
-  //     //         return this.$store.user.nickname;
-  //     //     }
-  //     //      return null ;
-  //     // },
-  // },
+ 
   methods: {
     handleSubmit() {
       this.messages.push(this.userMessage);
