@@ -249,7 +249,7 @@ body {
 }
 
 .box-form .right button[type="submit"]:hover {
-  background-color: #1dcaff;
+  background-color: #237aec;
 }
 
 </style>
