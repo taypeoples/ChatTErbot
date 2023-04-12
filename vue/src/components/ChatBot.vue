@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       userMessage: "",
-      responseMessage: "",
+      responseMessage: {},
       messages: [],
       nickname: "",
       showForm: false,
