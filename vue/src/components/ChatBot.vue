@@ -44,7 +44,12 @@ export default {
     handleSubmit() {
       this.messages.push(this.userMessage);
       let inputArray = this.userMessage.toLowerCase().split(" ");
+      this.filterKeywords(inputArray);
+      this.handleResponse(this.userMessage);
+      this.userMessage = "";
+    },
 
+    filterKeywords(inputArray){
       inputArray.forEach((word) => {
         if (word == "quote") {
           let quote = "";
@@ -78,9 +83,6 @@ export default {
           this.$store.commit("SET_KEYWORD2", word);
         }
       });
-
-      this.handleResponse(this.userMessage);
-      this.userMessage = "";
     },
 
     handleResponse() {
