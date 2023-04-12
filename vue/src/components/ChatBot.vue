@@ -1,19 +1,18 @@
 <template>
   <div>
     <chat-greeting v-on:passNickname="getNickname($event)" />
-    <div
+     <div
       id="messageBox"
       v-for="message in messages"
       v-bind:key="message.id"
       class="textbox"
     >
       <p>{{ message }}</p>
-      <!-- <div v-if="link != ''" >
-        <a :href="link">Open Link</a>
-      </div> -->
+    </div>
+    <div id="chatContainer">
     </div>
 
-    <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
+    <form v-if="showForm === true" v-on:submit.prevent="handleSubmit2">
       <input
         id="chatEntry"
         type="text"
@@ -48,7 +47,46 @@ export default {
   },
  
   methods: {
-    handleSubmit() {
+    //change to handle submit when done, remove other
+    createUserMessage(userInput){
+      const container = document.getElementById("chatContainer");
+      const newMessage = document.createElement("p");
+      newMessage.setAttribute("class", "user")
+      newMessage.innerText = userInput;
+      container.appendChild(newMessage);
+    },
+
+    createBotMessage(botInput){
+      const container = document.getElementById("chatContainer");
+      const newMessage = document.createElement("p");
+      newMessage.setAttribute("class", "bot")
+      newMessage.innerText = botInput;
+      container.appendChild(newMessage);
+    },
+
+    handleSubmit2(){
+      this.createUserMessage(this.userMessage);
+      let inputArray = this.userMessage.toLowerCase().split(" ");
+      this.filterHelp(inputArray);
+      if (this.needHelp == false) {
+        this.assistanceResponse(inputArray);
+      }
+      if (this.needHelp == false && this.assistanceBoolean == false) {
+        this.filterKeywords(inputArray);
+        if(this.isQuote == false){
+        this.handleResponse(this.userMessage);
+        }
+      }
+      this.userMessage = "";
+      this.needHelp = false;
+      this.assistanceBoolean = false;
+      this.isQuote = false;
+      this.userMessage = "";
+    },
+
+
+
+    /* handleSubmit() {
       this.messages.push(this.userMessage);
       let inputArray = this.userMessage.toLowerCase().split(" ");
       this.filterHelp(inputArray);
@@ -65,7 +103,7 @@ export default {
       this.needHelp = false;
       this.assistanceBoolean = false;
       this.isQuote = false;
-    },
+    }, */
 
     assistanceResponse(inputArray) {
       let wordFound = false;
@@ -76,6 +114,8 @@ export default {
       });
 
       if (wordFound == false) {
+        
+        //bot response
         this.messages.push(
           //maybe add more layers for each category vs only using main help message
           "Sorry, I'm not sure how to help you, please type your response again or type 'assistance' to see your options"
@@ -139,7 +179,7 @@ export default {
         const responseMessage = response.data.messageText;
         if (response.data.url != null) {
           //adding element for url
-          const linkItem = document.getElementById("messageBox");
+          const linkItem = document.getElementById("chatContainer");
 
           const content = document.createElement("a");
           content.setAttribute("href", response.data.url);
@@ -148,11 +188,16 @@ export default {
 
           this.link = response.data.url;
         }
-        this.messages.push(responseMessage);
+        this.createBotMessage(responseMessage);
       });
     },
     getNickname(nickname) {
       this.nickname = nickname;
+      //commenting out for the moment so that we still have nickname functionality
+      /* const container = document.getElementById("chatContainer");
+      const newMessage = document.createElement("p")
+      newMessage.innerText = nickname;
+      container.appendChild(newMessage) */
       this.messages.push(nickname);
       ResponseService.getBotResponse("default", "default", "default").then(
         (response) => {
@@ -166,8 +211,8 @@ export default {
     getHelp() {
       ResponseService.getBotResponse("default", "default", "default").then(
         (response) => {
-          const firstResponse = response.data.messageText;
-          this.messages.push(firstResponse + " " + this.nickname + "?");
+          const firstResponse = (response.data.messageText + " " + this.nickname + "?");
+          this.createBotMessage(firstResponse);
         }
       );
     },
@@ -176,7 +221,8 @@ export default {
 </script>
 
 <style scoped>
-.textbox {
+
+p {
   border-width: 3px;
   border-style: solid;
   border-color: #287ec7;
