@@ -41,11 +41,12 @@ public class JdbcMessageDao implements MessageDao{
     @Override
     public Message getMessageByKeyWords(String needCategory, String keyword1, String keyword2) {
         Message message = new Message();
-        String sql = "SELECT response_text FROM response WHERE need_category= ? AND keyword_1 = ? AND keyword_2 = ?;";
+        String sql = "SELECT response_text, url FROM response WHERE need_category= ? AND keyword_1 = ? AND keyword_2 = ?;";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, needCategory, keyword1, keyword2);
         if(result.next()){
             message.setMessageText(result.getString("response_text"));
-            return  message;
+            message.setUrl(result.getString("url"));
+            return message;
         }
         return null;
     }

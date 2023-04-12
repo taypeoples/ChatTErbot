@@ -35,9 +35,6 @@ INSERT INTO quotes (quote_text,quote_author) VALUES ('When one door closes, anot
 INSERT INTO quotes (quote_text,quote_author) VALUES ('Never tell me the sky’s the limit when there are footprints on the moon.','Author Unknown');
 INSERT INTO quotes (quote_text,quote_author) VALUES ('Every experience in your life is being orchestrated to teach you something you need to know to move forward.', 'Brian Tracy');
 
-INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First message','I can help you with pathway information or get you a motivational quote, which would you like?','default','default','default');
-
-INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First message','I can help you with pathway information or get you a motivational quote, which would you like','default','default','default');
 
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First message','I can help you with pathway information or get you a motivational quote, which would you like','default','default','default');
 
@@ -47,11 +44,11 @@ INSERT INTO response (response_description, response_text, need_category, keywor
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/resume links','Here are a few example resumes!','pathway','resume','links');
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/interview main','I can help you with Interview prep, following up with employers, what to wear to interviews, or common STAR questions. Which would you like help with?','pathway','interview','default');
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/interview prep','Here are some tips to help you prepare for your interviews','pathway','interview','prep');
-INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/interview outfit','Here are some links to help you understand what is appropriate dress for an interview: <a href="www.coursera.org/articles/what-to-wear-to-an-interview"> What to Wear </a>','pathway','interview','outfit');
-INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/interview star','Here is a list of common STAR questions and a form to help you keep track and brainstorm responses','pathway','interview','star');
+INSERT INTO response (response_description, response_text, url, need_category, keyword_1, keyword_2) VALUES ('pathway/interview outfit','Here are some links to help you understand what is appropriate dress for an interview:', 'https://www.coursera.org/articles/what-to-wear-to-an-interview','pathway','interview','outfit');
+INSERT INTO response (response_description, response_text, url, need_category, keyword_1, keyword_2) VALUES ('pathway/interview star','Here is a list of common STAR questions and a form to help you keep track and brainstorm responses', 'https://docs.google.com/spreadsheets/d/1bDueF61fW5FNTbJNIhkmmA2U5LqIpI1j1IoEmtrxfJc/copy','pathway','interview','star');
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/cover main','I can show you the components of a cover letter or examples of a cover letter. Which would you like?','pathway','cover','default');
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/cover parts','The main parts of a cover letter are:','pathway','cover','parts');
-INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/cover examples','Here are a few example cover letters!','pathway','cover','links');
+INSERT INTO response (response_description, response_text, url, need_category, keyword_1, keyword_2) VALUES ('pathway/cover examples','Here are a few example cover letters!', 'https://novoresume.com/career-blog/cover-letter-examples', 'pathway','cover','links');
 
 
 
