@@ -1,7 +1,7 @@
 <template>
   <nav>
     <!-- Image later for logo -->
-    <li>ChatBot Name</li>
+    <h1>ChatBot</h1>
     <router-link v-bind:to="{ name: 'home' }">Home |</router-link> 
     <router-link v-bind:to="{ name: 'chatBot' }">ChatBot |</router-link> 
     <a href=""> </a>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>'Welcome! What should I call you?'</p>
+    <p id = "openingMessage">Welcome! What should I call you?</p>
     <form v-if="showForm === true" v-on:submit.prevent="submitNickname">
       <input
         id="chatEntry"
@@ -39,4 +39,19 @@ export default {
 </script>
 
 <style scoped>
+button:hover{
+  background-color: rgb(212, 212, 212); 
+  box-shadow: 3px 3px lightgray;
+
+}
+
+#openingMessage{
+  border-width:3px;
+ border-style:solid;
+ border-color:#287EC7;
+ border-radius: 5px;
+ padding: 20px;
+ border-width: 80%;
+}
+
 </style>
