@@ -49,17 +49,6 @@ export default {
   },
 
   methods: {
-<<<<<<< HEAD
-    //change to handle submit when done, remove other
-    createUserMessage(userInput) {
-      const container = document.getElementById("chatContainer");
-      const newMessage = document.createElement("p");
-      newMessage.setAttribute("class", "user");
-      newMessage.innerText = userInput;
-      container.appendChild(newMessage);
-      
-    },
-=======
     // createUserMessage(userInput) {
     //   const container = document.getElementById("chatContainer");
     //   const newMessage = document.createElement("p");
@@ -68,7 +57,6 @@ export default {
     //   container.appendChild(newMessage);
     //   this.forceRerender();
     // },
->>>>>>> 7036b92f3e753f3072b96860a236e00628244e29
 
     // createBotMessage(botInput) {
     //   const container = document.getElementById("chatContainer");
@@ -80,6 +68,11 @@ export default {
 
     handleSubmit() {
       this.messages.push(this.userMessage);
+
+      
+
+
+
       let inputArray = this.userMessage.toLowerCase().split(" ");
       this.filterHelp(inputArray);
       if (this.needHelp == false) {
