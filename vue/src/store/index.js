@@ -24,7 +24,7 @@ export default new Vuex.Store({
     needCategory: 'default',
     keyword1: 'default',
     keyword2: 'default',
-    allKeywords: ['pathway', 'default', 'resume', 'interview', 'cover', 'parts', 'links', 'prep', 'outfit', 'star', 'quote']
+    allKeywords: ['pathway', 'default', 'resume', 'interview', 'cover', 'parts', 'links', 'prep', 'outfit', 'star', 'quote', 'back', 'home']
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

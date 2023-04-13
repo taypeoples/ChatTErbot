@@ -1,7 +1,7 @@
 <template>
   <div>
     <chat-greeting v-on:passNickname="getNickname($event)" />
-     <div
+    <div
       id="messageBox"
       v-for="message in messages"
       v-bind:key="message.id"
@@ -9,8 +9,7 @@
     >
       <p>{{ message }}</p>
     </div>
-    <div id="chatContainer">
-    </div>
+    <div id="chatContainer"></div>
 
     <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
       <input
@@ -42,29 +41,29 @@ export default {
       link: "",
       needHelp: false,
       assistanceBoolean: false,
-      isQuote: false
+      isQuote: false,
     };
   },
- 
+
   methods: {
     //change to handle submit when done, remove other
-    createUserMessage(userInput){
+    createUserMessage(userInput) {
       const container = document.getElementById("chatContainer");
       const newMessage = document.createElement("p");
-      newMessage.setAttribute("class", "user")
+      newMessage.setAttribute("class", "user");
       newMessage.innerText = userInput;
       container.appendChild(newMessage);
     },
 
-    createBotMessage(botInput){
+    createBotMessage(botInput) {
       const container = document.getElementById("chatContainer");
       const newMessage = document.createElement("p");
-      newMessage.setAttribute("class", "bot")
+      newMessage.setAttribute("class", "bot");
       newMessage.innerText = botInput;
       container.appendChild(newMessage);
     },
 
-    handleSubmit(){
+    handleSubmit() {
       this.createUserMessage(this.userMessage);
       let inputArray = this.userMessage.toLowerCase().split(" ");
       this.filterHelp(inputArray);
@@ -73,8 +72,8 @@ export default {
       }
       if (this.needHelp == false && this.assistanceBoolean == false) {
         this.filterKeywords(inputArray);
-        if(this.isQuote == false){
-        this.handleResponse(this.userMessage);
+        if (this.isQuote == false) {
+          this.handleResponse(this.userMessage);
         }
       }
       this.userMessage = "";
@@ -93,7 +92,6 @@ export default {
       });
 
       if (wordFound == false) {
-        
         //bot response
         this.createBotMessage(
           //maybe add more layers for each category vs only using main help message
@@ -114,6 +112,18 @@ export default {
 
     filterKeywords(inputArray) {
       inputArray.forEach((word) => {
+      let wordFound = false;
+        if (this.$store.state.allKeywords.includes(word)) {
+          wordFound = true;
+        }
+
+        if (wordFound == false) {
+        this.createBotMessage(
+          "Sorry, I'm not sure how to help you, please type your response again or type 'assistance' to see your options"
+        );
+        this.assistanceBoolean = true;
+      }
+      
         if (word == "quote") {
           let quote = "";
           this.isQuote = true;
@@ -122,30 +132,186 @@ export default {
             this.createBotMessage(quote);
           });
         }
+        // updated filtering logic
+        //first layer
+        if (
+          this.$store.state.needCategory == "default" &&
+          this.$store.state.keyword1 == "default" &&
+          this.$store.state.keyword2 == "default"
+        ) {
+          if (word == "pathway") {
+            this.$store.commit("SET_NEED_CATEGORY", word);
+          }
+          // second layer
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "default" &&
+          this.$store.state.keyword2 == "default"
+        ) {
+          if (word == "resume") {
+            this.$store.commit("SET_KEYWORD1", word);
+          } else if (word == "interview") {
+            this.$store.commit("SET_KEYWORD1", word);
+          } else if (word == "cover") {
+            this.$store.commit("SET_KEYWORD1", word);
+          } else if (word == "back" || word == "home") {
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+          }
 
-        if (word == "pathway") {
-          this.$store.commit("SET_NEED_CATEGORY", word);
+          //third layer
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "resume" &&
+          this.$store.state.keyword2 == "default"
+        ) {
+          if (word == "parts") {
+            this.$store.commit("SET_KEYWORD2", word);
+          } else if (word == "links") {
+            this.$store.commit("SET_KEYWORD2", word);
+          } else if (word == "back") {
+            this.$store.commit("SET_KEYWORD1", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+          } 
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "cover" &&
+          this.$store.state.keyword2 == "default"
+        ) {
+          if (word == "parts") {
+            this.$store.commit("SET_KEYWORD2", word);
+          } else if (word == "links") {
+            this.$store.commit("SET_KEYWORD2", word);
+          } else if (word == "back") {
+            this.$store.commit("SET_KEYWORD1", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+          } 
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "interview" &&
+          this.$store.state.keyword2 == "default"
+        ) {
+          if (word == "prep") {
+            this.$store.commit("SET_KEYWORD2", word);
+          } else if (word == "follow") {
+            this.$store.commit("SET_KEYWORD2", word);
+          } else if (word == "outfit") {
+            this.$store.commit("SET_KEYWORD2", word);
+          } else if (word == "star") {
+            this.$store.commit("SET_KEYWORD2", word);
+          } else if (word == "back") {
+            this.$store.commit("SET_KEYWORD1", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+          } 
+        }
+        // fourth layer
+        else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "resume" &&
+          this.$store.state.keyword2 == "parts"
+        ) {
+           if (word == "back") {
+            this.$store.commit("SET_KEYWORD2", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+        }
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "resume" &&
+          this.$store.state.keyword2 == "links"
+        ) {
+           if (word == "back") {
+            this.$store.commit("SET_KEYWORD2", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+        }
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "cover" &&
+          this.$store.state.keyword2 == "parts"
+        ) {
+           if (word == "back") {
+            this.$store.commit("SET_KEYWORD2", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+        }
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "cover" &&
+          this.$store.state.keyword2 == "links"
+        ) {
+           if (word == "back") {
+            this.$store.commit("SET_KEYWORD2", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+        }
+         } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "interview" &&
+          this.$store.state.keyword2 == "prep"
+        ) {
+           if (word == "back") {
+            this.$store.commit("SET_KEYWORD2", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+        }
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "interview" &&
+          this.$store.state.keyword2 == "follow"
+        ) {
+           if (word == "back") {
+            this.$store.commit("SET_KEYWORD2", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+        }
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "interview" &&
+          this.$store.state.keyword2 == "outfit"
+        ) {
+           if (word == "back") {
+            this.$store.commit("SET_KEYWORD2", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+        } 
+        } else if (
+          this.$store.state.needCategory == "pathway" &&
+          this.$store.state.keyword1 == "interview" &&
+          this.$store.state.keyword2 == "star"
+        ) {
+           if (word == "back") {
+            this.$store.commit("SET_KEYWORD2", "default");
+          } else if (word == "home") {
+            this.$store.commit("SET_KEYWORD1", "default");
+            this.$store.commit("SET_KEYWORD2", "default");
+            this.$store.commit("SET_NEED_CATEGORY", "default");
+        }
         }
 
-        if (word == "resume") {
-          this.$store.commit("SET_KEYWORD1", word);
-        } else if (word == "interview") {
-          this.$store.commit("SET_KEYWORD1", word);
-        } else if (word == "cover") {
-          this.$store.commit("SET_KEYWORD1", word);
-        }
-
-        if (word == "parts") {
-          this.$store.commit("SET_KEYWORD2", word);
-        } else if (word == "links") {
-          this.$store.commit("SET_KEYWORD2", word);
-        } else if (word == "prep") {
-          this.$store.commit("SET_KEYWORD2", word);
-        } else if (word == "outfit") {
-          this.$store.commit("SET_KEYWORD2", word);
-        } else if (word == "star") {
-          this.$store.commit("SET_KEYWORD2", word);
-        }
+        
       });
     },
 
@@ -178,7 +344,8 @@ export default {
     getHelp() {
       ResponseService.getBotResponse("default", "default", "default").then(
         (response) => {
-          const firstResponse = (response.data.messageText + " " + this.nickname + "?");
+          const firstResponse =
+            response.data.messageText + " " + this.nickname + "?";
           this.createBotMessage(firstResponse);
         }
       );
@@ -188,7 +355,6 @@ export default {
 </script>
 
 <style scoped>
-
 p {
   border-width: 3px;
   border-style: solid;
