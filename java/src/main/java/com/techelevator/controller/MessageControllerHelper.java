@@ -52,14 +52,244 @@ public class MessageControllerHelper {
                     keyWords[1] = keyWord1;
                     keyWords[2] = keyWord2;
                     return keyWords;
-                } else if (word.equals("interview")) {
-                    this.keyWord1 = "interview";
+                } else if (word.equals("cover")) {
+                    this.keyWord1 = "cover";
                     keyWords[0] = needCategory;
                     keyWords[1] = keyWord1;
                     keyWords[2] = keyWord2;
                     return keyWords;
+                } else if (word.equals("back")) {
+                    this.needCategory = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("resume") && keyWord2.equals("default")) {
+                if (word.equals("parts")) {
+                    this.keyWord2 = "parts";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("links")) {
+                    this.keyWord2 = "links";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("back")) {
+                    this.keyWord1 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("cover") && keyWord2.equals("default")) {
+                if (word.equals("parts")) {
+                    this.keyWord2 = "parts";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("links")) {
+                    this.keyWord2 = "links";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("back")) {
+                    this.keyWord1 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("interview") && keyWord2.equals("default")) {
+                if (word.equals("prep")) {
+                    this.keyWord2 = "prep";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("follow")) {
+                    this.keyWord2 = "follow";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("star")) {
+                    this.keyWord2 = "star";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("outfit")) {
+                    this.keyWord2 = "outfit";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }else if (word.equals("back")) {
+                    this.keyWord1 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("resume") && keyWord2.equals("parts")) {
+                if (word.equals("back")) {
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("resume") && keyWord2.equals("links")) {
+                if (word.equals("back")) {
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("cover") && keyWord2.equals("parts")) {
+                if (word.equals("back")) {
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("cover") && keyWord2.equals("links")) {
+                if (word.equals("back")) {
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("interview") && keyWord2.equals("prep")) {
+                if (word.equals("back")) {
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("interview") && keyWord2.equals("follow")) {
+                if (word.equals("back")) {
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("interview") && keyWord2.equals("stars")) {
+                if (word.equals("back")) {
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("interview") && keyWord2.equals("outfit")) {
+                if (word.equals("back")) {
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    this.needCategory = "default";
+                    this.keyWord1 = "default";
+                    this.keyWord2 = "default";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
             }
-
         }
         return null;
     }
