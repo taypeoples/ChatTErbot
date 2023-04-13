@@ -8,6 +8,10 @@ export default {
 
   getBotResponse(category, keyword1, keyword2){
     return axios.get(`/messages/${category}/${keyword1}/${keyword2}`);
+  },
+
+  sendMessage(userMessage){
+    return axios.post('/messages', userMessage);
   }
 
 
