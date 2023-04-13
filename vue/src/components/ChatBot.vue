@@ -317,7 +317,7 @@ export default {
         this.$store.state.keyword1,
         this.$store.state.keyword2
       ).then((response) => {
-        const responseMessage = response.data.messageText;
+        const responseMessage = response.data.messageBody;
         if (response.data.url != null) {
           //adding element for url
           const linkItem = document.getElementById("chatContainer");
@@ -337,7 +337,7 @@ export default {
       //working on making this push to messages again
       ResponseService.getBotResponse("default", "default", "default").then(
         (response) => {
-          const firstResponse = response.data.messageText;
+          const firstResponse = response.data.messageBody;
 
           this.messages.push(firstResponse + " " + nickname + "?");
         }
@@ -358,13 +358,15 @@ export default {
 </script>
 
 <style scoped>
-.msgbox {
+ .msgbox {
   border-width: 3px;
   border-style: solid;
   border-color: #287ec7;
   border-radius: 5px;
   padding: 20px;
   border-width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 button:hover {

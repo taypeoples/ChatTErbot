@@ -46,12 +46,15 @@ button:hover{
 }
 
 #openingMessage{
-  border-width:3px;
- border-style:solid;
- border-color:#287EC7;
- border-radius: 5px;
- padding: 20px;
- border-width: 80%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #287ec7;
+  border-radius: 5px;
+  padding: 20px;
+  border-width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
+
 
 </style>
