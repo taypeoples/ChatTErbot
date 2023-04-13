@@ -27,6 +27,7 @@
 import QuoteService from "../services/QuoteService.js";
 import ResponseService from "../services/ResponseService.js";
 import ChatGreeting from "./ChatGreeting.vue";
+
 export default {
   components: {
     ChatGreeting,
@@ -53,6 +54,7 @@ export default {
       newMessage.setAttribute("class", "user");
       newMessage.innerText = userInput;
       container.appendChild(newMessage);
+      this.forceRerender();
     },
 
     createBotMessage(botInput) {
@@ -112,7 +114,7 @@ export default {
 
     filterKeywords(inputArray) {
       inputArray.forEach((word) => {
-      /* let wordFound = false;
+        /* let wordFound = false;
         if (this.$store.state.allKeywords.includes(word)) {
           wordFound = true;
         }
@@ -123,7 +125,7 @@ export default {
         );
         this.assistanceBoolean = true;
       } */
-      
+
         if (word == "quote") {
           let quote = "";
           this.isQuote = true;
@@ -174,7 +176,7 @@ export default {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-          } 
+          }
         } else if (
           this.$store.state.needCategory == "pathway" &&
           this.$store.state.keyword1 == "cover" &&
@@ -190,7 +192,7 @@ export default {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-          } 
+          }
         } else if (
           this.$store.state.needCategory == "pathway" &&
           this.$store.state.keyword1 == "interview" &&
@@ -210,7 +212,7 @@ export default {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-          } 
+          }
         }
         // fourth layer
         else if (
@@ -218,100 +220,99 @@ export default {
           this.$store.state.keyword1 == "resume" &&
           this.$store.state.keyword2 == "parts"
         ) {
-           if (word == "back") {
+          if (word == "back") {
             this.$store.commit("SET_KEYWORD2", "default");
           } else if (word == "home") {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-        }
+          }
         } else if (
           this.$store.state.needCategory == "pathway" &&
           this.$store.state.keyword1 == "resume" &&
           this.$store.state.keyword2 == "links"
         ) {
-           if (word == "back") {
+          if (word == "back") {
             this.$store.commit("SET_KEYWORD2", "default");
           } else if (word == "home") {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-        }
+          }
         } else if (
           this.$store.state.needCategory == "pathway" &&
           this.$store.state.keyword1 == "cover" &&
           this.$store.state.keyword2 == "parts"
         ) {
-           if (word == "back") {
+          if (word == "back") {
             this.$store.commit("SET_KEYWORD2", "default");
           } else if (word == "home") {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-        }
+          }
         } else if (
           this.$store.state.needCategory == "pathway" &&
           this.$store.state.keyword1 == "cover" &&
           this.$store.state.keyword2 == "links"
         ) {
-           if (word == "back") {
+          if (word == "back") {
             this.$store.commit("SET_KEYWORD2", "default");
           } else if (word == "home") {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-        }
-         } else if (
+          }
+        } else if (
           this.$store.state.needCategory == "pathway" &&
           this.$store.state.keyword1 == "interview" &&
           this.$store.state.keyword2 == "prep"
         ) {
-           if (word == "back") {
+          if (word == "back") {
             this.$store.commit("SET_KEYWORD2", "default");
           } else if (word == "home") {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-        }
+          }
         } else if (
           this.$store.state.needCategory == "pathway" &&
           this.$store.state.keyword1 == "interview" &&
           this.$store.state.keyword2 == "follow"
         ) {
-           if (word == "back") {
+          if (word == "back") {
             this.$store.commit("SET_KEYWORD2", "default");
           } else if (word == "home") {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-        }
+          }
         } else if (
           this.$store.state.needCategory == "pathway" &&
           this.$store.state.keyword1 == "interview" &&
           this.$store.state.keyword2 == "outfit"
         ) {
-           if (word == "back") {
+          if (word == "back") {
             this.$store.commit("SET_KEYWORD2", "default");
           } else if (word == "home") {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-        } 
+          }
         } else if (
           this.$store.state.needCategory == "pathway" &&
           this.$store.state.keyword1 == "interview" &&
           this.$store.state.keyword2 == "star"
         ) {
-           if (word == "back") {
+          if (word == "back") {
             this.$store.commit("SET_KEYWORD2", "default");
           } else if (word == "home") {
             this.$store.commit("SET_KEYWORD1", "default");
             this.$store.commit("SET_KEYWORD2", "default");
             this.$store.commit("SET_NEED_CATEGORY", "default");
-        }
+          }
         }
         this.assistanceBoolean = false;
-        
       });
     },
 
@@ -350,6 +351,18 @@ export default {
         }
       );
     },
+    /* refreshCSS() {
+      let links = document.getElementsByTagName("link");
+      for (let i = 0; i < links.length; i++) {
+        if (links[i].getAttribute("rel") == "stylesheet") {
+          let href = links[i].getAttribute("href").split("?")[0];
+
+          let newHref = href + "?version=" + new Date().getMilliseconds();
+
+          links[i].setAttribute("href", newHref);
+        }
+      }
+    } */
   },
 };
 </script>
