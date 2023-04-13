@@ -5,11 +5,13 @@ public class MessageControllerHelper {
     public String keyWord1 = "default";
     public String keyWord2 = "default";
 
+    QuotesController quotesController = new QuotesController();
+
     public String filterQuote(String quote) {
         String[] inputArray = quote.toLowerCase().split(" ");
-        for (int i = 0; i < inputArray.length ; i++) {
+        for (int i = 0; i < inputArray.length; i++) {
             if (inputArray[i].equals("quote")) {
-        // implement this for quotes service
+                // implement this for quotes service
             }
         }
         return null;
@@ -18,19 +20,49 @@ public class MessageControllerHelper {
     public String[] filterMessage(String message) {
         String[] keyWords = new String[3];
         String[] inputArray = message.toLowerCase().split(" ");
-        for (int i = 0; i <inputArray.length ; i++) {
-            if(inputArray[i].equals("pathway")) {
-                this.needCategory = "pathway";
-                keyWords[0] = needCategory;
-                keyWords[1] = keyWord1;
-                keyWords[2] = keyWord2;
-                return keyWords;
+        for (String word : inputArray) {
+            if (word.equals("quote")) {
+                quotesController.getQuote();
+                //do something here to make the quotes work?
+                return null;
+            } else if (needCategory.equals("default") && keyWord1.equals("default") && keyWord2.equals("default")) {
+                if (word.equals("pathway")) {
+                    this.needCategory = "pathway";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("curriculum")) {
+                    this.needCategory = "curriculum";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("default") && keyWord2.equals("default")) {
+                if (word.equals("resume")) {
+                    this.keyWord1 = "resume";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("interview")) {
+                    this.keyWord1 = "interview";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
+                } else if (word.equals("interview")) {
+                    this.keyWord1 = "interview";
+                    keyWords[0] = needCategory;
+                    keyWords[1] = keyWord1;
+                    keyWords[2] = keyWord2;
+                    return keyWords;
             }
+
         }
-        return  null;
+        return null;
     }
-
-
 
 
     public String getNeedCategory() {

@@ -7,7 +7,7 @@
       v-bind:key="message.id"
       class="textbox"
     >
-      <div class = "msgbox">
+      <div class="msgbox">
         <span v-html="message"></span>
       </div>
     </div>
@@ -68,12 +68,17 @@ export default {
 
     handleSubmit() {
       this.messages.push(this.userMessage);
+      let messageToSend = {
+        messageId: 0,
+        messageBody: this.userMessage
+      };
+      ResponseService.sendMessage(messageToSend).then((response) => {
+        this.responseMessage = response.data.messageBody;
+        this.messages.push(this.responseMessage);
+      });
+      this.userMessage = "";
 
-      
-
-
-
-      let inputArray = this.userMessage.toLowerCase().split(" ");
+      /* let inputArray = this.userMessage.toLowerCase().split(" ");
       this.filterHelp(inputArray);
       if (this.needHelp == false) {
         this.assistanceResponse(inputArray);
@@ -87,7 +92,7 @@ export default {
       this.userMessage = "";
       this.needHelp = false;
       this.assistanceBoolean = false;
-      this.isQuote = false;
+      this.isQuote = false; */
 
       //possible future formatting
       // ResponseService.sendMessage(this.userMessage).then(message => {
@@ -363,7 +368,7 @@ export default {
 </script>
 
 <style scoped>
- .msgbox {
+.msgbox {
   border-width: 3px;
   border-style: solid;
   border-color: #287ec7;
@@ -378,6 +383,4 @@ button:hover {
   background-color: rgb(212, 212, 212);
   box-shadow: 3px 3px lightgray;
 }
-
-
 </style>
