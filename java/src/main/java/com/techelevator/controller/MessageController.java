@@ -13,6 +13,8 @@ import javax.validation.Valid;
 public class MessageController {
     @Autowired
     private MessageDao messageDao;
+    public MessageControllerHelper helper = new MessageControllerHelper();
+
 
     @RequestMapping(path = "/messages", method = RequestMethod.GET)
     public Message getFirstMessage() {
@@ -21,8 +23,9 @@ public class MessageController {
     }
 
     @RequestMapping(path = "/messages", method = RequestMethod.POST)
-    public Message getMessage() {
-        Message newMessage = messageDao.getMessage();
+    public Message getMessage(@RequestBody Message message) {
+        String[] keyWords = helper.filterMessage(message.getMessageBody());
+        Message newMessage = messageDao.getMessageByKeyWords(keyWords[0], keyWords[1], keyWords[2]);
         return newMessage;
     }
 
