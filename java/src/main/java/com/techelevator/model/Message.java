@@ -2,23 +2,15 @@ package com.techelevator.model;
 
 public class Message {
     private int messageId;
-    private String messageText;
-    private String url;
+    private String messageBody;
+
 
     public Message() {}
 
     public Message(int messageId, String messageText, String url) {
         this.messageId = messageId;
-        this.messageText = messageText;
-        this.url = url;
-    }
+        this.messageBody = messageText;
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public int getMessageId() {
@@ -29,11 +21,11 @@ public class Message {
         this.messageId = messageId;
     }
 
-    public String getMessageText() {
-        return messageText;
+    public String getMessageBody() {
+        return messageBody;
     }
 
-    public void setMessageText(String messageText) {
-        this.messageText = messageText;
+    public void setMessageBody(String messageBody) {
+        this.messageBody = messageBody;
     }
 }
