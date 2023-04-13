@@ -112,7 +112,7 @@ export default {
 
     filterKeywords(inputArray) {
       inputArray.forEach((word) => {
-      let wordFound = false;
+      /* let wordFound = false;
         if (this.$store.state.allKeywords.includes(word)) {
           wordFound = true;
         }
@@ -122,7 +122,7 @@ export default {
           "Sorry, I'm not sure how to help you, please type your response again or type 'assistance' to see your options"
         );
         this.assistanceBoolean = true;
-      }
+      } */
       
         if (word == "quote") {
           let quote = "";
@@ -310,7 +310,7 @@ export default {
             this.$store.commit("SET_NEED_CATEGORY", "default");
         }
         }
-
+        this.assistanceBoolean = false;
         
       });
     },
