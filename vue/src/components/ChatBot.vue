@@ -7,7 +7,9 @@
       v-bind:key="message.id"
       class="textbox"
     >
-      <p>{{ message }}</p>
+      <div class = "msgbox">
+        <span v-html="message"></span>
+      </div>
     </div>
     <div id="chatContainer"></div>
 
@@ -47,6 +49,7 @@ export default {
   },
 
   methods: {
+<<<<<<< HEAD
     //change to handle submit when done, remove other
     createUserMessage(userInput) {
       const container = document.getElementById("chatContainer");
@@ -56,17 +59,27 @@ export default {
       container.appendChild(newMessage);
       
     },
+=======
+    // createUserMessage(userInput) {
+    //   const container = document.getElementById("chatContainer");
+    //   const newMessage = document.createElement("p");
+    //   newMessage.setAttribute("class", "user");
+    //   newMessage.innerText = userInput;
+    //   container.appendChild(newMessage);
+    //   this.forceRerender();
+    // },
+>>>>>>> 7036b92f3e753f3072b96860a236e00628244e29
 
-    createBotMessage(botInput) {
-      const container = document.getElementById("chatContainer");
-      const newMessage = document.createElement("p");
-      newMessage.setAttribute("class", "bot");
-      newMessage.innerText = botInput;
-      container.appendChild(newMessage);
-    },
+    // createBotMessage(botInput) {
+    //   const container = document.getElementById("chatContainer");
+    //   const newMessage = document.createElement("p");
+    //   newMessage.setAttribute("class", "bot");
+    //   newMessage.innerText = botInput;
+    //   container.appendChild(newMessage);
+    // },
 
     handleSubmit() {
-      this.createUserMessage(this.userMessage);
+      this.messages.push(this.userMessage);
       let inputArray = this.userMessage.toLowerCase().split(" ");
       this.filterHelp(inputArray);
       if (this.needHelp == false) {
@@ -82,7 +95,13 @@ export default {
       this.needHelp = false;
       this.assistanceBoolean = false;
       this.isQuote = false;
-      this.userMessage = "";
+
+      //possible future formatting
+      // ResponseService.sendMessage(this.userMessage).then(message => {
+      //   this.responseMessage =message.data.responseText
+      //   this.messages.push(this.responseMessage)
+      // })
+      // this.userMessage = '';
     },
 
     assistanceResponse(inputArray) {
@@ -95,7 +114,7 @@ export default {
 
       if (wordFound == false) {
         //bot response
-        this.createBotMessage(
+        this.messages.push(
           //maybe add more layers for each category vs only using main help message
           "Sorry, I'm not sure how to help you, please type your response again or type 'assistance' to see your options"
         );
@@ -114,24 +133,12 @@ export default {
 
     filterKeywords(inputArray) {
       inputArray.forEach((word) => {
-        /* let wordFound = false;
-        if (this.$store.state.allKeywords.includes(word)) {
-          wordFound = true;
-        }
-
-        if (wordFound == false) {
-        this.createBotMessage(
-          "Sorry, I'm not sure how to help you, please type your response again or type 'assistance' to see your options"
-        );
-        this.assistanceBoolean = true;
-      } */
-
         if (word == "quote") {
           let quote = "";
           this.isQuote = true;
           QuoteService.quote().then((response) => {
             quote = response.data.quoteText + " -" + response.data.author;
-            this.createBotMessage(quote);
+            this.messages.push(quote);
           });
         }
         // updated filtering logic
@@ -322,7 +329,7 @@ export default {
         this.$store.state.keyword1,
         this.$store.state.keyword2
       ).then((response) => {
-        const responseMessage = response.data.messageText;
+        const responseMessage = response.data.messageBody;
         if (response.data.url != null) {
           //adding element for url
           const linkItem = document.getElementById("chatContainer");
@@ -333,13 +340,20 @@ export default {
 
           this.link = response.data.url;
         }
-        this.createBotMessage(responseMessage);
+        this.messages.push(responseMessage);
       });
     },
     getNickname(nickname) {
       this.nickname = nickname;
-      this.createUserMessage(nickname);
-      this.getHelp();
+      this.messages.push(nickname);
+      //working on making this push to messages again
+      ResponseService.getBotResponse("default", "default", "default").then(
+        (response) => {
+          const firstResponse = response.data.messageBody;
+
+          this.messages.push(firstResponse + " " + nickname + "?");
+        }
+      );
       this.showForm = true;
     },
     getHelp() {
@@ -347,38 +361,30 @@ export default {
         (response) => {
           const firstResponse =
             response.data.messageText + " " + this.nickname + "?";
-          this.createBotMessage(firstResponse);
+          this.messages.push(firstResponse);
         }
       );
     },
-    /* refreshCSS() {
-      let links = document.getElementsByTagName("link");
-      for (let i = 0; i < links.length; i++) {
-        if (links[i].getAttribute("rel") == "stylesheet") {
-          let href = links[i].getAttribute("href").split("?")[0];
-
-          let newHref = href + "?version=" + new Date().getMilliseconds();
-
-          links[i].setAttribute("href", newHref);
-        }
-      }
-    } */
   },
 };
 </script>
 
 <style scoped>
-p {
+ .msgbox {
   border-width: 3px;
   border-style: solid;
   border-color: #287ec7;
   border-radius: 5px;
   padding: 20px;
   border-width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 button:hover {
   background-color: rgb(212, 212, 212);
   box-shadow: 3px 3px lightgray;
 }
+
+
 </style>

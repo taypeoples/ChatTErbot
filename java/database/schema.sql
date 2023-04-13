@@ -22,7 +22,6 @@ CREATE TABLE response (
 	need_category varchar(50),
 	response_description varchar (500),
 	response_text varchar(500),
-	url varchar(100),
 	keyword_1 varchar(50),
 	keyword_2 varchar(50),
 	CONSTRAINT PK_first_response PRIMARY KEY (response_id)

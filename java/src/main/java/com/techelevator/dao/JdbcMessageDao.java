@@ -20,7 +20,7 @@ public class JdbcMessageDao implements MessageDao{
         String sql = "SELECT message_text FROM bot_test_messages WHERE message_id = ?;";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, id);
         if(result.next()){
-            message.setMessageText(result.getString("message_text"));
+            message.setMessageBody(result.getString("message_text"));
             return message;
         }
         return null;
@@ -32,7 +32,7 @@ public class JdbcMessageDao implements MessageDao{
         String sql = "SELECT response_text FROM first_response WHERE response_id = 1;";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
         if(result.next()){
-            message.setMessageText(result.getString("response_text"));
+            message.setMessageBody(result.getString("response_text"));
             return message;
         }
         return null;
@@ -41,11 +41,10 @@ public class JdbcMessageDao implements MessageDao{
     @Override
     public Message getMessageByKeyWords(String needCategory, String keyword1, String keyword2) {
         Message message = new Message();
-        String sql = "SELECT response_text, url FROM response WHERE need_category= ? AND keyword_1 = ? AND keyword_2 = ?;";
+        String sql = "SELECT response_text FROM response WHERE need_category= ? AND keyword_1 = ? AND keyword_2 = ?;";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, needCategory, keyword1, keyword2);
         if(result.next()){
-            message.setMessageText(result.getString("response_text"));
-            message.setUrl(result.getString("url"));
+            message.setMessageBody(result.getString("response_text"));
             return message;
         }
         return null;
