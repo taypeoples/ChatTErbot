@@ -12,7 +12,7 @@
     <div id="chatContainer">
     </div>
 
-    <form v-if="showForm === true" v-on:submit.prevent="handleSubmit2">
+    <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
       <input
         id="chatEntry"
         type="text"
@@ -64,7 +64,7 @@ export default {
       container.appendChild(newMessage);
     },
 
-    handleSubmit2(){
+    handleSubmit(){
       this.createUserMessage(this.userMessage);
       let inputArray = this.userMessage.toLowerCase().split(" ");
       this.filterHelp(inputArray);
@@ -84,27 +84,6 @@ export default {
       this.userMessage = "";
     },
 
-
-
-    /* handleSubmit() {
-      this.messages.push(this.userMessage);
-      let inputArray = this.userMessage.toLowerCase().split(" ");
-      this.filterHelp(inputArray);
-      if (this.needHelp == false) {
-        this.assistanceResponse(inputArray);
-      }
-      if (this.needHelp == false && this.assistanceBoolean == false) {
-        this.filterKeywords(inputArray);
-        if(this.isQuote == false){
-        this.handleResponse(this.userMessage);
-        }
-      }
-      this.userMessage = "";
-      this.needHelp = false;
-      this.assistanceBoolean = false;
-      this.isQuote = false;
-    }, */
-
     assistanceResponse(inputArray) {
       let wordFound = false;
       inputArray.forEach((word) => {
@@ -116,7 +95,7 @@ export default {
       if (wordFound == false) {
         
         //bot response
-        this.messages.push(
+        this.createBotMessage(
           //maybe add more layers for each category vs only using main help message
           "Sorry, I'm not sure how to help you, please type your response again or type 'assistance' to see your options"
         );
@@ -140,7 +119,7 @@ export default {
           this.isQuote = true;
           QuoteService.quote().then((response) => {
             quote = response.data.quoteText + " -" + response.data.author;
-            this.messages.push(quote);
+            this.createBotMessage(quote);
           });
         }
 
@@ -180,7 +159,6 @@ export default {
         if (response.data.url != null) {
           //adding element for url
           const linkItem = document.getElementById("chatContainer");
-
           const content = document.createElement("a");
           content.setAttribute("href", response.data.url);
           content.innerText = "Open Link";
@@ -193,19 +171,8 @@ export default {
     },
     getNickname(nickname) {
       this.nickname = nickname;
-      //commenting out for the moment so that we still have nickname functionality
-      /* const container = document.getElementById("chatContainer");
-      const newMessage = document.createElement("p")
-      newMessage.innerText = nickname;
-      container.appendChild(newMessage) */
-      this.messages.push(nickname);
-      ResponseService.getBotResponse("default", "default", "default").then(
-        (response) => {
-          const firstResponse = response.data.messageText;
-
-          this.messages.push(firstResponse + " " + nickname + "?");
-        }
-      );
+      this.createUserMessage(nickname);
+      this.getHelp();
       this.showForm = true;
     },
     getHelp() {
