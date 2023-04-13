@@ -47,7 +47,6 @@ export default {
   },
 
   methods: {
-    //change to handle submit when done, remove other
     createUserMessage(userInput) {
       const container = document.getElementById("chatContainer");
       const newMessage = document.createElement("p");
@@ -66,7 +65,14 @@ export default {
     },
 
     handleSubmit() {
-      this.createUserMessage(this.userMessage);
+      this.messages.push(this.userMessage);
+      //make it so we do a post that sends the user's message to the back end to be filtered
+      let botResponse = ResponseService.sendMessage(this.userMessage);
+      this.messages.push(botResponse);
+      this.userMessage = '';
+
+
+     /*  //old formatting
       let inputArray = this.userMessage.toLowerCase().split(" ");
       this.filterHelp(inputArray);
       if (this.needHelp == false) {
@@ -82,7 +88,7 @@ export default {
       this.needHelp = false;
       this.assistanceBoolean = false;
       this.isQuote = false;
-      this.userMessage = "";
+      this.userMessage = ""; */
     },
 
     assistanceResponse(inputArray) {
@@ -114,18 +120,6 @@ export default {
 
     filterKeywords(inputArray) {
       inputArray.forEach((word) => {
-        /* let wordFound = false;
-        if (this.$store.state.allKeywords.includes(word)) {
-          wordFound = true;
-        }
-
-        if (wordFound == false) {
-        this.createBotMessage(
-          "Sorry, I'm not sure how to help you, please type your response again or type 'assistance' to see your options"
-        );
-        this.assistanceBoolean = true;
-      } */
-
         if (word == "quote") {
           let quote = "";
           this.isQuote = true;
@@ -338,6 +332,9 @@ export default {
     },
     getNickname(nickname) {
       this.nickname = nickname;
+      this.messages.push(nickname);
+
+      //working on making this push to messages again
       this.createUserMessage(nickname);
       this.getHelp();
       this.showForm = true;
@@ -351,18 +348,6 @@ export default {
         }
       );
     },
-    /* refreshCSS() {
-      let links = document.getElementsByTagName("link");
-      for (let i = 0; i < links.length; i++) {
-        if (links[i].getAttribute("rel") == "stylesheet") {
-          let href = links[i].getAttribute("href").split("?")[0];
-
-          let newHref = href + "?version=" + new Date().getMilliseconds();
-
-          links[i].setAttribute("href", newHref);
-        }
-      }
-    } */
   },
 };
 </script>
