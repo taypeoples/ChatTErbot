@@ -54,7 +54,7 @@ export default {
       newMessage.setAttribute("class", "user");
       newMessage.innerText = userInput;
       container.appendChild(newMessage);
-      this.forceRerender();
+      
     },
 
     createBotMessage(botInput) {
