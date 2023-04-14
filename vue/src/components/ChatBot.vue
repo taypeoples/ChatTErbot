@@ -23,6 +23,11 @@
       />
       <button>Submit</button>
     </form>
+    <ul>
+      <li>Type "Home" to be returned to the beginning of the chatbot</li>
+      <li>Type "Back" to be returned to the previous prompt selection</li>
+      <!-- <li>Type "Assistance" to be shown a list of commands</li> -->
+    </ul>
   </div>
 </template>
 <script>
@@ -42,21 +47,20 @@ export default {
       nickname: "",
       showForm: false,
       link: "",
-      needHelp: false,
-      assistanceBoolean: false,
-      isQuote: false,
     };
   },
 
   methods: {
     handleSubmit() {
       this.messages.push(this.userMessage);
-
+  
       if (this.userMessage.includes("quote")) {
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
           this.messages.push(quote);
         });
+      } else if (this.userMessage.includes("home")) {
+        this.getHelp();
       } else {
         let messageToSend = {
           messageId: 0,
@@ -64,41 +68,33 @@ export default {
         };
         ResponseService.sendMessage(messageToSend).then((response) => {
           this.responseMessage = response.data.messageBody;
-          this.messages.push(this.responseMessage);
+          if (this.responseMessage != null) {
+            this.messages.push(this.responseMessage);
+          } else {
+            this.messages.push(
+              "Sorry, I'm not sure how to help you, please type your response again or type a command to let me know what I should do."
+            );
+          }
         });
       }
-
       this.userMessage = "";
     },
 
-    assistanceResponse(inputArray) {
+    /* assistanceResponse() {
+      let inputArray = userMessage.split("");
       let wordFound = false;
       inputArray.forEach((word) => {
         if (this.$store.state.allKeywords.includes(word)) {
           wordFound = true;
         }
       });
-
       if (wordFound == false) {
-        //bot response
         this.messages.push(
-          //maybe add more layers for each category vs only using main help message
-          "Sorry, I'm not sure how to help you, please type your response again or type 'assistance' to see your options"
+          "Sorry, I'm not sure how to help you, please type your response again or type a command to let me know what I should do."
         );
-        this.assistanceBoolean = true;
       }
-    },
+    }, */
 
-    filterHelp(inputArray) {
-      inputArray.forEach((word) => {
-        if (word == "assistance") {
-          this.needHelp = true;
-          this.getHelp();
-        }
-      });
-    },
-
-   
     getNickname(nickname) {
       this.nickname = nickname;
       this.messages.push(nickname);
@@ -140,5 +136,21 @@ export default {
 button:hover {
   background-color: rgb(212, 212, 212);
   box-shadow: 3px 3px lightgray;
+}
+
+ul {
+  list-style: none;
+  margin-top: 40px;
+  padding: 0;
+}
+
+li {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 3px;
+}
+
+#chatEntry {
+  width: 400px;
 }
 </style>
