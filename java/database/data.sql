@@ -35,6 +35,8 @@ INSERT INTO quotes (quote_text,quote_author) VALUES ('<p><em>"When one door clos
 INSERT INTO quotes (quote_text,quote_author) VALUES ('<p><em>"Never tell me the sky’s the limit when there are footprints on the moon."</em></p>','-Author Unknown');
 INSERT INTO quotes (quote_text,quote_author) VALUES ('<p><em>"Every experience in your life is being orchestrated to teach you something you need to know to move forward."</em></p>', '-Brian Tracy');
 
+INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('Help message','Sorry, I''m not sure how to help you, please type your response again or type a command to let me know what I should do.','help','default','default');
+
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First message','<p>I can help you with:</p><br><ul><li>Pathway information</li><li>Curriculum</li><li>Get a motivational quote</li><br>Which would you like,','default','default','default');
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('First pathway message','<p>I can help you with your Resume, a Cover Letter, or Interview Prep.<br> What would you like to talk about?</p>','pathway','default','default');
 INSERT INTO response (response_description, response_text, need_category, keyword_1, keyword_2) VALUES ('pathway/resume main','I can break down the main parts of a resume or provide you with links to examples of resumes. Which would you like?','pathway','resume','default');
