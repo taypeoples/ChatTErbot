@@ -53,14 +53,14 @@ export default {
   methods: {
     handleSubmit() {
       this.messages.push(this.userMessage);
-  
+
       if (this.userMessage.includes("quote")) {
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
           this.messages.push(quote);
         });
       } else if (this.userMessage.includes("assistance")) {
-        this.getHelp();
+        this.getAssistance();
       } else {
         let messageToSend = {
           messageId: 0,
@@ -68,12 +68,14 @@ export default {
         };
         ResponseService.sendMessage(messageToSend).then((response) => {
           this.responseMessage = response.data.messageBody;
-          if (this.responseMessage != null) {
-            this.messages.push(this.responseMessage);
-          } else {
+          if (this.responseMessage == null) {
             this.messages.push(
-              "Sorry, I'm not sure how to help you, please type your response again or type a command to let me know what I should do."
+              "Sorry, I'm not sure how to help you, " +
+                this.nickname +
+                ". Please type your response again or type a command to let me know what I should do."
             );
+          } else {
+            this.messages.push(this.responseMessage);
           }
         });
       }
@@ -83,19 +85,22 @@ export default {
     getNickname(nickname) {
       this.nickname = nickname;
       this.messages.push(nickname);
-      ResponseService.getBotResponse("default", "default", "default").then(
-        (response) => {
-          const firstResponse = response.data.messageBody;
-
-          this.messages.push(firstResponse + " " + nickname + "?");
-        }
+      this.messages.push(
+        "<p>I can help you with:</p><ul><li>Pathway information</li><li>Curriculum</li><li>Get a motivational quote</li>Which would you like, " +
+          nickname +
+          "?"
       );
       this.showForm = true;
     },
-    getHelp() {
+    getAssistance() {
       ResponseService.getBotResponse("help", "assistance", "default").then(
         (response) => {
-          this.messages.push(response.data.messageBody);
+          this.messages.push(
+            "Sorry you're stuck, " +
+              this.nickname +
+              ". " +
+              response.data.messageBody
+          );
         }
       );
     },

@@ -282,6 +282,7 @@ public class MessageControllerHelper {
                     keyWords[2] = keyWord2;
                     return keyWords;
                 }
+                //beginning of curriculum filter
             } else if (needCategory.equals("curriculum") && keyWord1.equals("default") && keyWord2.equals("default")) {
                 if (word.equals("java")) {
                     this.keyWord1 = "java";
