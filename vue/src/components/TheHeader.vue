@@ -5,6 +5,7 @@
       <div class="router-links">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link> 
         <router-link v-bind:to="{ name: 'chatBot' }">ChatBot</router-link> 
+        <router-link v-bind:to="{ name: 'jobSearch' }">jobSearch</router-link> 
         <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       </div>
