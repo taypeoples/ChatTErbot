@@ -26,7 +26,7 @@
     <ul>
       <li>Type "Home" to be returned to the beginning of the chatbot</li>
       <li>Type "Back" to be returned to the previous prompt selection</li>
-      <!-- <li>Type "Assistance" to be shown a list of commands</li> -->
+      <li>Type "Assistance" if you are stuck or unsure what to do</li>
     </ul>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
           let quote = response.data.quoteText + " -" + response.data.author;
           this.messages.push(quote);
         });
-      } else if (this.userMessage.includes("home")) {
+      } else if (this.userMessage.includes("assistance")) {
         this.getHelp();
       } else {
         let messageToSend = {
