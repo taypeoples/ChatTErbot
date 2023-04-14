@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       userMessage: "",
-      responseMessage: {},
+      botResponseMessage: {},
       messages: [],
       nickname: "",
       showForm: false,
@@ -57,7 +57,7 @@ export default {
       if (this.userMessage.includes("quote")) {
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
-          this.messages.push(quote);
+          this.messages.push('<div class = "botMsg">' + quote + '</div>');
         });
       } else if (this.userMessage.includes("assistance")) {
         this.getAssistance();
@@ -68,7 +68,7 @@ export default {
         };
         ResponseService.sendMessage(messageToSend).then((response) => {
           this.responseMessage = response.data.messageBody;
-          if (this.responseMessage == null) {
+          if (this.botResponseMessage == null) {
             this.messages.push(
               "Sorry, I'm not sure how to help you, " +
                 this.nickname +
@@ -113,6 +113,17 @@ export default {
   border-width: 3px;
   border-style: solid;
   border-color: #287ec7;
+  border-radius: 5px;
+  padding: 20px;
+  border-width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.msgbox >>> .botMsg {
+  border-width: 3px;
+  border-style: solid;
+  border-color: darkgreen;
   border-radius: 5px;
   padding: 20px;
   border-width: 80%;
