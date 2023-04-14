@@ -23,6 +23,11 @@
       />
       <button>Submit</button>
     </form>
+    <ul>
+    <li>Type "Home" to be returned to the beginning of the chatbot</li>
+    <li>Type "Back" to be returned to the previous prompt selection</li>
+    <li>Type "Assistance" to be shown a list of commands</li>
+  </ul>
   </div>
 </template>
 <script>
@@ -140,5 +145,21 @@ export default {
 button:hover {
   background-color: rgb(212, 212, 212);
   box-shadow: 3px 3px lightgray;
+}
+
+ul {
+  list-style: none;
+  margin-top: 40px;
+  padding: 0;
+}
+
+li {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 3px;
+}
+
+#chatEntry {
+  width: 400px;
 }
 </style>
