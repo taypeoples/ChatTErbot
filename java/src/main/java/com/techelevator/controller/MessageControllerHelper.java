@@ -718,7 +718,8 @@ public class MessageControllerHelper {
                 }
             }
         }
-        return null;
+        keyWords[0] = "help"; keyWords[1] = "default"; keyWords[2] = "default";
+        return keyWords;
     }
 
 
