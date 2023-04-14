@@ -16,7 +16,7 @@ public class MessageController {
     public MessageControllerHelper helper = new MessageControllerHelper();
 
 
-    @RequestMapping(path = "/messages", method = RequestMethod.GET)
+    @RequestMapping(path = "/firstResponse", method = RequestMethod.GET)
     public Message getFirstMessage() {
         Message newMessage = messageDao.getFirstMessage();
         return newMessage;

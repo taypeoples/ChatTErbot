@@ -12,7 +12,11 @@ export default {
 
   sendMessage(userMessage){
     return axios.post('/messages', userMessage);
-  }
+  },
+
+  getFirstResponse(){
+    return axios.get('/firstResponse');
+  },
 
 
 

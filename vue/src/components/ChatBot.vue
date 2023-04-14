@@ -53,7 +53,6 @@ export default {
   methods: {
     handleSubmit() {
       this.messages.push(this.userMessage);
-
       if (this.userMessage.includes("quote")) {
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
@@ -68,15 +67,15 @@ export default {
         };
         ResponseService.sendMessage(messageToSend).then((response) => {
           this.responseMessage = response.data.messageBody;
-          if (this.responseMessage == null) {
+          /* if (this.responseMessage == null) {
             this.messages.push(
               "Sorry, I'm not sure how to help you, " +
                 this.nickname +
                 ". Please type your response again or type a command to let me know what I should do."
             );
-          } else {
+          } else { */
             this.messages.push(this.responseMessage);
-          }
+          
         });
       }
       this.userMessage = "";
@@ -85,11 +84,16 @@ export default {
     getNickname(nickname) {
       this.nickname = nickname;
       this.messages.push(nickname);
-      this.messages.push(
+      ResponseService.getFirstResponse().then(response => {
+        this.responseMessage = response.data.messageBody;
+        this.messages.push(this.responseMessage + nickname +
+          "?")
+      })
+      /* this.messages.push(
         "<p>I can help you with:</p><ul><li>Pathway information</li><li>Curriculum</li><li>Get a motivational quote</li>Which would you like, " +
           nickname +
           "?"
-      );
+      ); */
       this.showForm = true;
     },
     getAssistance() {
