@@ -29,7 +29,7 @@ public class JdbcMessageDao implements MessageDao{
     @Override
     public Message getFirstMessage() {
         Message message = new Message();
-        String sql = "SELECT response_text FROM first_response WHERE response_id = 1;";
+        String sql = "SELECT response_text FROM response WHERE need_category = 'default';";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
         if(result.next()){
             message.setMessageBody(result.getString("response_text"));
