@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import ChatBot from "../views/ChatBotView.vue"
+import JobSearch from "../views/JobSearch.vue"
 
 Vue.use(Router)
 
@@ -58,6 +59,14 @@ const router = new Router({
       path: "/chatBot",
       name: "chatBot",
       component: ChatBot,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/jobSearch",
+      name: "jobSearch",
+      component: JobSearch,
       meta: {
         requiresAuth: false
       }

@@ -1,12 +1,31 @@
 <template>
-  <div></div>
+  <div>{{jobs}}</div>
 </template>
 
 <script>
 import JobService from '../services/JobService.js'
 export default {
+
+data () {
+    return {
+        jobs: []
+    }
+},
+
 computed: {
-    JobService.jobSearch
+   populateArray(){
+       return this.populateJobsArray();
+   }
+},
+
+methods: {
+    populateJobsArray(){
+        JobService.jobSearch().then((response) => {
+         this.jobs = response.data;
+        })
+       /*  this.jobs.push(JobService.jobSearch); */
+    }
+
 }
 
 
