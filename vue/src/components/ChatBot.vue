@@ -67,15 +67,15 @@ export default {
         };
         ResponseService.sendMessage(messageToSend).then((response) => {
           this.responseMessage = response.data.messageBody;
-          /* if (this.responseMessage == null) {
+          if (this.responseMessage == null) {
             this.messages.push(
               "Sorry, I'm not sure how to help you, " +
                 this.nickname +
                 ". Please type your response again or type a command to let me know what I should do."
             );
-          } else { */
+          } else {
             this.messages.push(this.responseMessage);
-          
+          }
         });
       }
       this.userMessage = "";

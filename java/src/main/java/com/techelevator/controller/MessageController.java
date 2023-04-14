@@ -19,6 +19,9 @@ public class MessageController {
     @RequestMapping(path = "/firstResponse", method = RequestMethod.GET)
     public Message getFirstMessage() {
         Message newMessage = messageDao.getFirstMessage();
+        helper.setNeedCategory("default");
+        helper.setKeyWord1("default");
+        helper.setKeyWord2("default");
         return newMessage;
     }
 
