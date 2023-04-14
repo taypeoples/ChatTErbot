@@ -57,7 +57,8 @@ export default {
           let quote = response.data.quoteText + " -" + response.data.author;
           this.messages.push(quote);
         });
-      } else {
+      } else if(this.userMessage.includes("assistance")){} 
+      else {
         let messageToSend = {
           messageId: 0,
           messageBody: this.userMessage,
