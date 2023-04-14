@@ -80,25 +80,9 @@ export default {
       this.userMessage = "";
     },
 
-    /* assistanceResponse() {
-      let inputArray = userMessage.split("");
-      let wordFound = false;
-      inputArray.forEach((word) => {
-        if (this.$store.state.allKeywords.includes(word)) {
-          wordFound = true;
-        }
-      });
-      if (wordFound == false) {
-        this.messages.push(
-          "Sorry, I'm not sure how to help you, please type your response again or type a command to let me know what I should do."
-        );
-      }
-    }, */
-
     getNickname(nickname) {
       this.nickname = nickname;
       this.messages.push(nickname);
-      //working on making this push to messages again
       ResponseService.getBotResponse("default", "default", "default").then(
         (response) => {
           const firstResponse = response.data.messageBody;
@@ -109,11 +93,9 @@ export default {
       this.showForm = true;
     },
     getHelp() {
-      ResponseService.getBotResponse("default", "default", "default").then(
+      ResponseService.getBotResponse("help", "assistance", "default").then(
         (response) => {
-          const firstResponse =
-            response.data.messageText + " " + this.nickname + "?";
-          this.messages.push(firstResponse);
+          this.messages.push(response.data.messageBody);
         }
       );
     },
