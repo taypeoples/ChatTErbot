@@ -23,6 +23,7 @@ body {
 
 
 .home {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   background: #131313;
   display: flex;
   flex-direction: column;

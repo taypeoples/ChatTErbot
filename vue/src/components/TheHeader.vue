@@ -24,6 +24,7 @@ export default {
 
 <style scoped>
   h1 {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: aliceblue;
     margin: 0;
     padding: 0;
@@ -35,6 +36,7 @@ export default {
   }
 
   .nav-container {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;

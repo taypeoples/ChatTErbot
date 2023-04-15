@@ -1,17 +1,12 @@
 <template>
-  <div>
+  <div class = "main">
     <chat-greeting v-on:passNickname="getNickname($event)" />
-    <div
-      id="messageBox"
-      v-for="message in messages"
-      v-bind:key="message.id"
-      class="textbox"
-    >
-      <div class="msgbox">
-        <span v-html="message"></span>
+    <div v-for="message in messages" v-bind:key="message.id">
+      <!-- :class="isBot ? 'active' : 'textbox'" -->
+      <div>
+        <div class="textbox" v-html="message"></div>
       </div>
     </div>
-    <div id="chatContainer"></div>
 
     <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
       <input
@@ -46,17 +41,23 @@ export default {
       messages: [],
       nickname: "",
       showForm: false,
-      link: "",
+      isBot: false,
+      botStyle:
+        '<div style="background:#eefdff;border-width: 3px;border-style: solid;border-radius: 5px; border-color: #287ec7;padding: 20px;margin-left: 25%;">',
+      userStyle:
+        '<div style="background:rgb(255,233,236);border-width: 3px;border-style: solid;border-radius: 5px; border-color:rgb(255,102,81);padding: 20px;margin-right: 25%;">',
     };
   },
 
   methods: {
     handleSubmit() {
-      this.messages.push(this.userMessage);
+      this.isBot = false;
+      this.messages.push(this.userStyle + this.userMessage + "</div>");
       if (this.userMessage.includes("quote")) {
+        this.isBot = true;
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
-          this.messages.push('<div class = "botMsg">' + quote + '</div>');
+          this.messages.push(this.botStyle + quote + "</div>");
         });
       } else if (this.userMessage.includes("assistance")) {
         this.getAssistance();
@@ -69,12 +70,13 @@ export default {
           this.responseMessage = response.data.messageBody;
           if (this.responseMessage == null) {
             this.messages.push(
-              "Sorry, I'm not sure how to help you, " +
+              this.botStyle +
+                "Sorry, I'm not sure how to help you, " +
                 this.nickname +
-                ". Please type your response again or type a command to let me know what I should do."
+                ". Please type your response again or type a command to let me know what I should do. </div>"
             );
           } else {
-            this.messages.push(this.responseMessage);
+            this.messages.push(this.botStyle + this.responseMessage + "</div>");
           }
         });
       }
@@ -83,12 +85,13 @@ export default {
 
     getNickname(nickname) {
       this.nickname = nickname;
-      this.messages.push(nickname);
-      ResponseService.getFirstResponse().then(response => {
+      this.messages.push(this.userStyle + nickname + "</div>");
+      ResponseService.getFirstResponse().then((response) => {
         this.responseMessage = response.data.messageBody;
-        this.messages.push(this.responseMessage + nickname +
-          "?")
-      })
+        this.messages.push(
+          this.botStyle + this.responseMessage + nickname + "? </div>"
+        );
+      });
       /* this.messages.push(
         "<p>I can help you with:</p><ul><li>Pathway information</li><li>Curriculum</li><li>Get a motivational quote</li>Which would you like, " +
           nickname +
@@ -100,10 +103,12 @@ export default {
       ResponseService.getBotResponse("help", "assistance", "default").then(
         (response) => {
           this.messages.push(
-            "Sorry you're stuck, " +
+            this.botStyle +
+              "Sorry you're stuck, " +
               this.nickname +
               ". " +
-              response.data.messageBody
+              response.data.messageBody +
+              "</div>"
           );
         }
       );
@@ -113,23 +118,12 @@ export default {
 </script>
 
 <style scoped>
-.msgbox {
-  border-width: 3px;
-  border-style: solid;
-  border-color: #287ec7;
-  border-radius: 5px;
-  padding: 20px;
-  border-width: 80%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.main{
+font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.msgbox >>> .botMsg {
-  border-width: 3px;
-  border-style: solid;
-  border-color: darkgreen;
-  border-radius: 5px;
-  padding: 20px;
+.textbox {
+  font-size: large;
   border-width: 80%;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -141,6 +135,7 @@ button:hover {
 }
 
 ul {
+  
   list-style: none;
   margin-top: 40px;
   padding: 0;
