@@ -1,5 +1,5 @@
 <template>
-  <div class = "main">
+  <div class="main">
     <chat-greeting v-on:passNickname="getNickname($event)" />
     <div v-for="message in messages" v-bind:key="message.id">
       <!-- :class="isBot ? 'active' : 'textbox'" -->
@@ -8,21 +8,22 @@
       </div>
     </div>
 
-    <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
-      <input
-        id="chatEntry"
-        type="text"
-        class=""
-        v-model="userMessage"
-        placeholder="Type your message here"
-      />
-      <button>Submit</button>
-    </form>
-    <ul>
-      <li>Type "Home" to be returned to the beginning of the chatbot</li>
-      <li>Type "Back" to be returned to the previous prompt selection</li>
-      <li>Type "Assistance" if you are stuck or unsure what to do</li>
-    </ul>
+    <div>
+      <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
+        <input
+          class="chat-entry"
+          type="text"
+          v-model="userMessage"
+          placeholder="Type your message here"
+        />
+        <button>Submit</button>
+      </form>
+      <ul class="commands">
+        <li>Type "Home" to be returned to the beginning of the chatbot</li>
+        <li>Type "Back" to be returned to the previous prompt selection</li>
+        <li>Type "Assistance" if you are stuck or unsure what to do</li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -118,8 +119,8 @@ export default {
 </script>
 
 <style scoped>
-.main{
-font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+.main {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .textbox {
@@ -135,9 +136,8 @@ button:hover {
 }
 
 ul {
-  
   list-style: none;
-  margin-top: 40px;
+  margin-top: 15px;
   padding: 0;
 }
 
@@ -147,7 +147,6 @@ li {
   margin-bottom: 3px;
 }
 
-#chatEntry {
-  width: 400px;
-}
+
+
 </style>
