@@ -63,7 +63,7 @@ public class MessageControllerHelper {
                     keyWords[1] = keyWord1;
                     keyWords[2] = keyWord2;
                     return keyWords;
-                } else if (word.equals("links") || word.equals("link")) {
+                } else if (word.equals("links") || word.equals("link") || word.equals("examples") || word.equals("example")) {
                     this.keyWord2 = "links";
                     keyWords[0] = needCategory;
                     keyWords[1] = keyWord1;
@@ -83,7 +83,7 @@ public class MessageControllerHelper {
                     keyWords[1] = keyWord1;
                     keyWords[2] = keyWord2;
                     return keyWords;
-                } else if (word.equals("links") || word.equals("link")) {
+                } else if (word.equals("links") || word.equals("link") || word.equals("examples") || word.equals("example")) {
                     this.keyWord2 = "links";
                     keyWords[0] = needCategory;
                     keyWords[1] = keyWord1;
@@ -176,7 +176,7 @@ public class MessageControllerHelper {
                     home(keyWords);
                     return keyWords;
                 }
-            } else if (needCategory.equals("pathway") && keyWord1.equals("interview") && keyWord2.equals("stars")) {
+            } else if (needCategory.equals("pathway") && keyWord1.equals("interview") && keyWord2.equals("star")) {
                 if (word.equals("back")) {
                     back(keyWords);
                     return keyWords;
