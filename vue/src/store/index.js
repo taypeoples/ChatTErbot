@@ -27,7 +27,7 @@ export default new Vuex.Store({
     allKeywords: ['pathway', 'curriculum', 'resume', 'interview', 'cover', 'letter', 'parts', 'component', 'components', 'part', 'links', 'link', 'back', 'home', 'prep', 'prepare', 'follow', 
     'up', 'star', 'questions', 'question', 'outfit', 'dress', 'clothes', 'clothing', 'java', 'client', 'server', 'web', 'app', 'database', 'data', 'base', 'databases', 'variables', 'variable', 
     'arrays', 'array', 'collections', 'collection', 'unit', 'testing', 'test', 'oop', 'object', 'oriented', 'api', 'dao', 'networking', 'network', 'css', 'style', 'html', 'javascript', 
-    'script', 'vue', 'sql', 'sequel', 'design', 'security']
+    'script', 'vue', 'sql', 'sequel', 'design', 'security', 'assistance']
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

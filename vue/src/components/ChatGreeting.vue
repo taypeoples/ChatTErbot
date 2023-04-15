@@ -47,7 +47,10 @@ button:hover{
 }
 
 #openingMessage{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: large;
   border-width: 3px;
+  background:#eefdff;
   border-style: solid;
   border-color: #287ec7;
   border-radius: 5px;
@@ -55,6 +58,7 @@ button:hover{
   border-width: 80%;
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: 25%;
 }
 
 

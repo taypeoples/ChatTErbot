@@ -1,33 +1,29 @@
 <template>
-  <div>
+  <div class="main">
     <chat-greeting v-on:passNickname="getNickname($event)" />
-    <div
-      id="messageBox"
-      v-for="message in messages"
-      v-bind:key="message.id"
-      class="textbox"
-    >
-      <div class="msgbox">
-        <span v-html="message"></span>
+    <div v-for="message in messages" v-bind:key="message.id">
+      <!-- :class="isBot ? 'active' : 'textbox'" -->
+      <div>
+        <div class="textbox" v-html="message"></div>
       </div>
     </div>
-    <div id="chatContainer"></div>
 
-    <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
-      <input
-        id="chatEntry"
-        type="text"
-        class=""
-        v-model="userMessage"
-        placeholder="Type your message here"
-      />
-      <button>Submit</button>
-    </form>
-    <ul>
-      <li>Type "Home" to be returned to the beginning of the chatbot</li>
-      <li>Type "Back" to be returned to the previous prompt selection</li>
-      <!-- <li>Type "Assistance" to be shown a list of commands</li> -->
-    </ul>
+    <div>
+      <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
+        <input
+          class="chat-entry"
+          type="text"
+          v-model="userMessage"
+          placeholder="Type your message here"
+        />
+        <button>Submit</button>
+      </form>
+      <ul class="commands">
+        <li>Type "Home" to be returned to the beginning of the chatbot</li>
+        <li>Type "Back" to be returned to the previous prompt selection</li>
+        <li>Type "Assistance" if you are stuck or unsure what to do</li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -42,25 +38,30 @@ export default {
   data() {
     return {
       userMessage: "",
-      responseMessage: {},
+      botResponseMessage: {},
       messages: [],
       nickname: "",
       showForm: false,
-      link: "",
+      isBot: false,
+      botStyle:
+        '<div style="background:#eefdff;border-width: 3px;border-style: solid;border-radius: 5px; border-color: #287ec7;padding: 20px;margin-left: 25%;">',
+      userStyle:
+        '<div style="background:rgb(255,233,236);border-width: 3px;border-style: solid;border-radius: 5px; border-color:rgb(255,102,81);padding: 20px;margin-right: 25%;">',
     };
   },
 
   methods: {
     handleSubmit() {
-      this.messages.push(this.userMessage);
-  
+      this.isBot = false;
+      this.messages.push(this.userStyle + this.userMessage + "</div>");
       if (this.userMessage.includes("quote")) {
+        this.isBot = true;
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
-          this.messages.push(quote);
+          this.messages.push(this.botStyle + quote + "</div>");
         });
-      } else if (this.userMessage.includes("home")) {
-        this.getHelp();
+      } else if (this.userMessage.includes("assistance")) {
+        this.getAssistance();
       } else {
         let messageToSend = {
           messageId: 0,
@@ -68,52 +69,48 @@ export default {
         };
         ResponseService.sendMessage(messageToSend).then((response) => {
           this.responseMessage = response.data.messageBody;
-          if (this.responseMessage != null) {
-            this.messages.push(this.responseMessage);
-          } else {
+          if (this.responseMessage == null) {
             this.messages.push(
-              "Sorry, I'm not sure how to help you, please type your response again or type a command to let me know what I should do."
+              this.botStyle +
+                "Sorry, I'm not sure how to help you, " +
+                this.nickname +
+                ". Please type your response again or type a command to let me know what I should do. </div>"
             );
+          } else {
+            this.messages.push(this.botStyle + this.responseMessage + "</div>");
           }
         });
       }
       this.userMessage = "";
     },
 
-    /* assistanceResponse() {
-      let inputArray = userMessage.split("");
-      let wordFound = false;
-      inputArray.forEach((word) => {
-        if (this.$store.state.allKeywords.includes(word)) {
-          wordFound = true;
-        }
-      });
-      if (wordFound == false) {
-        this.messages.push(
-          "Sorry, I'm not sure how to help you, please type your response again or type a command to let me know what I should do."
-        );
-      }
-    }, */
-
     getNickname(nickname) {
       this.nickname = nickname;
-      this.messages.push(nickname);
-      //working on making this push to messages again
-      ResponseService.getBotResponse("default", "default", "default").then(
-        (response) => {
-          const firstResponse = response.data.messageBody;
-
-          this.messages.push(firstResponse + " " + nickname + "?");
-        }
-      );
+      this.messages.push(this.userStyle + nickname + "</div>");
+      ResponseService.getFirstResponse().then((response) => {
+        this.responseMessage = response.data.messageBody;
+        this.messages.push(
+          this.botStyle + this.responseMessage + nickname + "? </div>"
+        );
+      });
+      /* this.messages.push(
+        "<p>I can help you with:</p><ul><li>Pathway information</li><li>Curriculum</li><li>Get a motivational quote</li>Which would you like, " +
+          nickname +
+          "?"
+      ); */
       this.showForm = true;
     },
-    getHelp() {
-      ResponseService.getBotResponse("default", "default", "default").then(
+    getAssistance() {
+      ResponseService.getBotResponse("help", "assistance", "default").then(
         (response) => {
-          const firstResponse =
-            response.data.messageText + " " + this.nickname + "?";
-          this.messages.push(firstResponse);
+          this.messages.push(
+            this.botStyle +
+              "Sorry you're stuck, " +
+              this.nickname +
+              ". " +
+              response.data.messageBody +
+              "</div>"
+          );
         }
       );
     },
@@ -122,12 +119,12 @@ export default {
 </script>
 
 <style scoped>
-.msgbox {
-  border-width: 3px;
-  border-style: solid;
-  border-color: #287ec7;
-  border-radius: 5px;
-  padding: 20px;
+.main {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.textbox {
+  font-size: large;
   border-width: 80%;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -140,7 +137,7 @@ button:hover {
 
 ul {
   list-style: none;
-  margin-top: 40px;
+  margin-top: 15px;
   padding: 0;
 }
 
@@ -150,7 +147,6 @@ li {
   margin-bottom: 3px;
 }
 
-#chatEntry {
-  width: 400px;
-}
+
+
 </style>

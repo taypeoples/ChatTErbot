@@ -5,6 +5,7 @@
       <div class="router-links">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link> 
         <router-link v-bind:to="{ name: 'chatBot' }">ChatBot</router-link> 
+        <router-link v-bind:to="{ name: 'jobSearch' }">jobSearch</router-link> 
         <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       </div>
@@ -23,6 +24,7 @@ export default {
 
 <style scoped>
   h1 {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: aliceblue;
     margin: 0;
     padding: 0;
@@ -34,6 +36,7 @@ export default {
   }
 
   .nav-container {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
