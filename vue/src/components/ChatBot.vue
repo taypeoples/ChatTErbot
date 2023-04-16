@@ -43,7 +43,7 @@ export default {
       nickname: "",
       showForm: false,
       isBot: false,
-      botStyle: '<div class = "bot">',
+      botStyle: '<img class ="ava" src ="https://coursereport-production.imgix.net/uploads/school/logo/259/original/mark.png?w=72&amp;h=72">  ChatTErBot:</img><div class = "bot">',
       userStyle: '<div class = "user">',
     };
   },
@@ -140,13 +140,22 @@ export default {
 }
 
 .textbox >>> .user {
-  background: rgb(255, 233, 236);
+  background:  #ebfaeb;
   border-width: 3px;
   border-style: solid;
   border-radius: 5px;
-  border-color: rgb(255, 102, 81);
+  border-color: #29a329;
   padding: 20px;
   margin-left: 25%;
+}
+
+.textbox >>> .ava {
+  width: 20px;
+  height: 20px;
+  font-size: small;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
 }
 
 button:hover {
