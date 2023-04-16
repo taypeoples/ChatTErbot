@@ -11,13 +11,15 @@ public class MessageControllerHelper {
         String[] inputArray = message.toLowerCase().split(" ");
         for (String word : inputArray) {
             if (needCategory.equals("default") && keyWord1.equals("default") && keyWord2.equals("default")) {
-                if (word.equals("pathway")) {
+                if (word.equals("pathway") || word.equals("interview") || word.equals("resume") || word.equals("cover") || word.equals("letter")) {
                     this.needCategory = "pathway";
                     keyWords[0] = needCategory;
                     keyWords[1] = keyWord1;
                     keyWords[2] = keyWord2;
                     return keyWords;
-                } else if (word.equals("curriculum")) {
+                } else if (word.equals("curriculum") || word.equals("coding") || word.equals("java") || word.equals("sql") || word.equals("database")
+                        || word.equals("api") || word.equals("javascript") || word.equals("html") || word.equals("css") || word.equals("dao")
+                        || word.equals("vue")) {
                     this.needCategory = "curriculum";
                     keyWords[0] = needCategory;
                     keyWords[1] = keyWord1;
