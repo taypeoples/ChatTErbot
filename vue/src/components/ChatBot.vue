@@ -43,10 +43,8 @@ export default {
       nickname: "",
       showForm: false,
       isBot: false,
-      botStyle:
-        '<div style="background:#eefdff;border-width: 3px;border-style: solid;border-radius: 5px; border-color: #287ec7;padding: 20px;margin-left: 25%;">',
-      userStyle:
-        '<div style="background:rgb(255,233,236);border-width: 3px;border-style: solid;border-radius: 5px; border-color:rgb(255,102,81);padding: 20px;margin-right: 25%;">',
+      botStyle: '<div class = "bot">',
+      userStyle: '<div class = "user">',
     };
   },
 
@@ -130,6 +128,27 @@ export default {
   margin-bottom: 20px;
 }
 
+.textbox >>> .bot {
+  font-family: Georgia, serif;
+  background: #eefdff;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #287ec7;
+  padding: 20px;
+  margin-right: 25%;
+}
+
+.textbox >>> .user {
+  background: rgb(255, 233, 236);
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: rgb(255, 102, 81);
+  padding: 20px;
+  margin-left: 25%;
+}
+
 button:hover {
   background-color: rgb(212, 212, 212);
   box-shadow: 3px 3px lightgray;
@@ -146,7 +165,4 @@ li {
   line-height: 1.5;
   margin-bottom: 3px;
 }
-
-
-
 </style>
