@@ -2,8 +2,10 @@
   <div>
       <div v-for="job in jobs" v-bind:key="job.id"> 
           
-          <div>{{job.employer_name}}</div>
-          <div>{{job.job_description}}</div>
+          <div>Comapny Name: {{job.employer_name}}</div>
+          <div>Application Link: {{job.job_apply_link}}</div>
+          <!-- <div> <p> Pay Range: {{job.job_max_salary}}</p> <p> {{job.job_min_salary}}</p></div> -->
+          <!-- <div>{{jobs}}</div> -->
 
 
 
@@ -20,7 +22,9 @@ export default {
 
 data () {
     return {
-        jobs: []
+        jobs: [],
+        jobTitle: "junior software developer",
+        state: "Ohio"
     }
 },
 
@@ -31,7 +35,7 @@ created() {
 
 methods: {
     populateJobsArray(){
-        JobService.getJobs().then((response) => {
+        JobService.getJobs(this.jobTitle, this.state).then((response) => {
          this.jobs = (response.data.data);
         })
     }
