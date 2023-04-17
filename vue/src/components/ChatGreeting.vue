@@ -58,7 +58,7 @@ button:hover{
   border-width: 80%;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 25%;
+  margin-right: 25%;
 }
 
 
