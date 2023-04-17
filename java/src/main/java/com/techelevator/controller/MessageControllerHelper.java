@@ -12,18 +12,12 @@ public class MessageControllerHelper {
         for (String word : inputArray) {
             if (needCategory.equals("default") && keyWord1.equals("default") && keyWord2.equals("default")) {
                 if (word.equals("pathway") || word.equals("interview") || word.equals("resume") || word.equals("cover") || word.equals("letter")) {
-                    this.needCategory = "pathway";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setNeedCategoryHelper("pathway", keyWords);
                     return keyWords;
                 } else if (word.equals("curriculum") || word.equals("coding") || word.equals("java") || word.equals("sql") || word.equals("database")
                         || word.equals("api") || word.equals("javascript") || word.equals("html") || word.equals("css") || word.equals("dao")
                         || word.equals("vue")) {
-                    this.needCategory = "curriculum";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setNeedCategoryHelper("curriculum", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -34,22 +28,13 @@ public class MessageControllerHelper {
                 }
             } else if (needCategory.equals("pathway") && keyWord1.equals("default") && keyWord2.equals("default")) {
                 if (word.equals("resume")) {
-                    this.keyWord1 = "resume";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword1Helper("resume", keyWords);
                     return keyWords;
                 } else if (word.equals("interview")) {
-                    this.keyWord1 = "interview";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword1Helper("interview", keyWords);
                     return keyWords;
                 } else if (word.equals("cover") || word.equals("letter")) {
-                    this.keyWord1 = "cover";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword1Helper("cover", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -60,16 +45,10 @@ public class MessageControllerHelper {
                 }
             } else if (needCategory.equals("pathway") && keyWord1.equals("resume") && keyWord2.equals("default")) {
                 if (word.equals("parts") || word.equals("component") || word.equals("components") || word.equals("part")) {
-                    this.keyWord2 = "parts";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("parts", keyWords);
                     return keyWords;
                 } else if (word.equals("links") || word.equals("link") || word.equals("examples") || word.equals("example")) {
-                    this.keyWord2 = "links";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("links", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -80,16 +59,10 @@ public class MessageControllerHelper {
                 }
             } else if (needCategory.equals("pathway") && keyWord1.equals("cover") && keyWord2.equals("default")) {
                 if (word.equals("parts") || word.equals("component") || word.equals("components") || word.equals("part")) {
-                    this.keyWord2 = "parts";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("parts", keyWords);
                     return keyWords;
                 } else if (word.equals("links") || word.equals("link") || word.equals("examples") || word.equals("example")) {
-                    this.keyWord2 = "links";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("links", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -100,28 +73,16 @@ public class MessageControllerHelper {
                 }
             } else if (needCategory.equals("pathway") && keyWord1.equals("interview") && keyWord2.equals("default")) {
                 if (word.equals("prep") || word.equals("prepare")) {
-                    this.keyWord2 = "prep";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("prep", keyWords);
                     return keyWords;
                 } else if (word.equals("follow") || word.equals("up")) {
-                    this.keyWord2 = "follow";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("follow", keyWords);
                     return keyWords;
                 } else if (word.equals("star") || word.equals("questions")|| word.equals("question")) {
-                    this.keyWord2 = "star";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("star", keyWords);
                     return keyWords;
                 } else if (word.equals("outfit") || word.equals("dress") || word.equals("clothes") || word.equals("clothing") || word.equals("wear")) {
-                    this.keyWord2 = "outfit";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("outfit", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -197,28 +158,16 @@ public class MessageControllerHelper {
                 //beginning of curriculum filter
             } else if (needCategory.equals("curriculum") && keyWord1.equals("default") && keyWord2.equals("default")) {
                 if (word.equals("java")) {
-                    this.keyWord1 = "java";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword1Helper("java", keyWords);
                     return keyWords;
                 } else if (word.equals("client") || word.equals("server")) {
-                    this.keyWord1 = "clientserver";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword1Helper("clientserver", keyWords);
                     return keyWords;
                 } else if (word.equals("web") || word.equals("app")) {
-                    this.keyWord1 = "webapp";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword1Helper("webapp", keyWords);
                     return keyWords;
                 } else if (word.equals("database") || word.equals("data") || word.equals("base") || word.equals("databases") ) {
-                    this.keyWord1 = "databases";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword1Helper("databases", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -229,34 +178,19 @@ public class MessageControllerHelper {
                 }
             } else if (needCategory.equals("curriculum") && keyWord1.equals("java") && keyWord2.equals("default")) {
                 if (word.equals("variables") || word.contains("variable")) {
-                    this.keyWord2 = "variables";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("variables", keyWords);
                     return keyWords;
                 } else if (word.equals("arrays") || word.equals("array")) {
-                    this.keyWord2 = "arrays";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("arrays", keyWords);
                     return keyWords;
                 } else if (word.equals("collections") || word.equals("collection")) {
-                    this.keyWord2 = "collections";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("collections", keyWords);
                     return keyWords;
                 } else if (word.equals("unit") || word.equals("testing") || word.equals("test")) {
-                    this.keyWord2 = "unittesting";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("unittesting", keyWords);
                     return keyWords;
                 } else if (word.equals("oop") || word.equals("object") || word.equals("oriented")) {
-                    this.keyWord2 = "oop";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("oop", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -267,22 +201,13 @@ public class MessageControllerHelper {
                 }
             } else if (needCategory.equals("curriculum") && keyWord1.equals("clientserver") && keyWord2.equals("default")) {
                 if (word.equals("api")) {
-                    this.keyWord2 = "api";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("api", keyWords);
                     return keyWords;
                 } else if (word.equals("dao")) {
-                    this.keyWord2 = "dao";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("dao", keyWords);
                     return keyWords;
                 } else if (word.equals("networking") || word.equals("network")) {
-                    this.keyWord2 = "networking";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("networking", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -293,28 +218,16 @@ public class MessageControllerHelper {
                 }
             } else if (needCategory.equals("curriculum") && keyWord1.equals("webapp") && keyWord2.equals("default")) {
                 if (word.equals("css") || word.equals("style")) {
-                    this.keyWord2 = "css";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("css", keyWords);
                     return keyWords;
                 } else if (word.equals("html")) {
-                    this.keyWord2 = "html";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("html", keyWords);
                     return keyWords;
                 } else if (word.equals("javascript") || word.equals("java") || word.equals("script")) {
-                    this.keyWord2 = "javascript";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("javascript", keyWords);
                     return keyWords;
                 } else if (word.equals("vue")) {
-                    this.keyWord2 = "vue";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("vue", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -325,22 +238,13 @@ public class MessageControllerHelper {
                 }
             } else if (needCategory.equals("curriculum") && keyWord1.equals("databases") && keyWord2.equals("default")) {
                 if (word.equals("sql") || word.equals("sequel")) {
-                    this.keyWord2 = "sql";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("sql", keyWords);
                     return keyWords;
                 } else if (word.equals("design")) {
-                    this.keyWord2 = "databasedesign";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("databasedesign", keyWords);
                     return keyWords;
                 } else if (word.equals("security")) {
-                    this.keyWord2 = "datasecurity";
-                    keyWords[0] = needCategory;
-                    keyWords[1] = keyWord1;
-                    keyWords[2] = keyWord2;
+                    setKeyword2Helper("datasecurity", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -533,6 +437,27 @@ public class MessageControllerHelper {
             keyWords[1] = keyWord1;
             keyWords[2] = keyWord2;
         }
+    }
+
+    public void setNeedCategoryHelper (String category, String[] keyWords){
+        this.needCategory = category;
+        keyWords[0] = needCategory;
+        keyWords[1] = keyWord1;
+        keyWords[2] = keyWord2;
+    }
+
+    public void setKeyword1Helper (String keyWord, String[] keyWords){
+        this.keyWord1 = keyWord;
+        keyWords[0] = needCategory;
+        keyWords[1] = keyWord1;
+        keyWords[2] = keyWord2;
+    }
+
+    public void setKeyword2Helper (String keyWord, String[] keyWords){
+        this.keyWord2 = keyWord;
+        keyWords[0] = needCategory;
+        keyWords[1] = keyWord1;
+        keyWords[2] = keyWord2;
     }
 
 }
