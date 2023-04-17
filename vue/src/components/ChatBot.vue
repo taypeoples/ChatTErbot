@@ -43,7 +43,7 @@ export default {
       nickname: "",
       showForm: false,
       isBot: false,
-      botStyle: '<img class ="ava" src ="https://coursereport-production.imgix.net/uploads/school/logo/259/original/mark.png?w=72&amp;h=72">  ChatTErBot:</img><div class = "bot">',
+      botStyle: '<img class ="ava" src ="https://coursereport-production.imgix.net/uploads/school/logo/259/original/mark.png?w=72&amp;h=72">  ChatTErbot:</img><div class = "bot">',
       userStyle: '<div class = "user">',
     };
   },

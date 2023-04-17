@@ -1,4 +1,15 @@
 <template>
+<div>
+    <form>
+        <label for="jtitle">Job Title:</label><br>
+        <input type="text" id="jtitle" name="jtitle"><br>
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="location"><br>
+        <label for="jtype">Type:</label><br>
+        <input type="checkbox" id="jtype" name="jtype"><br>
+
+
+    </form>
     <div class="job-cards">
       <div v-for="job in jobs" v-bind:key="job.id" class="job-card">
         <div class="card-header">{{ job.employer_name }}</div>
@@ -10,6 +21,7 @@
         <div class="card-footer text-muted">{{ job.job_location }}</div>
       </div>
       <button v-on:click="populateJobsArray">Click here to populate array with jobs</button>
+    </div>
     </div>
   </template>
   
