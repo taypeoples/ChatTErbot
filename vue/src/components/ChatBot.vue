@@ -52,7 +52,6 @@ export default {
   methods: {
     handleSubmit() {
       this.isBot = false;
-      this.jobHelp= false;
       this.messages.push(this.userStyle + this.userMessage + "</div>");
       if (this.userMessage.includes("quote")) {
         this.isBot = true;
@@ -64,7 +63,7 @@ export default {
         this.getAssistance();
       }
        else if (this.userMessage.includes("job search") || this.userMessage.includes("open positions") || this.userMessage.includes("jobs")){
-        this.getJobSearch();
+        this.messages.push(this.botStyle + '<a href="http://localhost:8080/jobSearch" target= "_blank">Open Job Search</a></div>');
       } 
       else {
         let messageToSend = {
@@ -85,6 +84,7 @@ export default {
           }
         });
       }
+      // this.autoscroll();
       this.userMessage = "";
     },
 
@@ -119,10 +119,11 @@ export default {
       );
     },
     getJobSearch(){
-      this.messages.push();
+      this.messages.push('<router-link');
     },
 /*     autoscroll(){
-      this.document.getElementById("commands").scrollIntoView({behavior: "smooth"})
+      const scrollDiv = document.getElementById("commands");
+      scrollDiv.scrollIntoView(false);
   }, */
   }
 };
@@ -168,6 +169,11 @@ export default {
   text-align: center;
   vertical-align: middle;
   padding: 5px;
+}
+
+.commands{
+  bottom:0;
+  position: absolute;
 }
 
 button:hover {
