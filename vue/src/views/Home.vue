@@ -1,13 +1,18 @@
 <template>
-  <div class="home">
-    <h1>TE Chat Bot</h1>
-    <div class="floating-card">
-      <p>Click Here To Access The Chatbot</p>
-      <a href="/chatbot">Get Chatting</a>
+  <div class="home jobSearch">
+    <h1>ChatTEr Bot</h1>
+    <div class="cards-container">
+      <div class="floating-card">
+        <p>Click Here To Access The Chatbot</p>
+        <a href="/chatbot">Get Chatting</a>
+      </div>
+      <div class="floating-card">
+        <p>Looking for a job?</p>
+        <a href="/jobSearch">Find Jobs</a>
+      </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "home"
@@ -15,12 +20,10 @@ export default {
 </script>
 
 <style scoped>
-
 body {
   font-family: fantasy;
   margin: 0;
 }
-
 
 .home {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -28,7 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 150vh;
 }
 
 .home h1 {
@@ -42,6 +45,13 @@ body {
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .floating-card:hover {
   transform: scale(1.05);
 }
@@ -51,7 +61,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+  margin: 2rem;
   height: 525px;
   width: 400px;
   border-radius: 20px;
@@ -64,7 +74,6 @@ body {
   background-size: 250%;
   transition: transform 0.2s ease-in-out;
   text-align: center;
-
 }
 
 .floating-card p {
