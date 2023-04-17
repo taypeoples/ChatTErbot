@@ -1,7 +1,7 @@
 <template>
-  <div class="main">
+  <div id= "main" class="main">
     <chat-greeting v-on:passNickname="getNickname($event)" />
-    <div v-for="message in messages" v-bind:key="message.id">
+    <div id="messages" v-for="message in messages" v-bind:key="message.id">
       <!-- :class="isBot ? 'active' : 'textbox'" -->
       <div>
         <div class="textbox" v-html="message"></div>
@@ -18,7 +18,7 @@
         />
         <button>Submit</button>
       </form>
-      <ul class="commands">
+      <ul id="commands" class="commands">
         <li>Type "Home" to be returned to the beginning of the chatbot</li>
         <li>Type "Back" to be returned to the previous prompt selection</li>
         <li>Type "Assistance" if you are stuck or unsure what to do</li>
@@ -80,6 +80,7 @@ export default {
         });
       }
       this.userMessage = "";
+      this.autoscroll()
     },
 
     getNickname(nickname) {
@@ -112,7 +113,10 @@ export default {
         }
       );
     },
+    autoscroll(){
+      this.document.getElementById("commands").scrollIntoView({behavior: "smooth"})
   },
+  }
 };
 </script>
 
