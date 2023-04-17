@@ -5,7 +5,11 @@ import axios from "axios";
 export default {
 
 
-  //jsearch api good but may need to pay for 1 month so that we can do all the searches we need while working on this
+  //jsearch api 
+  // good but may need to pay for 1 month so that we can do all the searches we need while working on this 
+  // or create a bunch of fake email addresses and swap out the key
+  // key for secondary account when we want to test:
+  // 1b4f580bcdmshdfcfba45a52a733p157bcfjsn6f674d11d064
   getJobs(jobTitle, state) {
 
     const options = {
