@@ -43,6 +43,7 @@ export default {
       nickname: "",
       showForm: false,
       isBot: false,
+      jobHelp: false,
       botStyle: '<img class ="ava" src ="https://coursereport-production.imgix.net/uploads/school/logo/259/original/mark.png?w=72&amp;h=72">  ChatTErbot:</img><div class = "bot">',
       userStyle: '<div class = "user">',
     };
@@ -51,6 +52,7 @@ export default {
   methods: {
     handleSubmit() {
       this.isBot = false;
+      this.jobHelp= false;
       this.messages.push(this.userStyle + this.userMessage + "</div>");
       if (this.userMessage.includes("quote")) {
         this.isBot = true;
@@ -60,7 +62,11 @@ export default {
         });
       } else if (this.userMessage.includes("assistance")) {
         this.getAssistance();
-      } else {
+      }
+       else if (this.userMessage.includes("job search") || this.userMessage.includes("open positions") || this.userMessage.includes("jobs")){
+        this.getJobSearch();
+      } 
+      else {
         let messageToSend = {
           messageId: 0,
           messageBody: this.userMessage,
@@ -80,7 +86,6 @@ export default {
         });
       }
       this.userMessage = "";
-      this.autoscroll()
     },
 
     getNickname(nickname) {
@@ -113,9 +118,12 @@ export default {
         }
       );
     },
-    autoscroll(){
+    getJobSearch(){
+      this.messages.push();
+    },
+/*     autoscroll(){
       this.document.getElementById("commands").scrollIntoView({behavior: "smooth"})
-  },
+  }, */
   }
 };
 </script>

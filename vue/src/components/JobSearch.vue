@@ -62,7 +62,7 @@
         <div class="card-header">{{ job.employer_name }}</div>
         <div class="card-body">
           <h5 class="card-title">{{ job.job_title }}</h5>
-          <p class="card-text">{{ job.job_description }}</p>
+          <pre class="card-text">{{ job.job_description }}</pre>
           <a
             v-bind:href="job.job_apply_link"
             target="_blank"
@@ -86,7 +86,7 @@ export default {
       location: "",
       jobType: [],
       remote: false,
-      moddedDescription: ""
+      updatedDescription:"",
     };
   },
 
@@ -94,6 +94,20 @@ export default {
     // turned this off because we only get so many calls per month, can turn back on if we decide to go this way with design implemented button instead.
     //Can also create second account if we hit too many calls lol
     /* this.populateJobsArray(); */
+  },
+  computed: {
+    moddedDescription(){
+      let string = this.job.job_description;
+        let array = string.split(" ");
+        array.forEach(element => {
+          if(element == "U+2022"){
+            element = "\n" + element;
+          }
+          string = element + " ";
+        });
+        return string;
+      }
+
   },
 
   methods: {
@@ -105,18 +119,10 @@ export default {
         this.remote
       ).then((response) => {
         this.jobs = response.data.data;
+
       });
     },
-    sortBybullets(string){
-        let array = string.split(" ");
-        array.forEach(element => {
-          if(element == "U+2022"){
-            element = "\n" + element;
-          }
-          string = element + " ";
-        });
-        return string;
-      }
+    
   },
 };
 </script>
@@ -135,10 +141,17 @@ export default {
   display: inline-block;
   max-width: 600px;
   max-height: 600px;
+ 
 }
 
 .job-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+pre{
+  white-space: pre-wrap;
+  padding: 10px;
+
 }
 
 .card-header {
