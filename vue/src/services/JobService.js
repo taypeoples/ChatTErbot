@@ -14,14 +14,17 @@ export default {
 
   // key for secondary account when we want to test:
   // 1b4f580bcdmshdfcfba45a52a733p157bcfjsn6f674d11d064
-  getJobs(jobTitle, state) {
+
+  //tay
+  //7a240f4c7cmshd10db6ca82c9943p17f33bjsn032803b9b5bd
+  getJobs(jobTitle, location, jobType, remote) {
 
     const options = {
       method: 'GET',
       url: 'https://jsearch.p.rapidapi.com/search',
-      params: { query: `${jobTitle} in ${state}, USA`, page: '1', num_pages: '1' },
+      params: { query: `${jobTitle} in ${location}`, employment_types: jobType, remote_jobs_only: remote, page: '1', num_pages: '1', job_requirements: 'under_3_years_experience, no_experience' },
       headers: {
-        'X-RapidAPI-Key': '1b4f580bcdmshdfcfba45a52a733p157bcfjsn6f674d11d064',
+        'X-RapidAPI-Key': '7a240f4c7cmshd10db6ca82c9943p17f33bjsn032803b9b5bd',
         'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
       }
     };

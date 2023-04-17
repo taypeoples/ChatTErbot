@@ -1,6 +1,6 @@
 <template>
   <div class="home jobSearch">
-    <h1>ChatTEr Bot</h1>
+    <h1>ChatTErbot</h1>
     <div class="cards-container">
       <div class="floating-card">
         <p>Click Here To Access The Chatbot</p>

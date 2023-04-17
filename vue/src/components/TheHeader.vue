@@ -1,10 +1,10 @@
 <template>
   <nav>
     <div class="nav-container">
-      <h1>ChatTErBot</h1>
+      <h1>ChatTErbot</h1>
       <div class="router-links">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link> 
-        <router-link v-bind:to="{ name: 'chatBot' }">ChatTErBot</router-link> 
+        <router-link v-bind:to="{ name: 'chatBot' }">ChatTErbot</router-link> 
         <router-link v-bind:to="{ name: 'jobSearch' }">jobSearch</router-link> 
         <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
