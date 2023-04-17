@@ -86,6 +86,7 @@ export default {
       location: "",
       jobType: [],
       remote: false,
+      moddedDescription: ""
     };
   },
 
