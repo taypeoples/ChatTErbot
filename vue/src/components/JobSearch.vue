@@ -4,7 +4,7 @@
           
           <div>Comapny Name: {{job.employer_name}}</div>
           <div>Application Link: {{job.job_apply_link}}</div>
-          <button>Click here to </button>
+          <!-- <button>Click here to apply</button> -->
           <div>Pay Range: {{job.job_min_salary}} - {{job.job_max_salary}}</div>
           <!-- <div>{{jobs}}</div> -->
 
