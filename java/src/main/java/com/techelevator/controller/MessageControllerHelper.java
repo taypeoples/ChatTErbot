@@ -11,12 +11,14 @@ public class MessageControllerHelper {
         String[] inputArray = message.toLowerCase().split(" ");
         for (String word : inputArray) {
             if (needCategory.equals("default") && keyWord1.equals("default") && keyWord2.equals("default")) {
-                if (word.equals("pathway") || word.equals("interview") || word.equals("resume") || word.equals("cover") || word.equals("letter")) {
+                if (word.equals("pathway") || word.equals("interview") || word.equals("resume") || word.equals("cover") || word.equals("letter") || word.equals("networking")
+                || word.equals("matchmaking")) {
                     setNeedCategoryHelper("pathway", keyWords);
                     return keyWords;
                 } else if (word.equals("curriculum") || word.equals("coding") || word.equals("java") || word.equals("sql") || word.equals("database")
                         || word.equals("api") || word.equals("javascript") || word.equals("html") || word.equals("css") || word.equals("dao")
-                        || word.equals("vue")) {
+                        || word.equals("vue") || word.equals("object") || word.equals("oriented") || word.equals("programming") || word.equals("inheritance")
+                        || word.equals("polymorphism") || word.equals("encapsulation")) {
                     setNeedCategoryHelper("curriculum", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
@@ -396,7 +398,7 @@ public class MessageControllerHelper {
                     return keyWords;
                 }
             } else if (needCategory.equals("curriculum") && keyWord1.equals("frontend") && keyWord2.equals("default")) {
-                if (word.equals("overview") ) {
+                if (word.equals("overview") || word.equals("over") || word.equals("view")) {
                     setKeyword2Helper("htmloverview", keyWords);
                     return keyWords;
                 } else if (word.equals("tags") || word.equals("tag")) {
@@ -472,6 +474,14 @@ public class MessageControllerHelper {
                     return keyWords;
                 }
             } else if (needCategory.equals("curriculum") && keyWord1.equals("java") && keyWord2.equals("exceptions")) {
+                if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
+            } else if (needCategory.equals("curriculum") && keyWord1.equals("java") && keyWord2.equals("classesencapsulation")) {
                 if (word.equals("back")) {
                     back(keyWords);
                     return keyWords;

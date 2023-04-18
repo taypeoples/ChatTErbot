@@ -14,14 +14,14 @@
       <form>
         <div>
           <label for="jtitle" class="text-center"></label><br />
-          <input v-model="jobTitle" type="text" id="jtitle" name="jtitle" placeholder="Enter Job Title" />
+          <input v-model="jobTitle" type="text" id="jtitle" name="jtitle" placeholder="Job Title" />
         </div>
         <div>
           <label for="location" class="text-center"></label><br />
-          <input v-model="location" type="text" id="location" name="location" placeholder="Enter Location" />
+          <input v-model="location" type="text" id="location" name="location" placeholder="Location" />
         </div>
         <div>
-          <p class = "job">Job Type:</p>
+          <p>Job Type:</p>
           <div class="checkbox-group">
             <input v-model="jobType" type="checkbox" id="ftime" name="ftime" value="Full-time" />
             <label for="ftime">Full-time</label>
@@ -159,39 +159,36 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #333333;
 }
- p {
-  font-size: x-large;
- }
 
 .right2 {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   margin-top: auto;
-  padding: 10px 10px 10px 10px;
+  padding: 30px 30px;
 }
 
 button {
-  background-color: #007bff;
+  background-color:#3b5998;
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #419bfc;
+  background-color: #237aec;
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .job-search-form {
   margin: 0 auto;
-  width: 80%;
+  width: 30%;
   background: #ffffffd0;
   border-radius: 10px;
   overflow: hidden;
@@ -199,8 +196,19 @@ button:hover {
   flex: 1 1 100%;
   align-items: stretch;
   justify-content: space-between;
-  box-shadow: 0 0 20px 6px #090b6f85;
-  margin-top: 40px;
+  box-shadow: 0 0 20px 6px #2759c585;
+  
+}
+
+.job-search-form .overlay {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.job-search-form .left {
+  width: 0px;
 }
 
 
@@ -210,6 +218,7 @@ button:hover {
     text-align: center;
     align-content: center;
     align-items: center;
+  
   }
 }
 
@@ -234,9 +243,9 @@ button:hover {
 }
 
 .job-search-form .left .overlay h1 {
-  font-size: 10vmax;
+  font-size: 8vmax;
   line-height: 1;
-  font-weight: 900;
+  font-weight: 800;
   margin-top: 40px;
   margin-bottom: 20px;
 }
@@ -245,6 +254,7 @@ button:hover {
   margin-top: 30px;
   font-weight: 900;
 }
+
 
 .job-search-form .left .overlay span a {
   background: #3b5998;
@@ -272,10 +282,17 @@ button:hover {
   }
 }
 
-.job-search-form .right h5 {
-  font-size: 3vmax;
+  .job-search-form .right h5 {
+  font-size: 5vmax;
   line-height: 1;
+  background-image: url('/pictures/Capture3.PNG');
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
+
 
 .job-search-form .right p {
   font-size: 14px;
