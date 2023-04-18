@@ -4,20 +4,20 @@
     <div id="nav">
     </div>
     <router-view />
-    <div id="footer">
+   <!--  <div id="footer">
     <the-footer/>
-    </div>
+    </div> -->
   </div>
 </template>
 
 
 <script>
 import TheHeader from './components/TheHeader.vue';
-import TheFooter from './components/TheFooter.vue';
+/* import TheFooter from './components/TheFooter.vue'; */
 export default {
   components: { 
     TheHeader,
-    TheFooter,
+    /* TheFooter, */
 
   
   },
@@ -28,4 +28,5 @@ export default {
 nav{
 background: #131313;
 }
+
 </style>
