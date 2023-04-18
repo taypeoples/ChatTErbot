@@ -1,16 +1,15 @@
 <template>
   <div id="main" class="main">
-    <chat-greeting v-on:passNickname="getNickname($event)" />
-    <div id="messages">
-      <div v-for="message in messages" v-bind:key="message.id">
-        <!-- :class="isBot ? 'active' : 'textbox'" -->
-        <div>
+    <div class="chat-container">
+      <chat-greeting v-on:passNickname="getNickname($event)" />
+      <div id="messages">
+        <div v-for="message in messages" v-bind:key="message.id">
           <div class="textbox" v-html="message"></div>
         </div>
       </div>
     </div>
 
-    <div>
+    <div class="user-input-containter">
       <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
         <input
           class="chat-entry"
@@ -45,10 +44,9 @@ export default {
       messages: [],
       nickname: "",
       showForm: false,
-      isBot: false,
       jobHelp: false,
       botStyle:
-        '<img class ="ava" src ="https://coursereport-production.imgix.net/uploads/school/logo/259/original/mark.png?w=72&amp;h=72">  ChatTErbot:</img><div class = "bot">',
+        '<img class ="ava" src ="https://imagizer.imageshack.com/img924/5237/mTr9vv.png" >  ChatTErbot:</img><div class = "bot">',
       userStyle: '<div class = "user">',
       jobs: [],
     };
@@ -56,7 +54,6 @@ export default {
 
   methods: {
     handleSubmit() {
-      this.isBot = false;
       this.messages.push(this.userStyle + this.userMessage + "</div>");
       if (this.userMessage.includes("quote")) {
         this.isBot = true;
@@ -129,13 +126,6 @@ export default {
         }
       );
     },
-    getJobSearch() {
-      this.messages.push("<router-link");
-    },
-    /*     autoscroll(){
-      const scrollDiv = document.getElementById("commands");
-      scrollDiv.scrollIntoView(false);
-  }, */
   },
 };
 </script>
@@ -143,6 +133,8 @@ export default {
 <style scoped>
 .main {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 800px;
+  margin-bottom: 10px;
 }
 
 .textbox {
@@ -161,10 +153,11 @@ export default {
   border-color: #287ec7;
   padding: 20px;
   margin-right: 25%;
+  margin-left: 20px;
 }
 
 .textbox >>> .user {
-  background: #ebfaeb;
+  background: #e0ebeb;
   border-width: 3px;
   border-style: solid;
   border-radius: 5px;
@@ -182,9 +175,16 @@ export default {
   padding: 5px;
 }
 
-.commands {
-  bottom: 0;
-  position: relative;
+.chat-container{
+  
+  height: 750px;
+  background-size: contain;
+  background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\Capture1.PNG');
+}
+
+
+.user-input-container {
+  position: absolute;
 }
 
 button:hover {
@@ -203,5 +203,4 @@ li {
   line-height: 1.5;
   margin-bottom: 3px;
 }
-
 </style>
