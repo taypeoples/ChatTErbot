@@ -46,7 +46,7 @@ export default {
       showForm: false,
       jobHelp: false,
       botStyle:
-        '<img class ="ava" src ="https://imagizer.imageshack.com/img924/5237/mTr9vv.png" >  ChatTErbot:</img><div class = "bot">',
+        '<img class ="ava" src ="https://imagizer.imageshack.com/img924/5237/mTr9vv.png" > ChatTErbot:</img><div class = "bot">',
       userStyle: '<div class = "user">',
       jobs: [],
     };
@@ -134,14 +134,12 @@ export default {
 .main {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   height: 800px;
-  margin-bottom: 10px;
 }
 
 .textbox {
   font-size: large;
   border-width: 80%;
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .textbox >>> .bot {
@@ -157,11 +155,11 @@ export default {
 }
 
 .textbox >>> .user {
-  background: #e0ebeb;
+  background: #ebfaeb;
   border-width: 3px;
   border-style: solid;
   border-radius: 5px;
-  border-color: #29a329;
+  border-color: #000000;
   padding: 20px;
   margin-left: 25%;
 }
@@ -175,17 +173,16 @@ export default {
   padding: 5px;
 }
 
-.chat-container{
-  
+/* .chat-container{
   height: 750px;
   background-size: contain;
   background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\Capture1.PNG');
+} */
+
+.chat-container{
+  padding: 10px;
 }
 
-
-.user-input-container {
-  position: absolute;
-}
 
 button:hover {
   background-color: rgb(212, 212, 212);

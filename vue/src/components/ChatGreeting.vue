@@ -1,9 +1,7 @@
 <template>
   <div>
-    <div class ="bot-msg">
-    <p id = "openingMessage">Welcome! What should I call you?</p>
- </div>   
-    <div class ="user-input-container">
+    <p id = "openingMessage">Welcome! What should I call you?</p> 
+
     <form v-if="showForm === true" v-on:submit.prevent="submitNickname">
       <input
         id="chatEntry"
@@ -15,7 +13,6 @@
       <button>Submit</button>
     </form>
     </div>
-  </div>
 </template>
 
 
@@ -44,17 +41,16 @@ export default {
 </script>
 
 <style scoped>
-button:hover{
-  background-color: rgb(212, 212, 212); 
+button:hover {
+  background-color: rgb(212, 212, 212);
   box-shadow: 3px 3px lightgray;
-
 }
 
-#openingMessage{
+#openingMessage {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: large;
   border-width: 3px;
-  background:#eefdff;
+  background: #eefdff;
   border-style: solid;
   border-color: #287ec7;
   border-radius: 5px;
@@ -63,13 +59,6 @@ button:hover{
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: 25%;
-}
-.user-input-container {
-  position: absolute;
-}
-
-.bot-msg{
-  height: 750px;
 }
 
 
