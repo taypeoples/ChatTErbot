@@ -70,6 +70,7 @@ export default {
   .nav-container {
     flex-direction: column;
     align-items: stretch;
+    align-content: center;
   }
 
   .router-links {
@@ -80,8 +81,9 @@ export default {
   .router-links router-link,
   .router-links a {
     margin: 10px 0;
-    width: 100%;
+    width: 95%;
     padding: 5px;
+    
   }
 }
 </style>
