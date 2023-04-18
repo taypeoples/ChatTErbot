@@ -60,4 +60,9 @@ export default {
     padding: 5px 10px;
     border-radius: 5px;
   }
+
+  .router-links router-link:hover,
+.router-links a:hover {
+  box-shadow: 0 0 15px rgba(59, 151, 236, 0.842);
+}
 </style>

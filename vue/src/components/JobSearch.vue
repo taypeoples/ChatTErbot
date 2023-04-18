@@ -1,74 +1,58 @@
 <template>
   <div>
-    <form>
-      <br />
-      <label for="jtitle">Job Title:</label><br />
-      <input v-model="jobTitle" type="text" id="jtitle" name="jtitle" /><br />
-      <label for="location">Location:</label><br />
-      <input
-        v-model="location"
-        type="text"
-        id="location"
-        name="location"
-      /><br />
-      <p>Job Type:</p>
-      <input
-        v-model="jobType"
-        type="checkbox"
-        id="ftime"
-        name="ftime"
-        value="Full-time"
-      />
-      <label for="ftime">Full-time</label>
-      <input
-        v-model="jobType"
-        type="checkbox"
-        id="ptime"
-        name="ptime"
-        value="Part-time"
-      />
-      <label for="ptime">Part-time</label>
-      <input
-        v-model="jobType"
-        type="checkbox"
-        id="internship"
-        name="internship"
-        value="Internship"
-      />
-      <label for="internship">Internship</label>
-      <input
-        v-model="jobType"
-        type="checkbox"
-        id="contract"
-        name="contract"
-        value="Contractor"
-      />
-      <label for="contract">Contractor</label>
-      <br>
-
-      <label for="remote">Remote-Only:</label>
-      <input v-model="remote" type="checkbox" id="remote" />
-      <br />
-
-        
-
-    </form>
-    <div class="job-cards">
+  <div class="job-search-form">
+    <div class="left">
+      <div class="overlay">
+        <h1>Job Search</h1>
+        <span>
+          <p>Find your dream job today</p>
+        </span>
+      </div>
+    </div>
+    <div class="right">
+      <h5>Search for Jobs</h5>
+      <form>
+        <div>
+          <label for="jtitle" class="text-center"></label><br />
+          <input v-model="jobTitle" type="text" id="jtitle" name="jtitle" placeholder="Enter Job Title" />
+        </div>
+        <div>
+          <label for="location" class="text-center"></label><br />
+          <input v-model="location" type="text" id="location" name="location" placeholder="Enter Location" />
+        </div>
+        <div>
+          <p class = "job">Job Type:</p>
+          <div class="checkbox-group">
+            <input v-model="jobType" type="checkbox" id="ftime" name="ftime" value="Full-time" />
+            <label for="ftime">Full-time</label>
+            <input v-model="jobType" type="checkbox" id="ptime" name="ptime" value="Part-time" />
+            <label for="ptime">Part-time</label>
+            <input v-model="jobType" type="checkbox" id="internship" name="internship" value="Internship" />
+            <label for="internship">Internship</label>
+            <input v-model="jobType" type="checkbox" id="contract" name="contract" value="Contractor" />
+            <label for="contract">Contractor</label>
+          </div>
+        </div>
+        <div>
+          <label for="remote">Remote-Only:</label>
+          <input v-model="remote" type="checkbox" id="remote" />
+        </div>
+      </form>
+    </div>
+    <div class="right2">
       <button v-on:click="populateJobsArray">
-        Click here to populate array with jobs
+        Click here to view jobs
       </button>
-      <br />
-      <div v-for="job in jobs" v-bind:key="job.id" class="job-card">
+    </div>
+  </div>
+  <br />
+  <div class="job-cards-container">
+      <div v-for="job in jobs" :key="job.id" class="job-card">
         <div class="card-header">{{ job.employer_name }}</div>
         <div class="card-body">
           <h5 class="card-title">{{ job.job_title }}</h5>
           <pre class="card-text">{{ job.job_description }}</pre>
-          <a
-            v-bind:href="job.job_apply_link"
-            target="_blank"
-            class="btn btn-primary"
-            >Apply</a
-          >
+          <a :href="job.job_apply_link" target="_blank" class="btn btn-primary">Apply</a>
         </div>
         <div class="card-footer text-muted">{{ job.job_location }}</div>
       </div>
@@ -164,5 +148,162 @@ pre{
   background-color: #f7f7f7;
   padding: 10px;
   text-align: center;
+}
+
+ /* Form Styling */
+body {
+  background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+}
+ p {
+  font-size: x-large;
+ }
+
+.right2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: auto;
+  padding: 10px 10px 10px 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #419bfc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.job-search-form {
+  margin: 0 auto;
+  width: 80%;
+  background: #ffffffd0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  box-shadow: 0 0 20px 6px #090b6f85;
+  margin-top: 40px;
+}
+
+
+@media (max-width: 980px) {
+  .job-search-form {
+    flex-flow: wrap;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+.job-search-form div {
+  height: auto;
+}
+
+.job-search-form .left {
+  color: #FFFFFF;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url('/pictures/Capture3.PNG');
+  
+}
+
+.job-search-form .left .overlay {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.job-search-form .left .overlay h1 {
+  font-size: 10vmax;
+  line-height: 1;
+  font-weight: 900;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.job-search-form .left .overlay span p {
+  margin-top: 30px;
+  font-weight: 900;
+}
+
+.job-search-form .left .overlay span a {
+  background: #3b5998;
+  color: #FFFFFF;
+  margin-top: 10px;
+  padding: 14px 50px;
+  border-radius: 100px;
+  display: inline-block;
+  box-shadow: 0 3px 6px 1px #042d4657;
+}
+
+.job-search-form .left .overlay span a:last-child {
+  background: #1dcaff;
+  margin-left: 30px;
+}
+
+.job-search-form .right {
+  padding: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 980px) {
+  .job-search-form .right {
+    width: 100%;
+  }
+}
+
+.job-search-form .right h5 {
+  font-size: 3vmax;
+  line-height: 1;
+}
+
+.job-search-form .right p {
+  font-size: 14px;
+  color: #B0B3B9;
+}
+
+.job-search-form .right .inputs {
+  overflow: hidden;
+}
+
+.job-search-form .right input[type="text"] {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.job-search-form .right input[type="submit"] {
+  background: #3b5998;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px
 }
 </style>
