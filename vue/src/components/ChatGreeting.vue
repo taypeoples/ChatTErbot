@@ -1,6 +1,9 @@
 <template>
   <div>
+    <div class ="bot-msg">
     <p id = "openingMessage">Welcome! What should I call you?</p>
+ </div>   
+    <div class ="user-input-container">
     <form v-if="showForm === true" v-on:submit.prevent="submitNickname">
       <input
         id="chatEntry"
@@ -11,6 +14,7 @@
       />
       <button>Submit</button>
     </form>
+    </div>
   </div>
 </template>
 
@@ -59,6 +63,13 @@ button:hover{
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: 25%;
+}
+.user-input-container {
+  position: absolute;
+}
+
+.bot-msg{
+  height: 750px;
 }
 
 

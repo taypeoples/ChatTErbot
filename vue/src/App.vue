@@ -4,7 +4,9 @@
     <div id="nav">
     </div>
     <router-view />
+    <div id="footer">
     <the-footer/>
+    </div>
   </div>
 </template>
 
