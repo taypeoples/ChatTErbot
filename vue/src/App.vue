@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <the-header/>   
-    <div id="nav">
+  <div class="container">
+    <!-- <div class="nav">
+      <the-header />
+    </div> -->
+    <div class="body">
+      <router-view />
+
     </div>
-    <router-view /> 
-    <the-footer/>
   </div>
 </template>
 
 
 <script>
-import TheHeader from './components/TheHeader.vue';
-import TheFooter from './components/TheFooter.vue';
+
+
 export default {
-  components: { 
-    TheHeader,
-    TheFooter,
+  components: {
+    /* TheHeader, */
   },
 };
 </script>
 
 <style scoped>
-nav{
-background: #131313;
+/* .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1.3fr 1.5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "nav nav nav"
+    "body body body"
+    "body body body";
+} */
+
+/* .nav {
+  background: #131313;
 }
+ */
 
 </style>
