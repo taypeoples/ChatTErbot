@@ -1,19 +1,25 @@
 <template>
-  <div>
-  <img class ="ava" src ="https://imagizer.imageshack.com/img924/5237/mTr9vv.png" /> ChatTErbot:
-    <p id = "openingMessage">Welcome! What should I call you?</p> 
-
-    <form v-if="showForm === true" v-on:submit.prevent="submitNickname">
-      <input
-        id="chatEntry"
-        type="text"
-        class=""
-        v-model="nickname"
-        placeholder="Type your message here"
+  <div id="greeting-app">
+    <div class="greeting-msg">
+      <img
+        class="ava"
+        src="https://imagizer.imageshack.com/img924/5237/mTr9vv.png"
       />
-      <button>Submit</button>
-    </form>
+      ChatTErbot:
+      <p id="openingMessage">Welcome! What should I call you?</p>
     </div>
+   <!--  <div class="g-user-input">
+      <form v-if="showForm === true" v-on:submit.prevent="submitNickname">
+        <input
+          id="chatEntry"
+          type="text"
+          v-model="nickname"
+          placeholder="Type your message here"
+        />
+        <button>Submit</button>
+      </form>
+    </div> -->
+  </div>
 </template>
 
 
@@ -22,20 +28,14 @@ export default {
   data() {
     return {
       nickname: "",
-      showForm: true,
+      /* showForm: true, */
     };
   },
-  /* mounted() {
-        
-            /* this.messages.push('Hello, what should I call you?'); */
-  /*  const userSetNickname = window.prompt('Enter your nick-name');
-            return userSetNickname;
-        }, */
 
   methods: {
     submitNickname() {
       this.$emit("passNickname", this.nickname);
-      this.showForm = false;
+      /* this.showForm = false; */
     },
   },
 };
@@ -46,6 +46,18 @@ button:hover {
   background-color: rgb(212, 212, 212);
   box-shadow: 3px 3px lightgray;
 }
+
+#greeting-app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+  "greeting-msg"
+  "g-user-input"
+}
+
+
 
 #openingMessage {
   font-family: "Lucida Console", Monaco, monospace;
@@ -70,5 +82,4 @@ button:hover {
   vertical-align: middle;
   padding: 5px;
 }
-
 </style>

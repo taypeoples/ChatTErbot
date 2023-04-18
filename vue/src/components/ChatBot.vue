@@ -1,29 +1,46 @@
 <template>
   <div id="main" class="main">
-    <div class="chat-container">
-      <chat-greeting v-on:passNickname="getNickname($event)" />
-      <div id="messages">
-        <div v-for="message in messages" v-bind:key="message.id">
-          <div class="textbox" v-html="message"></div>
+    <div id="chat-app">
+      <div class="nav">
+        <the-header />
+      </div>
+      <div class="chat-container">
+        <div id="messages">
+          <div v-for="message in messages" v-bind:key="message.id">
+            <div class="textbox" v-html="message"></div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="user-input-containter">
-      <form v-if="showForm === true" v-on:submit.prevent="handleSubmit">
-        <input
-          class="chat-entry"
-          type="text"
-          v-model="userMessage"
-          placeholder="Type your message here"
-        />
-        <button>Submit</button>
-      </form>
-      <ul id="commands" class="commands">
-        <li>Type "Home" to be returned to the beginning of the chatbot</li>
-        <li>Type "Back" to be returned to the previous prompt selection</li>
-        <li>Type "Assistance" if you are stuck or unsure what to do</li>
-      </ul>
+      <div class="user-input">
+        <form v-if="!firstMessage" v-on:submit.prevent="handleSubmit">
+          <input
+            class="chat-entry"
+            type="text"
+            v-model="userMessage"
+            placeholder="Type your message here"
+          />
+          <button>Submit</button>
+        </form>
+
+        <form v-if="firstMessage" v-on:submit.prevent="getNickname">
+          <input
+            class="chat-entry"
+            type="text"
+            v-model="nickname"
+            placeholder="Type your message here"
+          />
+          <button>Submit</button>
+        </form>
+
+        <ul id="commands" class="commands">
+          <li>Type "Home" to be returned to the beginning of the chatbot</li>
+          <li>Type "Back" to be returned to the previous prompt selection</li>
+          <li>Type "Assistance" if you are stuck or unsure what to do</li>
+        </ul>
+        <br />
+        <p>&#169; Copyright 2023 Tech Elevator</p>
+      </div>
     </div>
   </div>
 </template>
@@ -31,11 +48,12 @@
 // import JobService from '../services/JobService.js';
 import QuoteService from "../services/QuoteService.js";
 import ResponseService from "../services/ResponseService.js";
-import ChatGreeting from "./ChatGreeting.vue";
+import TheHeader from "./TheHeader.vue";
 
 export default {
   components: {
-    ChatGreeting,
+    
+    TheHeader,
   },
   data() {
     return {
@@ -43,7 +61,7 @@ export default {
       botResponseMessage: {},
       messages: [],
       nickname: "",
-      showForm: false,
+      firstMessage: true,
       jobHelp: false,
       botStyle:
         '<img class ="ava" src ="https://imagizer.imageshack.com/img924/5237/mTr9vv.png" > ChatTErbot:</img><div class = "bot">',
@@ -52,6 +70,10 @@ export default {
       userStyle: '<div class = "user">',
       jobs: [],
     };
+  },
+
+  created(){
+    this.messages.push(this. botStyle + "Hey there, my name is ChatTErbot! What should I call you?")
   },
 
   methods: {
@@ -105,8 +127,8 @@ export default {
       this.userMessage = "";
     },
 
-    getNickname(nickname) {
-      this.nickname = nickname;
+    getNickname() {
+      let nickname = this.nickname ;
       this.messages.push(this.usertag + this.userStyle + nickname + "</div>");
       ResponseService.getFirstResponse().then((response) => {
         this.responseMessage = response.data.messageBody;
@@ -119,7 +141,7 @@ export default {
           nickname +
           "?"
       ); */
-      this.showForm = true;
+      this.firstMessage = false;
     },
     getAssistance() {
       ResponseService.getBotResponse("help", "assistance", "default").then(
@@ -142,6 +164,33 @@ export default {
 <style scoped>
 .main {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  margin: 0;
+}
+
+#chat-app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "nav"
+    "chat-container"
+    "user-input";
+}
+
+#chat-app > .nav {
+  grid-area: nav;
+}
+
+#chat-app > .chat-container {
+  background: url("C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\chatbgd.png");
+  grid-area: chat-container;
+  overflow: auto;
+  padding: 15px 5px 10px 5px;
+}
+
+#chat-app > .user-input {
+  grid-area: user-input;
 }
 
 .textbox {
@@ -189,16 +238,6 @@ export default {
   vertical-align: middle;
   padding: 5px;
   margin-left: 25%;
-}
-
-/* .chat-container{
-  height: 750px;
-  background-size: contain;
-  background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\Capture1.PNG');
-} */
-
-.chat-container {
-  padding: 10px;
 }
 
 button:hover {
