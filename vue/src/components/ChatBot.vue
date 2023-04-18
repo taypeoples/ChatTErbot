@@ -73,7 +73,7 @@ export default {
   },
 
   created(){
-    this.messages.push(this. botStyle + "Hey there, my name is ChatTErbot! What should I call you?")
+    this.messages.push(this. botStyle + "Hey there! What should I call you?")
   },
 
   methods: {
@@ -123,7 +123,6 @@ export default {
           }
         });
       }
-      // this.autoscroll();
       this.userMessage = "";
     },
 
@@ -136,11 +135,6 @@ export default {
           this.botStyle + this.responseMessage + nickname + "? </div>"
         );
       });
-      /* this.messages.push(
-        "<p>I can help you with:</p><ul><li>Pathway information</li><li>Curriculum</li><li>Get a motivational quote</li>Which would you like, " +
-          nickname +
-          "?"
-      ); */
       this.firstMessage = false;
     },
     getAssistance() {
@@ -183,7 +177,8 @@ export default {
 }
 
 #chat-app > .chat-container {
-  background: url("C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\chatbgd.png");
+  /* Have to comment out because of absolute path, will break unless everyone's absolute path is the same */
+  /* background: url("C:\Users\Student\source\repos\pairs\team-quebec\vue\pictures\chatbgd.png"); */
   grid-area: chat-container;
   overflow: auto;
   padding: 15px 5px 10px 5px;
