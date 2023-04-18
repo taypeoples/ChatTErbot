@@ -1,10 +1,12 @@
 <template>
-  <div id= "main" class="main">
+  <div id="main" class="main">
     <chat-greeting v-on:passNickname="getNickname($event)" />
-    <div id="messages" v-for="message in messages" v-bind:key="message.id">
-      <!-- :class="isBot ? 'active' : 'textbox'" -->
-      <div>
-        <div class="textbox" v-html="message"></div>
+    <div id="messages">
+      <div v-for="message in messages" v-bind:key="message.id">
+        <!-- :class="isBot ? 'active' : 'textbox'" -->
+        <div>
+          <div class="textbox" v-html="message"></div>
+        </div>
       </div>
     </div>
 
@@ -44,7 +46,8 @@ export default {
       showForm: false,
       isBot: false,
       jobHelp: false,
-      botStyle: '<img class ="ava" src ="https://coursereport-production.imgix.net/uploads/school/logo/259/original/mark.png?w=72&amp;h=72">  ChatTErbot:</img><div class = "bot">',
+      botStyle:
+        '<img class ="ava" src ="https://coursereport-production.imgix.net/uploads/school/logo/259/original/mark.png?w=72&amp;h=72">  ChatTErbot:</img><div class = "bot">',
       userStyle: '<div class = "user">',
     };
   },
@@ -61,11 +64,16 @@ export default {
         });
       } else if (this.userMessage.includes("assistance")) {
         this.getAssistance();
-      }
-       else if (this.userMessage.includes("job search") || this.userMessage.includes("open positions") || this.userMessage.includes("jobs")){
-        this.messages.push(this.botStyle + '<a href="http://localhost:8080/jobSearch" target= "_blank">Open Job Search</a></div>');
-      } 
-      else {
+      } else if (
+        this.userMessage.includes("job search") ||
+        this.userMessage.includes("open positions") ||
+        this.userMessage.includes("jobs")
+      ) {
+        this.messages.push(
+          this.botStyle +
+            '<a href="http://localhost:8080/jobSearch" target= "_blank">Open Job Search</a></div>'
+        );
+      } else {
         let messageToSend = {
           messageId: 0,
           messageBody: this.userMessage,
@@ -118,14 +126,14 @@ export default {
         }
       );
     },
-    getJobSearch(){
-      this.messages.push('<router-link');
+    getJobSearch() {
+      this.messages.push("<router-link");
     },
-/*     autoscroll(){
+    /*     autoscroll(){
       const scrollDiv = document.getElementById("commands");
       scrollDiv.scrollIntoView(false);
   }, */
-  }
+  },
 };
 </script>
 
@@ -153,7 +161,7 @@ export default {
 }
 
 .textbox >>> .user {
-  background:  #ebfaeb;
+  background: #ebfaeb;
   border-width: 3px;
   border-style: solid;
   border-radius: 5px;
@@ -171,9 +179,9 @@ export default {
   padding: 5px;
 }
 
-.commands{
-  bottom:0;
-  position: absolute;
+.commands {
+  bottom: 0;
+  position: relative;
 }
 
 button:hover {
@@ -192,4 +200,5 @@ li {
   line-height: 1.5;
   margin-bottom: 3px;
 }
+
 </style>
