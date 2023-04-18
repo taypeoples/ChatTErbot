@@ -179,7 +179,7 @@ export default {
   
   height: 750px;
   background-size: contain;
-  background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\Capture1.PNG');
+ /*  background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\Capture1.PNG'); */
 }
 
 
