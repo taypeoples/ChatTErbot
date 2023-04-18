@@ -47,6 +47,8 @@ export default {
       jobHelp: false,
       botStyle:
         '<img class ="ava" src ="https://imagizer.imageshack.com/img924/5237/mTr9vv.png" > ChatTErbot:</img><div class = "bot">',
+      usertag:
+        '<img class ="user-ava" src ="https://pic.onlinewebfonts.com/svg/img_561543.png" />',
       userStyle: '<div class = "user">',
       jobs: [],
     };
@@ -54,7 +56,14 @@ export default {
 
   methods: {
     handleSubmit() {
-      this.messages.push(this.userStyle + this.userMessage + "</div>");
+      this.messages.push(
+        this.usertag +
+          this.nickname +
+          " :" +
+          this.userStyle +
+          this.userMessage +
+          "</div>"
+      );
       if (this.userMessage.includes("quote")) {
         this.isBot = true;
         QuoteService.quote().then((response) => {
@@ -98,7 +107,7 @@ export default {
 
     getNickname(nickname) {
       this.nickname = nickname;
-      this.messages.push(this.userStyle + nickname + "</div>");
+      this.messages.push(this.usertag + this.userStyle + nickname + "</div>");
       ResponseService.getFirstResponse().then((response) => {
         this.responseMessage = response.data.messageBody;
         this.messages.push(
@@ -133,7 +142,6 @@ export default {
 <style scoped>
 .main {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  height: 800px;
 }
 
 .textbox {
@@ -143,7 +151,7 @@ export default {
 }
 
 .textbox >>> .bot {
-  font-family: Georgia, serif;
+  font-family: "Lucida Console", Monaco, monospace;
   background: #eefdff;
   border-width: 3px;
   border-style: solid;
@@ -155,7 +163,7 @@ export default {
 }
 
 .textbox >>> .user {
-  background: #ebfaeb;
+  background: #e1eaed;
   border-width: 3px;
   border-style: solid;
   border-radius: 5px;
@@ -173,16 +181,25 @@ export default {
   padding: 5px;
 }
 
+.textbox >>> img.user-ava {
+  width: 20px;
+  height: 20px;
+  font-size: small;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+  margin-left: 25%;
+}
+
 /* .chat-container{
   height: 750px;
   background-size: contain;
   background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\Capture1.PNG');
 } */
 
-.chat-container{
+.chat-container {
   padding: 10px;
 }
-
 
 button:hover {
   background-color: rgb(212, 212, 212);

@@ -1,5 +1,6 @@
 <template>
   <div>
+  <img class ="ava" src ="https://imagizer.imageshack.com/img924/5237/mTr9vv.png" /> ChatTErbot:
     <p id = "openingMessage">Welcome! What should I call you?</p> 
 
     <form v-if="showForm === true" v-on:submit.prevent="submitNickname">
@@ -47,7 +48,7 @@ button:hover {
 }
 
 #openingMessage {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Lucida Console", Monaco, monospace;
   font-size: large;
   border-width: 3px;
   background: #eefdff;
@@ -56,10 +57,18 @@ button:hover {
   border-radius: 5px;
   padding: 20px;
   border-width: 80%;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-bottom: 20px;
   margin-right: 25%;
 }
 
+.ava {
+  width: 20px;
+  height: 20px;
+  font-size: small;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+}
 
 </style>
