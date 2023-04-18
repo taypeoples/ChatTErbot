@@ -72,6 +72,10 @@ export default {
     };
   },
 
+  created(){
+    this.messages.push(this. botStyle + "Hey there, my name is ChatTErbot! What should I call you?")
+  },
+
   methods: {
     handleSubmit() {
       this.messages.push(
