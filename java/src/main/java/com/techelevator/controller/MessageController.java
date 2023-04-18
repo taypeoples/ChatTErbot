@@ -13,6 +13,7 @@ public class MessageController {
     @Autowired
     private MessageDao messageDao;
     public MessageControllerHelper helper = new MessageControllerHelper();
+    public MessageHelper helper2 = new MessageHelper();
 
 
     @RequestMapping(path = "/firstResponse", method = RequestMethod.GET)
@@ -24,10 +25,17 @@ public class MessageController {
         return newMessage;
     }
 
+//    @RequestMapping(path = "/messages", method = RequestMethod.POST)
+//    public Message getMessage(@RequestBody Message message) {
+//        String[] keyWords = helper.filterMessage(message.getMessageBody());
+//        Message newMessage = messageDao.getMessageByKeyWords(keyWords[0], keyWords[1], keyWords[2]);
+//        return newMessage;
+//    }
+
     @RequestMapping(path = "/messages", method = RequestMethod.POST)
     public Message getMessage(@RequestBody Message message) {
-        String[] keyWords = helper.filterMessage(message.getMessageBody());
-        Message newMessage = messageDao.getMessageByKeyWords(keyWords[0], keyWords[1], keyWords[2]);
+        String[] keyWords = helper2.filterMessage(message.getMessageBody());
+        Message newMessage = messageDao.getMessageByKeyWords2(keyWords[0], keyWords[1]);
         return newMessage;
     }
 
