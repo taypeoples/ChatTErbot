@@ -32,5 +32,20 @@ export default {
     return axios.request(options)
   },
 
+  getAFewJobs() {
+
+    const options = {
+      method: 'GET',
+      url: 'https://jsearch.p.rapidapi.com/search',
+      params: {query: 'Junior Software Developer in Ohio, USA', page: '1', num_pages: '1'},
+      headers: {
+        'X-RapidAPI-Key': '1b4f580bcdmshdfcfba45a52a733p157bcfjsn6f674d11d064',
+        'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+      }
+    };
+
+    return axios.request(options)
+  },
+
 
 }

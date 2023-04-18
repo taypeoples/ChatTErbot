@@ -29,6 +29,7 @@
   </div>
 </template>
 <script>
+// import JobService from '../services/JobService.js';
 import QuoteService from "../services/QuoteService.js";
 import ResponseService from "../services/ResponseService.js";
 import ChatGreeting from "./ChatGreeting.vue";
@@ -49,6 +50,7 @@ export default {
       botStyle:
         '<img class ="ava" src ="https://coursereport-production.imgix.net/uploads/school/logo/259/original/mark.png?w=72&amp;h=72">  ChatTErbot:</img><div class = "bot">',
       userStyle: '<div class = "user">',
+      jobs: [],
     };
   },
 
@@ -67,7 +69,8 @@ export default {
       } else if (
         this.userMessage.includes("job search") ||
         this.userMessage.includes("open positions") ||
-        this.userMessage.includes("jobs")
+        this.userMessage.includes("jobs") ||
+        this.userMessage.includes("job")
       ) {
         this.messages.push(
           this.botStyle +
