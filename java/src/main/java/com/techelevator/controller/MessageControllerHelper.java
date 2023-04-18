@@ -42,6 +42,12 @@ public class MessageControllerHelper {
                 } else if (word.equals("social") || word.equals("media") || word.equals("linkedin") || word.equals("huntr")) {
                     setKeyword1Helper("social", keyWords);
                     return keyWords;
+                } else if (word.equals("network") || word.equals("networking") || word.equals("meet") || word.equals("mentor")) {
+                    setKeyword1Helper("networking", keyWords);
+                    return keyWords;
+                } else if (word.equals("match") || word.equals("making") || word.equals("matchmaking")) {
+                    setKeyword1Helper("matchmaking", keyWords);
+                    return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
                     return keyWords;
@@ -117,6 +123,34 @@ public class MessageControllerHelper {
                     return keyWords;
                 } else if (word.equals("prep") || word.equals("preparation") || word.equals("prepare") || word.equals("ready")) {
                     setKeyword2Helper("preparation", keyWords);
+                    return keyWords;
+                } else if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("networking") && keyWord2.equals("default")) {
+                if (word.equals("event") || word.equals("events") || word.equals("conference")) {
+                    setKeyword2Helper("events", keyWords);
+                    return keyWords;
+                } else if (word.equals("prep") || word.equals("preparation") || word.equals("prepare") || word.equals("ready")) {
+                    setKeyword2Helper("prep", keyWords);
+                    return keyWords;
+                } else if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("matchmaking") && keyWord2.equals("default")) {
+                if (word.equals("overview") || word.equals("over") || word.equals("view")) {
+                    setKeyword2Helper("overview", keyWords);
+                    return keyWords;
+                } else if (word.equals("prep") || word.equals("preparation") || word.equals("prepare") || word.equals("ready")) {
+                    setKeyword2Helper("prep", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -205,7 +239,31 @@ public class MessageControllerHelper {
                     home(keyWords);
                     return keyWords;
                 }
-            } else if (needCategory.equals("pathway") && keyWord1.equals("technical") && keyWord2.equals("explanation")) {
+            } else if (needCategory.equals("pathway") && keyWord1.equals("networking") && keyWord2.equals("prep")) {
+                if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("networking") && keyWord2.equals("events")) {
+                if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("matchmaking") && keyWord2.equals("overview")) {
+                if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
+            } else if (needCategory.equals("pathway") && keyWord1.equals("matchmaking") && keyWord2.equals("prep")) {
                 if (word.equals("back")) {
                     back(keyWords);
                     return keyWords;
@@ -261,7 +319,19 @@ public class MessageControllerHelper {
                 } else if (word.equals("oop") || word.equals("object") || word.equals("oriented")) {
                     setKeyword2Helper("oop", keyWords);
                     return keyWords;
-                } else if (word.equals("back")) {
+                } else if (word.equals("class") || word.equals("classes") || word.equals("encapsulation")) {
+                    setKeyword2Helper("classesencapsulation", keyWords);
+                    return keyWords;
+                } else if (word.equals("poly") || word.equals("morph") || word.equals("polymorphism")) {
+                    setKeyword2Helper("polymorphism", keyWords);
+                    return keyWords;
+                } else if (word.equals("inheritance") || word.equals("inherit")) {
+                    setKeyword2Helper("inheritance", keyWords);
+                    return keyWords;
+                } else if (word.equals("exception") || word.equals("exceptions") || word.equals("catch")) {
+                    setKeyword2Helper("exceptions", keyWords);
+                    return keyWords;
+                }else if (word.equals("back")) {
                     back(keyWords);
                     return keyWords;
                 } else if (word.equals("home")) {
@@ -277,6 +347,9 @@ public class MessageControllerHelper {
                     return keyWords;
                 } else if (word.equals("networking") || word.equals("network")) {
                     setKeyword2Helper("networking", keyWords);
+                    return keyWords;
+                } else if (word.equals("testing")) {
+                    setKeyword2Helper("daotesting", keyWords);
                     return keyWords;
                 } else if (word.equals("back")) {
                     back(keyWords);
@@ -382,6 +455,30 @@ public class MessageControllerHelper {
                     home(keyWords);
                     return keyWords;
                 }
+            } else if (needCategory.equals("curriculum") && keyWord1.equals("java") && keyWord2.equals("inheritance")) {
+                if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
+            } else if (needCategory.equals("curriculum") && keyWord1.equals("java") && keyWord2.equals("polymorphism")) {
+                if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
+            } else if (needCategory.equals("curriculum") && keyWord1.equals("java") && keyWord2.equals("exceptions")) {
+                if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
             } else if (needCategory.equals("curriculum") && keyWord1.equals("clientserver") && keyWord2.equals("api")) {
                 if (word.equals("back")) {
                     back(keyWords);
@@ -399,6 +496,14 @@ public class MessageControllerHelper {
                     return keyWords;
                 }
             } else if (needCategory.equals("curriculum") && keyWord1.equals("clientserver") && keyWord2.equals("networking")) {
+                if (word.equals("back")) {
+                    back(keyWords);
+                    return keyWords;
+                } else if (word.equals("home")) {
+                    home(keyWords);
+                    return keyWords;
+                }
+            } else if (needCategory.equals("curriculum") && keyWord1.equals("clientserver") && keyWord2.equals("daotesting")) {
                 if (word.equals("back")) {
                     back(keyWords);
                     return keyWords;
