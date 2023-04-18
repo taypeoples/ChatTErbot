@@ -98,6 +98,6 @@ body {
 }
 
 .floating-card a:hover {
-  background-color: #4298df;
+  background-color: #237aec;
 }
 </style>

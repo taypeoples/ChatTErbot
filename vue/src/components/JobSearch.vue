@@ -169,20 +169,20 @@ body {
 }
 
 button {
-  background-color: #007bff;
+  background-color:#3b5998;
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #419bfc;
+  background-color: #237aec;
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
