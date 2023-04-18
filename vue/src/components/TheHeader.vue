@@ -65,4 +65,25 @@ export default {
 .router-links a:hover {
   box-shadow: 0 0 15px rgba(59, 151, 236, 0.842);
 }
+
+@media screen and (max-width: 767px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: stretch;
+    align-content: center;
+  }
+
+  .router-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .router-links router-link,
+  .router-links a {
+    margin: 10px 0;
+    width: 95%;
+    padding: 5px;
+    
+  }
+}
 </style>

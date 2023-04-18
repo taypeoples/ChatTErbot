@@ -276,9 +276,13 @@ button:hover {
   overflow: hidden;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 480px) {
+  .job-search-form{
+    height: 40%;
+  }
   .job-search-form .right {
     width: 100%;
+    
   }
 }
 
@@ -323,4 +327,5 @@ button:hover {
   cursor: pointer;
   box-shadow: 0 3px 6px
 }
+
 </style>

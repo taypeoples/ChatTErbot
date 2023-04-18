@@ -10,5 +10,7 @@ public interface MessageDao {
 
     Message getMessageByKeyWords(String needCategory, String keyword1, String keyword2);
 
+    Message getMessageByKeyWords2(String keyword1, String keyword2);
+
 
 }
