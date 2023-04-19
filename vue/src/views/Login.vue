@@ -1,7 +1,10 @@
 <template>
+  <div>
+    <the-header></the-header>
   <div class="box-form">
     <div class="left">
       <div class="overlay">
+        
         <h1>Welcome back!</h1>
         <span>
           <p>Enter your login details to access your account.</p>
@@ -32,14 +35,16 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
+import TheHeader from '../components/TheHeader.vue';
 import authService from "../services/AuthService";
 
 export default {
   name: "login",
-  components: {},
+  components: {TheHeader},
   data() {
     return {
       user: {
