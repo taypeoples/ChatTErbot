@@ -133,8 +133,8 @@ export default {
 
 <style scoped>
 .jsearch {
-  /* background-image: url('./pictures/searchbg.png'); */
-  
+/*   background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\searchbg.png');
+ */  
 }
 
 .job-cards {
@@ -287,7 +287,7 @@ button:hover {
   color: #ffffff;
   background-size: 100%;
   background-repeat: no-repeat;
-  background-image: url("/pictures/Capture3.PNG");
+  /* background-image: url("/pictures/Capture3.PNG"); */
 }
 
 .job-search-form .left .overlay {
@@ -343,7 +343,7 @@ button:hover {
 .job-search-form .right h5 {
   font-size: 5vmax;
   line-height: 1;
-  background-image: url("/pictures/Capture3.PNG");
+  /* background-image: url("/pictures/Capture3.PNG"); */
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
