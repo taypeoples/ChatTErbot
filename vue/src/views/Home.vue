@@ -105,15 +105,15 @@ p {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-self: center;
-    margin: 0 auto;
+    margin: 0;
     height: 90vh;
     z-index: 1;
     width: 100%;
     height: 400px;
-    max-width: 1300px;
+    max-width: 1000px;
     padding: 0 50px;
     padding-top: 100px;
-    padding-left: 380px;
+    
 }
 
 .floating-card {
@@ -215,7 +215,7 @@ p {
 
 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1500px) {
   .home {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   display: flex;
@@ -230,7 +230,7 @@ p {
   flex-direction: column;
   align-items: center;
   min-height: 100%;
-  min-width: 100%;
+  min-width: 90%;
 }
 
 .home h1 {
@@ -272,6 +272,7 @@ p {
 
 .main__img--container {
     text-align: center;
+    max-width: 50%;
 }
 
 .main__container {
@@ -287,7 +288,11 @@ p {
     max-width: 1300px;
     padding: 0 50px;
     padding-top: 100px;
-    padding-left: 100px;
+    padding-right: 0px;
+}
+
+#main__img {
+  width: 50%;
 }
 }
 
