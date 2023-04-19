@@ -10,6 +10,7 @@
             <div class="textbox" v-html="message"></div>
           </div>
         </div>
+        <div ref ="scrollDiv"></div>
       </div>
 
       <div class="user-input">
@@ -73,7 +74,7 @@ export default {
   },
 
   created(){
-    this.messages.push(this. botStyle + "Hey there, my name is ChatTErbot! What should I call you?")
+    this.messages.push(this. botStyle + "Hey there, I'm ChatTErbot your cohort companion. What would you like me to call you?")
   },
 
   methods: {
@@ -125,7 +126,7 @@ export default {
       }
       this.userMessage = "";
       this.$nextTick(()=> {
-        this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
+        this.$refs.scrollDiv.scrollTop = this.$refs.scrollDiv.scrollHeight;
       })
     },
 
@@ -185,7 +186,7 @@ export default {
 }
 
 #chat-app > .chat-container {
-  /* background: url("C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\chatbgd.png"); */
+  background: url();
   grid-area: chat-container;
   overflow-y: auto;
   max-height: 100%;
