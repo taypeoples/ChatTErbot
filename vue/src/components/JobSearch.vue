@@ -1,6 +1,6 @@
 <template>
   <div class = "jsearch">
-    <div class="job-search-form">
+    [<div class="job-search-form">
       <div class="left">
         <div class="overlay">
           <h1>Job Search</h1>
@@ -133,7 +133,7 @@ export default {
 
 <style scoped>
 .jsearch {
-  background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\searchbg.png');
+  background-image: url(https://i.imgur.com/QlpP1vV.png);
   
 }
 
