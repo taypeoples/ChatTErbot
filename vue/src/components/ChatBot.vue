@@ -39,7 +39,6 @@
           <li>Type "Keywords" to see all of the things I can help you with</li>
           <li>Type "Assistance" if you are stuck or unsure what to do</li>
         </ul>
-        <br />
         <p>&#169; Copyright 2023 Tech Elevator</p>
       </div>
     </div>
@@ -64,7 +63,7 @@ export default {
       firstMessage: true,
       jobHelp: false,
       botStyle:
-        '<img class ="ava" src ="https://imagizer.imageshack.com/img924/5237/mTr9vv.png" > ChatTErbot:</img><div class = "bot">',
+        '<img class ="ava" src ="https://i.imgur.com/eYEah4e.png" > ChatTErbot:</img><div class = "bot">',
       usertag:
         '<img class ="user-ava" src ="https://pic.onlinewebfonts.com/svg/img_561543.png" />',
       userStyle: '<div class = "user">',
@@ -134,9 +133,10 @@ export default {
         });
       }
       this.userMessage = "";
-      this.$nextTick(()=> {
-        this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
-      })
+      this.$nextTick(() => {
+        this.$refs.chatContainer.scrollTop =
+          this.$refs.chatContainer.scrollHeight;
+      });
       /* const element = document.getElementById("chatContainer");
       setInterval(function () {
         element.scrollTop = element.scrollHeight;
@@ -166,6 +166,10 @@ export default {
           nickname +
           "?"
       ); */
+      this.$nextTick(() => {
+        this.$refs.chatContainer.scrollTop =
+          this.$refs.chatContainer.scrollHeight;
+      });
       this.firstMessage = false;
     },
     getAssistance() {
@@ -192,17 +196,17 @@ export default {
   margin: 0;
 }
 
-.chat-entry{
- padding: 28px;
-     font-size: 16px;
-     width: 50%;
-     border-width: 1px;
-     border-color: #CCCCCC;
-     background-color: #FFFFFF;
-     color: #000000;
-     border-style: solid;
-     border-radius: 10px;
-     box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+.chat-entry {
+  padding: 18px;
+  font-size: 16px;
+  width: 50%;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);
 }
 
 #chat-app {
@@ -240,12 +244,12 @@ export default {
 
 .textbox >>> .bot {
   font-family: "Lucida Console", Monaco, monospace;
-  width: auto;
   background: #eefdff;
   border-width: 3px;
   border-style: solid;
   border-radius: 10px;
   border-color: #80b5ea;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   padding: 20px;
   margin-right: 25%;
   margin-left: 50px;
@@ -257,14 +261,15 @@ export default {
   border-style: solid;
   border-radius: 10px;
   border-color: #39ac39;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   padding: 20px;
   margin-left: 25%;
   margin-right: 50px;
 }
 
 .textbox >>> .ava {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   font-size: small;
   text-align: center;
   vertical-align: middle;
@@ -273,8 +278,8 @@ export default {
 }
 
 .textbox >>> img.user-ava {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   font-size: small;
   text-align: center;
   vertical-align: middle;
@@ -284,36 +289,31 @@ export default {
 }
 
 button {
-	box-shadow: 0px 10px 14px -7px #a8a8a8;
-	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
-	background-color:#bddbfa;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:13px 32px;
+  box-shadow: 0px 10px 14px -7px #a8a8a8;
+  background: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+  background-color: #bddbfa;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #000000;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 15px;
   margin: 20px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+  text-decoration: none;
 }
 button:hover {
-	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
-	background-color:#80b5ea;
+  background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+  background-color: #80b5ea;
 }
 button:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
-
-        
-
 
 ul {
   list-style: none;
-  margin-top: 15px;
+  margin-top: 5px;
   padding: 0;
 }
 
