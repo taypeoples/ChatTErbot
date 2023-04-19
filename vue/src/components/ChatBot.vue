@@ -126,7 +126,7 @@ export default {
       }
       this.userMessage = "";
       this.$nextTick(()=> {
-        this.$refs.scrollDiv.scrollTop = this.$refs.scrollDiv.scrollHeight;
+        this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
       })
     },
 
@@ -186,7 +186,6 @@ export default {
 }
 
 #chat-app > .chat-container {
-  
   grid-area: chat-container;
   overflow-y: auto;
   max-height: 100%;
