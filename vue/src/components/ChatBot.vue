@@ -121,6 +121,7 @@ export default {
             );
           } else {
             this.messages.push(this.botStyle + this.responseMessage + "</div>");
+            this.messages.push(this.botStyle + " What else can I help you with?" + "</div>");
           }
         });
       }
