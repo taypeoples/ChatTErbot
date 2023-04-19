@@ -10,7 +10,7 @@
             <div class="textbox" v-html="message"></div>
           </div>
         </div>
-        <div ref ="scrollDiv"></div>
+        <div ref="scrollDiv"></div>
       </div>
 
       <div class="user-input">
@@ -36,7 +36,7 @@
 
         <ul id="commands" class="commands">
           <li>Type "Home" to be returned to the beginning of the chatbot</li>
-          <li>Type "Back" to be returned to the previous prompt selection</li>
+          <li>Type "Keywords" to see all of the things I can help you with</li>
           <li>Type "Assistance" if you are stuck or unsure what to do</li>
         </ul>
         <br />
@@ -53,7 +53,6 @@ import TheHeader from "./TheHeader.vue";
 
 export default {
   components: {
-    
     TheHeader,
   },
   data() {
@@ -73,8 +72,11 @@ export default {
     };
   },
 
-  created(){
-    this.messages.push(this. botStyle + "Hey there, I'm ChatTErbot your cohort companion. What would you like me to call you?")
+  created() {
+    this.messages.push(
+      this.botStyle +
+        "Hey there, I'm ChatTErbot your cohort companion. What would you like me to call you?"
+    );
   },
 
   methods: {
@@ -121,18 +123,20 @@ export default {
             );
           } else {
             this.messages.push(this.botStyle + this.responseMessage + "</div>");
-            this.messages.push(this.botStyle + " What else can I help you with?" + "</div>");
+            this.messages.push(
+              this.botStyle + " What else can I help you with?" + "</div>"
+            );
           }
         });
       }
       this.userMessage = "";
-      this.$nextTick(()=> {
+      this.$nextTick(() => {
         this.$refs.scrollDiv.scrollTop = this.$refs.scrollDiv.scrollHeight;
-      })
+      });
     },
 
     getNickname() {
-      let nickname = this.nickname ;
+      let nickname = this.nickname;
       this.messages.push(this.usertag + this.userStyle + nickname + "</div>");
       ResponseService.getFirstResponse().then((response) => {
         this.responseMessage = response.data.messageBody;
@@ -187,7 +191,6 @@ export default {
 }
 
 #chat-app > .chat-container {
-  
   grid-area: chat-container;
   overflow-y: auto;
   max-height: 100%;
