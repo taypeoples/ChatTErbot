@@ -112,7 +112,7 @@ p {
     height: 400px;
     max-width: 1000px;
     padding: 0 50px;
-    padding-top: 100px;
+    padding-top: 50px;
     
 }
 
@@ -254,7 +254,7 @@ p {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
-  padding-top: 150px;
+  padding-top: 20px;
 }
 
 p {
@@ -299,7 +299,7 @@ p {
     height: 400px;
     max-width: 1300px;
     padding: 0 50px;
-    padding-top: 100px;
+    padding-top: 20px;
     padding-right: 0px;
 }
 
