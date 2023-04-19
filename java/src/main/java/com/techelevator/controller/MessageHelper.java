@@ -240,6 +240,10 @@ public class MessageHelper {
             keyWords[0] = "frontend";
             keyWords[1] = "default";
             return keyWords;
+        } else if (strList.contains("keywords")) {
+            keyWords[0] = "assistance";
+            keyWords[1] = "keywords";
+            return keyWords;
         }
         keyWords[0] = "help";
         keyWords[1] = "default";

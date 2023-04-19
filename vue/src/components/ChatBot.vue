@@ -185,7 +185,7 @@ export default {
 }
 
 #chat-app > .chat-container {
-  background: url("C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\chatbgd.png");
+  /* background: url("C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\chatbgd.png"); */
   grid-area: chat-container;
   overflow-y: auto;
   max-height: 100%;
