@@ -147,7 +147,7 @@ export default {
       this.firstMessage = false;
     },
     getAssistance() {
-      ResponseService.getBotResponse("help", "assistance", "default").then(
+      ResponseService.getBotResponse("assistance", "default").then(
         (response) => {
           this.messages.push(
             this.botStyle +
