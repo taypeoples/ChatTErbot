@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import ChatBot from "../views/ChatBotView.vue"
 import JobSearch from "../views/JobSearch.vue"
+import CatPic from "../views/CatPic.vue"
 
 Vue.use(Router)
 
@@ -67,6 +68,14 @@ const router = new Router({
       path: "/jobSearch",
       name: "jobSearch",
       component: JobSearch,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/catPic",
+      name: "catPic",
+      component: CatPic,
       meta: {
         requiresAuth: false
       }
