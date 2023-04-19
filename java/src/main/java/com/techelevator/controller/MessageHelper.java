@@ -51,13 +51,11 @@ public class MessageHelper {
             keyWords[0] = "cover";
             keyWords[1] = "links";
             return keyWords;
-        } else if (strList.contains("social")
-                && strList.contains("linkedin")) {
+        } else if (strList.contains("linkedin")) {
             keyWords[0] = "social";
             keyWords[1] = "link";
             return keyWords;
-        } else if (strList.contains("social")
-                && strList.contains("huntr")) {
+        } else if (strList.contains("huntr")) {
             keyWords[0] = "social";
             keyWords[1] = "hunt";
             return keyWords;
@@ -67,7 +65,7 @@ public class MessageHelper {
             keyWords[1] = "prep";
             return keyWords;
         } else if (strList.contains("technical")
-                && strList.contains("explanation")) {
+                && strList.contains("interview")) {
             keyWords[0] = "technical";
             keyWords[1] = "explanation";
             return keyWords;
@@ -89,7 +87,7 @@ public class MessageHelper {
         } else if (strList.contains("dao")
                 && strList.contains("testing")) {
             keyWords[0] = "clientserver";
-            keyWords[1] = "dao";
+            keyWords[1] = "daotesting";
             return keyWords;
         } else if (strList.contains("matchmaking")
                 && strList.contains("prep")) {
@@ -227,7 +225,7 @@ public class MessageHelper {
             keyWords[1] = "default";
             return keyWords;
         } else if (strList.contains("web")) {
-            keyWords[0] = "webapp";
+            keyWords[0] = "web";
             keyWords[1] = "default";
             return keyWords;
         } else if (strList.contains("database")) {
