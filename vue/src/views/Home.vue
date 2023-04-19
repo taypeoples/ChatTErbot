@@ -19,7 +19,7 @@
         <p>Click Here To Access The Chatbot</p>
         <a href="/chatbot">Get Chatting</a>
       </div>
-      <div class="floating-card">
+      <div class="floating-card1">
         <p>Looking for a job?</p>
         <a href="/jobSearch">Find Jobs</a>
       </div>
@@ -90,6 +90,10 @@ p {
   transform: scale(1.05);
 }
 
+.floating-card1:hover {
+  transform: scale(1.05);
+}
+
 .main__img--container {
     text-align: center;
 }
@@ -121,10 +125,30 @@ p {
   border-radius: 20px;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255rgba(255, 255, 255, 0.6)7,17,0.6) 100%);
   background-size: cover;
+  position: center;
+  color: #fff;
+  background-position: center -70px;
+  background-image: url('/pictures/pexel.jpeg');
+  background-size: 100%;
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+}
+
+.floating-card1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  height: 525px;
+  width: 400px;
+  border-radius: 20px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255rgba(255, 255, 255, 0.6)7,17,0.6) 100%);
+  background-size: cover;
   position: relative;
   color: #fff;
   background-position: center;
-  background-image: url('/pictures/Capture1.PNG');
+  background-image: url('/pictures/ShakingHands.jpg');
   background-size: 250%;
   transition: transform 0.2s ease-in-out;
   text-align: center;
@@ -147,6 +171,14 @@ p {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: .2px rgb(0, 0, 0);
 }
+.floating-card1 p {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: .2px rgb(0, 0, 0);
+}
 
 .floating-card a {
   display: block;
@@ -160,7 +192,22 @@ p {
   margin-top: 2rem;
 }
 
+.floating-card1 a {
+  display: block;
+  background-color: #1d1d1d;
+  color: rgb(255, 255, 255);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 2rem;
+}
 .floating-card a:hover {
+  background-color: #4298df;
+}
+
+.floating-card1 a:hover {
   background-color: #4298df;
 }
 </style>
