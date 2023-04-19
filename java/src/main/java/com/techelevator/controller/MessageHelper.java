@@ -17,27 +17,26 @@ public class MessageHelper {
             keyWords[1] = "links";
             return keyWords;
         } else if (strList.contains("resume")
-                && strList.contains("parts")) {
+                && (strList.contains("parts") || strList.contains("part") || strList.contains("component") || strList.contains("components") || strList.contains("section") || strList.contains("sections"))) {
             keyWords[0] = "resume";
             keyWords[1] = "parts";
             return keyWords;
         } else if (strList.contains("interview")
-                && strList.contains("prep")) {
+                && (strList.contains("prep") || strList.contains("prepare") || strList.contains("preparation") || strList.contains("ready"))) {
             keyWords[0] = "interview";
             keyWords[1] = "prep";
             return keyWords;
         } else if (strList.contains("interview")
-                && strList.contains("follow")) {
+                && (strList.contains("follow") || strList.contains("up"))) {
             keyWords[0] = "interview";
             keyWords[1] = "follow";
             return keyWords;
         } else if (strList.contains("interview")
-                && strList.contains("outfit")) {
+                && (strList.contains("outfit") || strList.contains("wear") || strList.contains("clothes") || strList.contains("clothing"))) {
             keyWords[0] = "interview";
             keyWords[1] = "outfit";
             return keyWords;
-        } else if (strList.contains("interview")
-                && strList.contains("star")) {
+        } else if (strList.contains("star")) {
             keyWords[0] = "interview";
             keyWords[1] = "star";
             return keyWords;
@@ -51,16 +50,16 @@ public class MessageHelper {
             keyWords[0] = "cover";
             keyWords[1] = "links";
             return keyWords;
-        } else if (strList.contains("linkedin")) {
+        } else if (strList.contains("linkedin") || strList.contains("linked")) {
             keyWords[0] = "social";
             keyWords[1] = "link";
             return keyWords;
-        } else if (strList.contains("huntr")) {
+        } else if (strList.contains("huntr") || strList.contains("hunter")) {
             keyWords[0] = "social";
             keyWords[1] = "hunt";
             return keyWords;
         } else if (strList.contains("technical")
-                && strList.contains("prep")) {
+                && (strList.contains("prep") || strList.contains("prepare") || strList.contains("preparation"))) {
             keyWords[0] = "technical";
             keyWords[1] = "prep";
             return keyWords;
@@ -69,13 +68,13 @@ public class MessageHelper {
             keyWords[0] = "technical";
             keyWords[1] = "explanation";
             return keyWords;
-        } else if (strList.contains("networking")
-                && strList.contains("prep")) {
+        } else if ((strList.contains("network") || strList.contains("networking"))
+                && ((strList.contains("prep") || strList.contains("prepare") || strList.contains("preparation")))) {
             keyWords[0] = "networking";
             keyWords[1] = "prep";
             return keyWords;
-        } else if (strList.contains("networking")
-                && strList.contains("events")) {
+        } else if ((strList.contains("network") || strList.contains("networking"))
+                && ((strList.contains("event") || strList.contains("events") || strList.contains("conference"))))  {
             keyWords[0] = "networking";
             keyWords[1] = "events";
             return keyWords;
@@ -104,19 +103,19 @@ public class MessageHelper {
             keyWords[0] = "database";
             keyWords[1] = "security";
             return keyWords;
-        }  else if (strList.contains("sql")) {
+        }  else if (strList.contains("sql") || strList.contains("sequel")) {
             keyWords[0] = "database";
             keyWords[1] = "sql";
             return keyWords;
-        } else if (strList.contains("variables")) {
+        } else if (strList.contains("variables") || strList.contains("variable")) {
             keyWords[0] = "java";
             keyWords[1] = "variables";
             return keyWords;
-        } else if (strList.contains("arrays")) {
+        } else if (strList.contains("arrays") || strList.contains("array")) {
             keyWords[0] = "java";
             keyWords[1] = "arrays";
             return keyWords;
-        } else if (strList.contains("collections")) {
+        } else if (strList.contains("collections") || strList.contains("collection")) {
             keyWords[0] = "java";
             keyWords[1] = "collections";
             return keyWords;
@@ -124,7 +123,7 @@ public class MessageHelper {
             keyWords[0] = "java";
             keyWords[1] = "unit";
             return keyWords;
-        } else if (strList.contains("oop")) {
+        } else if (strList.contains("oop") || (strList.contains("object") && strList.contains("oriented") && strList.contains("programming"))) {
             keyWords[0] = "java";
             keyWords[1] = "oop";
             return keyWords;
@@ -136,7 +135,7 @@ public class MessageHelper {
             keyWords[0] = "java";
             keyWords[1] = "polymorphism";
             return keyWords;
-        } else if (strList.contains("exceptions")) {
+        } else if (strList.contains("exceptions") || strList.contains("exception") || (strList.contains("try") && strList.contains("catch"))) {
             keyWords[0] = "java";
             keyWords[1] = "exceptions";
             return keyWords;
@@ -160,7 +159,7 @@ public class MessageHelper {
             keyWords[0] = "web";
             keyWords[1] = "html";
             return keyWords;
-        } else if (strList.contains("javascript")) {
+        } else if (strList.contains("javascript") || (strList.contains("java") && strList.contains("script"))) {
             keyWords[0] = "web";
             keyWords[1] = "javascript";
             return keyWords;
@@ -228,7 +227,7 @@ public class MessageHelper {
             keyWords[0] = "web";
             keyWords[1] = "default";
             return keyWords;
-        } else if (strList.contains("database")) {
+        } else if (strList.contains("database") || strList.contains("databases")) {
             keyWords[0] = "database";
             keyWords[1] = "default";
             return keyWords;
