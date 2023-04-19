@@ -231,7 +231,7 @@ button:hover {
 .job-search-form {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: medium;
-  padding-top: 30px;
+  padding-top: 20px;
   margin: 0 auto;
   width: 80%;
   height: 50%;
@@ -245,9 +245,8 @@ button:hover {
 @media (max-width: 980px) {
   .job-search-form {
     flex-flow: wrap;
-    text-align: center;
-    align-content: center;
-    align-items: center;
+    align-content: left;
+    align-items: left;
   }
 }
 
@@ -277,7 +276,7 @@ button:hover {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 
@@ -294,6 +293,14 @@ button:hover {
   text-align: left;
 }
 
+#jtitle{
+  width: 50%;
+}
+
+#location{
+  width: 50%;
+}
+
 .job-search-form .right input[type="text"] {
   border: none;
   outline: none;
@@ -307,7 +314,7 @@ button:hover {
   color: #ffffff;
   border: none;
   outline: none;
-  padding: 10px 20px;
+  padding: 10px;
   border-radius: 50px;
   font-size: 18px;
   cursor: pointer;

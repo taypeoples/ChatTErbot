@@ -192,6 +192,19 @@ export default {
   margin: 0;
 }
 
+.chat-entry{
+ padding: 28px;
+     font-size: 16px;
+     width: 50%;
+     border-width: 1px;
+     border-color: #CCCCCC;
+     background-color: #FFFFFF;
+     color: #000000;
+     border-style: solid;
+     border-radius: 10px;
+     box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+}
+
 #chat-app {
   height: 100vh;
   display: grid;
@@ -208,6 +221,7 @@ export default {
 }
 
 #chat-app > .chat-container {
+  background: url(https://i.imgur.com/aEr4nSa.png);
   grid-area: chat-container;
   overflow-y: auto;
   max-height: 100%;
@@ -226,24 +240,26 @@ export default {
 
 .textbox >>> .bot {
   font-family: "Lucida Console", Monaco, monospace;
+  width: auto;
   background: #eefdff;
   border-width: 3px;
   border-style: solid;
-  border-radius: 5px;
-  border-color: #287ec7;
+  border-radius: 10px;
+  border-color: #80b5ea;
   padding: 20px;
   margin-right: 25%;
-  margin-left: 20px;
+  margin-left: 50px;
 }
 
 .textbox >>> .user {
-  background: #e1eaed;
+  background: #ecf9ec;
   border-width: 3px;
   border-style: solid;
-  border-radius: 5px;
-  border-color: #000000;
+  border-radius: 10px;
+  border-color: #39ac39;
   padding: 20px;
   margin-left: 25%;
+  margin-right: 50px;
 }
 
 .textbox >>> .ava {
@@ -253,6 +269,7 @@ export default {
   text-align: center;
   vertical-align: middle;
   padding: 5px;
+  margin-left: 50px;
 }
 
 .textbox >>> img.user-ava {
@@ -263,12 +280,36 @@ export default {
   vertical-align: middle;
   padding: 5px;
   margin-left: 25%;
+  margin-right: 50px;
 }
 
-button:hover {
-  background-color: rgb(212, 212, 212);
-  box-shadow: 3px 3px lightgray;
+button {
+	box-shadow: 0px 10px 14px -7px #a8a8a8;
+	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+	background-color:#bddbfa;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+  margin: 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
 }
+button:hover {
+	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+	background-color:#80b5ea;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
+        
+
 
 ul {
   list-style: none;
@@ -277,7 +318,7 @@ ul {
 }
 
 li {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
   margin-bottom: 3px;
 }

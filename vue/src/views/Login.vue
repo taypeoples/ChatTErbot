@@ -132,7 +132,7 @@ body {
 }
 
 .box-form .left .overlay h1 {
-  font-size: 10vmax;
+  font-size: 8vmax;
   line-height: 1;
   font-weight: 900;
   margin-top: 40px;
