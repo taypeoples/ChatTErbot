@@ -88,6 +88,7 @@ body {
 }
 
 .box-form {
+  padding-top: 40px;
   margin: 0 auto;
   width: 80%;
   background: #FFFFFF;

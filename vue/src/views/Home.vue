@@ -1,6 +1,8 @@
 <template>
+  <div>
+    <the-header/>  
   <div class="home jobSearch">
-      <the-header/>  
+       
     <h1>ChatTErbot</h1>
     <div class="cards-container">
       <div class="floating-card">
@@ -13,6 +15,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 import TheHeader from '../components/TheHeader.vue';
