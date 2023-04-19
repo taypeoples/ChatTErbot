@@ -24,13 +24,13 @@
           <p>Job Type:</p>
           <div class="checkbox-group">
             <input v-model="jobType" type="checkbox" id="ftime" name="ftime" value="Full-time" />
-            <label for="ftime">Full-time</label>
+            <label for="ftime">Full-time</label><br>
             <input v-model="jobType" type="checkbox" id="ptime" name="ptime" value="Part-time" />
-            <label for="ptime">Part-time</label>
+            <label for="ptime">Part-time</label><br>
             <input v-model="jobType" type="checkbox" id="internship" name="internship" value="Internship" />
-            <label for="internship">Internship</label>
+            <label for="internship">Internship</label><br>
             <input v-model="jobType" type="checkbox" id="contract" name="contract" value="Contractor" />
-            <label for="contract">Contractor</label>
+            <label for="contract">Contractor</label><br><br>
           </div>
         </div>
         <div>
@@ -41,7 +41,7 @@
     </div>
     <div class="right2">
       <button v-on:click="populateJobsArray">
-        Click here to view jobs
+       Search for jobs
       </button>
     </div>
   </div>
@@ -52,7 +52,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ job.job_title }}</h5>
           <pre class="card-text">{{ job.job_description }}</pre>
-          <a :href="job.job_apply_link" target="_blank" class="btn btn-primary">Apply</a>
+          <a :href="job.job_apply_link" target="_blank" class="btn-primary">Apply</a>      
         </div>
         <div class="card-footer text-muted">{{ job.job_location }}</div>
       </div>
@@ -79,20 +79,6 @@ export default {
     //Can also create second account if we hit too many calls lol
     /* this.populateJobsArray(); */
   },
-  computed: {
-    moddedDescription(){
-      let string = this.job.job_description;
-        let array = string.split(" ");
-        array.forEach(element => {
-          if(element == "U+2022"){
-            element = "\n" + element;
-          }
-          string = element + " ";
-        });
-        return string;
-      }
-
-  },
 
   methods: {
     populateJobsArray() {
@@ -113,6 +99,7 @@ export default {
 
 <style scoped>
 .job-cards {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   text-align: center;
 }
 
@@ -125,6 +112,8 @@ export default {
   display: inline-block;
   max-width: 600px;
   max-height: 600px;
+  min-height: 600px;
+  min-width: 600px;
  
 }
 
@@ -132,16 +121,50 @@ export default {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-pre{
-  white-space: pre-wrap;
+.card-body{
   padding: 10px;
-
 }
 
+
+pre{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  white-space: pre-wrap;
+  padding: 10px;
+}
+
+
+.btn-primary {
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+
+}
+.btn-primary:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.btn-primary:active {
+	position:relative;
+	top:1px;
+}
+
+
 .card-header {
-  background-color: #6a87cc;
+  background-color: #3b5998;
   color: white;
   padding: 10px;
+  font-weight: bold;
+  font-size: large;
 }
 
 .card-footer {
@@ -187,6 +210,7 @@ button:hover {
 }
 
 .job-search-form {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   padding-top: 30px;
   margin: 0 auto;
   width: 30%;
