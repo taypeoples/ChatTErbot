@@ -4,7 +4,7 @@
       <div class="nav">
         <the-header />
       </div>
-      <div class="chat-container">
+      <div ref="chatContainer" class="chat-container">
         <div id="messages">
           <div v-for="message in messages" v-bind:key="message.id">
             <div class="textbox" v-html="message"></div>
@@ -45,6 +45,7 @@
   </div>
 </template>
 <script>
+// import JobService from '../services/JobService.js';
 import QuoteService from "../services/QuoteService.js";
 import ResponseService from "../services/ResponseService.js";
 import TheHeader from "./TheHeader.vue";
@@ -72,7 +73,7 @@ export default {
   },
 
   created(){
-    this.messages.push(this. botStyle + "Hey there! What should I call you?")
+    this.messages.push(this. botStyle + "Hey there, my name is ChatTErbot! What should I call you?")
   },
 
   methods: {
@@ -123,6 +124,9 @@ export default {
         });
       }
       this.userMessage = "";
+      this.$nextTick(()=> {
+        this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
+      })
     },
 
     getNickname() {
@@ -134,10 +138,15 @@ export default {
           this.botStyle + this.responseMessage + nickname + "? </div>"
         );
       });
+      /* this.messages.push(
+        "<p>I can help you with:</p><ul><li>Pathway information</li><li>Curriculum</li><li>Get a motivational quote</li>Which would you like, " +
+          nickname +
+          "?"
+      ); */
       this.firstMessage = false;
     },
     getAssistance() {
-      ResponseService.getBotResponse("assistance", "default").then(
+      ResponseService.getBotResponse("help", "assistance", "default").then(
         (response) => {
           this.messages.push(
             this.botStyle +
@@ -176,10 +185,10 @@ export default {
 }
 
 #chat-app > .chat-container {
-  /* Have to comment out because of absolute path, will break unless everyone's absolute path is the same */
-  /* background: url("C:\Users\Student\source\repos\pairs\team-quebec\vue\pictures\chatbgd.png"); */
+  background: url("C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\chatbgd.png");
   grid-area: chat-container;
-  overflow: auto;
+  overflow-y: auto;
+  max-height: 100%;
   padding: 15px 5px 10px 5px;
 }
 
