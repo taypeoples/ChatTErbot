@@ -186,7 +186,7 @@ export default {
 }
 
 #chat-app > .chat-container {
-  background: url();
+  
   grid-area: chat-container;
   overflow-y: auto;
   max-height: 100%;

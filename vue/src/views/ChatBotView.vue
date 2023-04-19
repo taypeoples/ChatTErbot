@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="chat-bot">
     <chat-bot />
   </div>
 </template>
@@ -13,7 +13,11 @@ export default {
   },
 };
 </script>
-
+.chat-bot{
+  background
+}
 <style scoped>
+
+
 
 </style>
