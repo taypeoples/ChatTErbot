@@ -61,12 +61,12 @@ public class MessageHelper {
             keyWords[0] = "social";
             keyWords[1] = "hunt";
             return keyWords;
-        } else if (strList.contains("technical interview")
+        } else if (strList.contains("technical")
                 && strList.contains("prep")) {
             keyWords[0] = "technical";
             keyWords[1] = "prep";
             return keyWords;
-        } else if (strList.contains("technical interview")
+        } else if (strList.contains("technical")
                 && strList.contains("explanation")) {
             keyWords[0] = "technical";
             keyWords[1] = "explanation";
