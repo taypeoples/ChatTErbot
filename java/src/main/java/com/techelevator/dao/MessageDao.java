@@ -8,9 +8,7 @@ public interface MessageDao {
 
     Message getFirstMessage();
 
-    Message getMessageByKeyWords(String needCategory, String keyword1, String keyword2);
-
-    Message getMessageByKeyWords2(String keyword1, String keyword2);
+    Message getMessageByKeyWords(String keyword1, String keyword2);
 
 
 }

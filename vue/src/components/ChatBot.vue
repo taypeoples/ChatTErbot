@@ -45,7 +45,6 @@
   </div>
 </template>
 <script>
-// import JobService from '../services/JobService.js';
 import QuoteService from "../services/QuoteService.js";
 import ResponseService from "../services/ResponseService.js";
 import TheHeader from "./TheHeader.vue";
@@ -138,7 +137,7 @@ export default {
       this.firstMessage = false;
     },
     getAssistance() {
-      ResponseService.getBotResponse("help", "assistance", "default").then(
+      ResponseService.getBotResponse("assistance", "default").then(
         (response) => {
           this.messages.push(
             this.botStyle +
