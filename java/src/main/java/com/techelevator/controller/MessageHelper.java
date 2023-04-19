@@ -10,6 +10,11 @@ public class MessageHelper {
 
     public String[] filterMessage(String message) {
         String[] inputArray = message.toLowerCase().split(" ");
+        for (int i = 0; i < inputArray.length; i++) {
+            if (inputArray[i].contains("?") || inputArray[i].contains(".")) {
+                inputArray[i] = inputArray[i].substring(0, inputArray[i].length() - 1);
+            }
+        }
         ArrayList<String> strList = new ArrayList<>(Arrays.asList(inputArray));
         if (strList.contains("resume")
                 && (strList.contains("example") || strList.contains("examples") || strList.contains("link") || strList.contains("links"))) {
@@ -32,7 +37,7 @@ public class MessageHelper {
             keyWords[1] = "follow";
             return keyWords;
         } else if (strList.contains("interview")
-                && (strList.contains("outfit") || strList.contains("wear") || strList.contains("clothes") || strList.contains("clothing"))) {
+                && (strList.contains("outfit") || strList.contains("wear") || strList.contains("clothes") || strList.contains("clothing") || strList.contains("dress"))) {
             keyWords[0] = "interview";
             keyWords[1] = "outfit";
             return keyWords;
@@ -74,7 +79,7 @@ public class MessageHelper {
             keyWords[1] = "prep";
             return keyWords;
         } else if ((strList.contains("network") || strList.contains("networking"))
-                && ((strList.contains("event") || strList.contains("events") || strList.contains("conference"))))  {
+                && ((strList.contains("event") || strList.contains("events") || strList.contains("conference")))) {
             keyWords[0] = "networking";
             keyWords[1] = "events";
             return keyWords;
@@ -103,7 +108,7 @@ public class MessageHelper {
             keyWords[0] = "database";
             keyWords[1] = "security";
             return keyWords;
-        }  else if (strList.contains("sql") || strList.contains("sequel")) {
+        } else if (strList.contains("sql") || strList.contains("sequel")) {
             keyWords[0] = "database";
             keyWords[1] = "sql";
             return keyWords;
@@ -234,6 +239,10 @@ public class MessageHelper {
         } else if (strList.contains("front")) {
             keyWords[0] = "frontend";
             keyWords[1] = "default";
+            return keyWords;
+        } else if (strList.contains("keywords")) {
+            keyWords[0] = "assistance";
+            keyWords[1] = "keywords";
             return keyWords;
         }
         keyWords[0] = "help";

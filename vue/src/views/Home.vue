@@ -1,9 +1,19 @@
 <template>
   <div>
     <the-header/>  
-  <div class="home jobSearch">
-       
-    <h1>ChatTErbot</h1>
+  <div class="home">
+    <div class="main">
+        <div class="main__container">
+            <div class="main__content">
+                <h1>CHATTER BOT</h1>
+                <p>Chatbot can help you with pathway, curriculum, and job search</p>
+            </div>
+            <div class="main_img--container">
+              <img src="./pictures1/undraw.png" alt="Pic" id="main__img">
+            </div>
+        </div>
+    </div>
+    <h1></h1>
     <div class="cards-container">
       <div class="floating-card">
         <p>Click Here To Access The Chatbot</p>
@@ -33,19 +43,37 @@ body {
 
 .home {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  background: #131313;
   display: flex;
+  background-image: linear-gradient(to top, 
+    #4298df 0%, 
+    #6aa5d6 20%, 
+    #81b1f8 40%, 
+    #ffffff 60%, 
+    #ffffff 80%, 
+    #ffffff 100%
+  );
   flex-direction: column;
   align-items: center;
-  height: 150vh;
+  min-height: 100%;
 }
 
 .home h1 {
-  background-color: #ffffff;
-  background-image: linear-gradient(to top, #5ec2e0 0%, #60aae6 21%, #4ea9e6 22%, #e7e3e477 78%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, #3d3c3c,  #4298df);
   background-size: 100%;
   margin-bottom: 5rem;
-  font-size: 2.5rem;
+  font-size: 5rem;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  padding-top: 100px;
+}
+
+p {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  background-image: linear-gradient(to bottom, #302d2d,  #4298df);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -60,6 +88,26 @@ body {
 
 .floating-card:hover {
   transform: scale(1.05);
+}
+
+.main__img--container {
+    text-align: center;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    z-index: 1;
+    width: 100%;
+    height: 400px;
+    max-width: 1300px;
+    padding: 0 50px;
+    padding-top: 100px;
+    padding-left: 380px;
 }
 
 .floating-card {
@@ -82,10 +130,19 @@ body {
   text-align: center;
 }
 
+.cards-container{
+  padding-bottom: 150px;
+}
+
+#main__img {
+    height: 60%;
+    width: 70%;
+}
+
 .floating-card p {
   margin-bottom: 2rem;
   font-size: 2.5rem;
-  background: linear-gradient(to bottom, #6388ec 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: .2px rgb(0, 0, 0);
