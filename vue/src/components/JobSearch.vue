@@ -1,16 +1,8 @@
 <template>
-  <div class = "jsearch">
+  <div class="jsearch">
     <div class="job-search-form">
-      <div class="left">
-        <div class="overlay">
-          <h1>Job Search</h1>
-          <span>
-            <p>Find your dream job today</p>
-          </span>
-        </div>
-      </div>
       <div class="right">
-        <h5>Search for Jobs</h5>
+        <h5>Search Filter:</h5>
         <form>
           <div>
             <label for="jtitle" class="text-center"></label><br />
@@ -32,7 +24,7 @@
               placeholder="Location"
             />
           </div>
-          <div>
+          <div class="">
             <p>Job Type:</p>
             <div class="checkbox-group">
               <input
@@ -68,10 +60,10 @@
               />
               <label for="contract">Contractor</label><br /><br />
             </div>
-          </div>
-          <div>
-            <label for="remote">Remote-Only:</label>
-            <input v-model="remote" type="checkbox" id="remote" />
+            <div>
+              <label for="remote">Remote-Only:</label>
+              <input v-model="remote" type="checkbox" id="remote" />
+            </div>
           </div>
         </form>
       </div>
@@ -133,8 +125,7 @@ export default {
 
 <style scoped>
 .jsearch {
-/*   background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\searchbg.png');
- */  
+  background-image: url(https://i.imgur.com/QlpP1vV.png);
 }
 
 .job-cards {
@@ -218,13 +209,6 @@ body {
   color: #333333;
 }
 
-.right2 {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin-top: auto;
-  padding: 30px 30px;
-}
 
 button {
   background-color: #3b5998;
@@ -246,29 +230,17 @@ button:hover {
 
 .job-search-form {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: medium;
   padding-top: 30px;
   margin: 0 auto;
-  width: 30%;
+  width: 80%;
+  height: 50%;
   background: #ffffffd0;
   border-radius: 10px;
   overflow: hidden;
-  display: flex;
-  flex: 1 1 100%;
-  align-items: stretch;
-  justify-content: space-between;
   box-shadow: 0 0 20px 6px #2759c585;
 }
 
-.job-search-form .overlay {
-  padding: 30px;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-.job-search-form .left {
-  width: 0px;
-}
 
 @media (max-width: 980px) {
   .job-search-form {
@@ -283,48 +255,6 @@ button:hover {
   height: auto;
 }
 
-.job-search-form .left {
-  color: #ffffff;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  /* background-image: url("/pictures/Capture3.PNG"); */
-}
-
-.job-search-form .left .overlay {
-  padding: 30px;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.job-search-form .left .overlay h1 {
-  font-size: 8vmax;
-  line-height: 1;
-  font-weight: 800;
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
-
-.job-search-form .left .overlay span p {
-  margin-top: 30px;
-  font-weight: 900;
-}
-
-.job-search-form .left .overlay span a {
-  background: #3b5998;
-  color: #ffffff;
-  margin-top: 10px;
-  padding: 14px 50px;
-  border-radius: 100px;
-  display: inline-block;
-  box-shadow: 0 3px 6px 1px #042d4657;
-}
-
-.job-search-form .left .overlay span a:last-child {
-  background: #1dcaff;
-  margin-left: 30px;
-}
 
 .job-search-form .right {
   padding: 20px;
@@ -336,12 +266,12 @@ button:hover {
     height: 40%;
   }
   .job-search-form .right {
-    width: 100%;
+    width: 90%;
   }
 }
 
 .job-search-form .right h5 {
-  font-size: 5vmax;
+  font-size: 2vmax;
   line-height: 1;
   /* background-image: url("/pictures/Capture3.PNG"); */
   background-clip: text;
@@ -360,6 +290,10 @@ button:hover {
   overflow: hidden;
 }
 
+.checkbox-group {
+  text-align: left;
+}
+
 .job-search-form .right input[type="text"] {
   border: none;
   outline: none;
@@ -367,7 +301,6 @@ button:hover {
   width: 100%;
   padding: 10px 0;
   font-size: 18px;
-  margin-bottom: 30px;
 }
 .job-search-form .right input[type="submit"] {
   background: #3b5998;
@@ -379,5 +312,25 @@ button:hover {
   font-size: 18px;
   cursor: pointer;
   box-shadow: 0 3px 6px;
+}
+
+.job-search-form {
+  display: grid;
+  grid-template-rows: 1fr 0.2fr;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "right"
+    "right2";
+  gap: 0px 0px;
+  height: 50%;
+}
+
+.right {
+  grid-area: "right";
+}
+.right2 {
+  grid-area: "right2";
+  align-self: center;
+  padding: 20px;
 }
 </style>

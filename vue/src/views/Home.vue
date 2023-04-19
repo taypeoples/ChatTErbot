@@ -134,7 +134,17 @@ p {
   background-size: 150%;
   transition: transform 0.2s ease-in-out;
   text-align: center;
+  box-shadow: rgb(54, 141, 192) 0 0 40px;
+  animation: shadows 4s infinite
 }
+
+@keyframes shadows {
+ 0% { box-shadow: #ffffff 0 0 40px; }
+ 50% { box-shadow: rgb(55, 139, 196) 0 0 40px; }
+ 75% { box-shadow: rgb(255, 255, 255) 0 0 40px;}
+ 100% { box-shadow: #3899c0 0 0 40px; }
+}
+
 
 .floating-card1 {
   display: flex;
@@ -154,6 +164,8 @@ p {
   background-size: 250%;
   transition: transform 0.2s ease-in-out;
   text-align: center;
+  box-shadow: rgb(54, 141, 192) 0 0 40px;
+  animation: shadows 4s infinite;
 }
 
 .cards-container{
@@ -162,7 +174,7 @@ p {
 
 #main__img {
     height: 60%;
-    width: 70%;
+    width: 80%;
 }
 
 .floating-card p {
