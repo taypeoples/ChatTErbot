@@ -36,7 +36,8 @@ INSERT INTO quotes (quote_text,quote_author) VALUES ('<p><em>"Never tell me the 
 INSERT INTO quotes (quote_text,quote_author) VALUES ('<p><em>"Every experience in your life is being orchestrated to teach you something you need to know to move forward."</em></p>', '-Brian Tracy');
 
 INSERT INTO response (response_description, response_text, keyword_1, keyword_2) VALUES ('Keyword not found message','<p>Sorry, I''m not sure how to help you, please type your response again or type a command from below to let me know what I should do.</p>','help','default');
-INSERT INTO response (response_description, response_text, keyword_1, keyword_2) VALUES ('Assistance message','You can type another command from below, or if you''re stuck you can reach out to an instructor or pathway director for additional help','assistance','default');
+INSERT INTO response (response_description, response_text, keyword_1, keyword_2) VALUES ('Assistance message','You can type another command from below, type keywords too see what I can chat about, or if you''re still stuck you can reach out to an instructor or pathway director for additional help','assistance','default');
+INSERT INTO response (response_description, response_text, keyword_1, keyword_2) VALUES ('keywords','I can help you with: ','assistance','keywords');
 
 INSERT INTO response (response_description, response_text, keyword_1, keyword_2) VALUES ('First message','What can I help you with, ','main','default');
 INSERT INTO response (response_description, response_text, keyword_1, keyword_2) VALUES ('First pathway message','<p>I can help you with your Resume, a Cover Letter, or Interview Prep. What would you like to talk about?</p>','pathway','default');
