@@ -62,7 +62,6 @@ body {
 
 .navbar{
     box-shadow: 0px 5px 10px 0px #aaa;
-    position: fixed;
     width: 100%;
     background: #fff;
     color: #000;
