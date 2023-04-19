@@ -19,7 +19,6 @@ CREATE TABLE quotes (
 
 CREATE TABLE response (
 	response_id SERIAL,
-	need_category varchar(50),
 	response_description varchar (500),
 	response_text varchar(1500),
 	keyword_1 varchar(50),
