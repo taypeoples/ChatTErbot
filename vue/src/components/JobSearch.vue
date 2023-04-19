@@ -187,6 +187,7 @@ button:hover {
 }
 
 .job-search-form {
+  padding-top: 30px;
   margin: 0 auto;
   width: 30%;
   background: #ffffffd0;
