@@ -1,6 +1,5 @@
 <template>
   <div class="jsearch">
-    [
     <div class="job-search-form">
       <div class="right">
         <h5>Search Filter:</h5>
