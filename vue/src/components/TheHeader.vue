@@ -82,8 +82,13 @@ body {
     display: flex;
 }
 .logo{
-    order: 1;
-    font-size: 2.3rem;
+  order: 1;
+  font-size: 2.3rem;
+  background-position: 50% ;
+  background-image: url('/pictures/Capture3.PNG');
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .menu-items li{
@@ -93,7 +98,7 @@ body {
 }
 
 .navbar a{
-    color: #444;
+    color: #000000;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease-in-out;
