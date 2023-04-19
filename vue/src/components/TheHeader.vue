@@ -100,12 +100,30 @@ body {
     color: #000000;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease-in-out;
+    position: relative;
+}
+
+.navbar a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #2b88c7;
+    transition: width 0.6s ease-in-out;
+}
+
+.navbar a:hover:after{
+    width: 100%;
 }
 
 .navbar a:hover{
+    text-decoration: none;
     color: #2b88c7;
 }
+
+
 
 @media (max-width: 768px){
     .navbar{

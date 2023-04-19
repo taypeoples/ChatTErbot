@@ -4,7 +4,7 @@
       <div class="nav">
         <the-header />
       </div>
-      <div ref="chatContainer" class="chat-container">
+      <div ref="chatContainer" class="chat-container" id="chatContainer">
         <div id="messages">
           <div v-for="message in messages" v-bind:key="message.id">
             <div class="textbox" v-html="message"></div>
@@ -79,6 +79,10 @@ export default {
     );
   },
 
+  mounted() {
+    this.scrollToElement();
+  },
+
   methods: {
     handleSubmit() {
       this.messages.push(
@@ -133,6 +137,19 @@ export default {
       this.$nextTick(()=> {
         this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
       })
+      /* const element = document.getElementById("chatContainer");
+      setInterval(function () {
+        element.scrollTop = element.scrollHeight;
+      }, 1000); */
+    },
+
+    scrollToElement() {
+      const el = this.$refs.scrollToMe;
+
+      if (el) {
+        // Use el.scrollIntoView() to instantly scroll to the element
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     },
 
     getNickname() {

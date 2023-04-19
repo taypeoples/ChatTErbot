@@ -255,6 +255,51 @@ button:hover {
   height: auto;
 }
 
+<<<<<<< HEAD
+=======
+.job-search-form .left {
+  color: #ffffff;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /* background-image: url("/pictures/Capture3.PNG"); */
+}
+
+.job-search-form .left .overlay {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.job-search-form .left .overlay h1 {
+  font-size: 8vmax;
+  line-height: 1;
+  font-weight: 800;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.job-search-form .left .overlay span p {
+  margin-top: 30px;
+  font-weight: 900;
+}
+
+.job-search-form .left .overlay span a {
+  background: #3b5998;
+  color: #ffffff;
+  margin-top: 10px;
+  padding: 14px 50px;
+  border-radius: 100px;
+  display: inline-block;
+  box-shadow: 0 3px 6px 1px #042d4657;
+}
+
+.job-search-form .left .overlay span a:last-child {
+  background: #1dcaff;
+  margin-left: 30px;
+}
+>>>>>>> d03ee7196d978e377940665309ced143a2b8fbbe
 
 .job-search-form .right {
   padding: 20px;
@@ -273,7 +318,7 @@ button:hover {
 .job-search-form .right h5 {
   font-size: 2vmax;
   line-height: 1;
-  background-image: url("/pictures/Capture3.PNG");
+  /* background-image: url("/pictures/Capture3.PNG"); */
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
