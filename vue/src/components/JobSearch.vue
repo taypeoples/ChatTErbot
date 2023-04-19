@@ -133,7 +133,7 @@ export default {
 
 <style scoped>
 .jsearch {
-  background-image: url('C:\Users\Student\source\repos\pair programming\team-quebec\vue\pictures\searchbg.png');
+  /* background-image: url('./pictures/searchbg.png'); */
   
 }
 
