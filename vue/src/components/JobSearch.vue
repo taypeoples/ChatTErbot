@@ -126,6 +126,10 @@ export default {
 <style scoped>
 .jsearch {
   background-image: url(https://i.imgur.com/QlpP1vV.png);
+  background-size: auto;
+  padding-top: 40px;
+  height: 100%;
+  margin: 0;
 }
 
 .job-cards {
@@ -186,6 +190,7 @@ pre {
 }
 
 .card-header {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   background-color: #3b5998;
   color: white;
   padding: 10px;
@@ -199,6 +204,12 @@ pre {
   text-align: center;
 }
 
+.card-title{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
+
 /* Form Styling */
 body {
   background-image: linear-gradient(135deg, #fab2ff 10%, #1904e5 100%);
@@ -208,7 +219,6 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #333333;
 }
-
 
 button {
   background-color: #3b5998;
@@ -233,7 +243,7 @@ button:hover {
   font-size: medium;
   padding-top: 20px;
   margin: 0 auto;
-  width: 80%;
+  width: 50%;
   height: 50%;
   background: #ffffffd0;
   border-radius: 10px;
@@ -241,19 +251,24 @@ button:hover {
   box-shadow: 0 0 20px 6px #2759c585;
 }
 
-
 @media (max-width: 980px) {
   .job-search-form {
     flex-flow: wrap;
     align-content: left;
     align-items: left;
+    width: 90%;
+  height: 50%;
+  }
+
+  .job-card {
+    min-height: 90%;
+    min-width: 90%;
   }
 }
 
 .job-search-form div {
   height: auto;
 }
-
 
 .job-search-form .right {
   padding: 20px;
@@ -262,10 +277,12 @@ button:hover {
 
 @media (max-width: 480px) {
   .job-search-form {
+    width: 90%;
     height: 40%;
   }
-  .job-search-form .right {
-    width: 90%;
+  .job-card {
+    min-height: 90%;
+    min-width: 90%;
   }
 }
 
@@ -293,11 +310,11 @@ button:hover {
   text-align: left;
 }
 
-#jtitle{
+#jtitle {
   width: 50%;
 }
 
-#location{
+#location {
   width: 50%;
 }
 
