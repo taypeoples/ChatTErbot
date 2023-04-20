@@ -98,6 +98,9 @@ export default {
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
           this.messages.push(this.botStyle + quote + "</div>");
+           this.messages.push(
+              this.botStyle + " What else can I help you with?" + "</div>"
+            );
         });
       } else if (this.userMessage.toLowerCase().includes("assistance")) {
         this.getAssistance();
