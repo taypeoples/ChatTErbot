@@ -93,33 +93,37 @@ export default {
           this.userMessage +
           "</div>"
       );
-      if (this.userMessage.includes("quote")) {
+      if (this.userMessage.toLowerCase().includes("quote")) {
         this.isBot = true;
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
           this.messages.push(this.botStyle + quote + "</div>");
         });
-      } else if (this.userMessage.includes("assistance")) {
+      } else if (this.userMessage.toLowerCase().includes("assistance")) {
         this.getAssistance();
-      } else if (
-        this.userMessage.includes("job search") ||
-        this.userMessage.includes("open positions") ||
-        this.userMessage.includes("jobs") ||
-        this.userMessage.includes("job")
+      } else if (this.userMessage.toLowerCase().includes("thanks") || this.userMessage.toLowerCase().includes("thank") && this.userMessage.toLowerCase().includes("you")) {
+        this.messages.push(
+            this.botStyle + "You're welcome! What else can I help with? </div>"
+          )
+      }else if (
+        this.userMessage.toLowerCase().includes("job search") ||
+        this.userMessage.toLowerCase().includes("open positions") ||
+        this.userMessage.toLowerCase().includes("jobs") ||
+        this.userMessage.toLowerCase().includes("job")
       ) {
         this.messages.push(this.botStyle + "I can help with that! </div>");
         this.messages.push(
           this.botStyle +
             '<a href="http://localhost:8080/jobSearch" target= "_blank">Open Job Search</a></div>'
         );
-      } else if (this.userMessage.includes("home")) {
+      } else if (this.userMessage.toLowerCase().includes("home")) {
         ResponseService.getBotResponse("main", "home").then((response) => {
           let helpMessage = response.data.messageBody;
           this.messages.push(this.botStyle + helpMessage + "</div>");
         });
       } else if (
-        this.userMessage.includes("stress") ||
-        this.userMessage.includes("stressed")
+        this.userMessage.toLowerCase().includes("stress") ||
+        this.userMessage.toLowerCase().includes("stressed")
       ) {
         CatService.catPic().then((response) => {
           this.catPicArray = response.data;
