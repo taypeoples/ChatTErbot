@@ -49,6 +49,7 @@
 import QuoteService from "../services/QuoteService.js";
 import ResponseService from "../services/ResponseService.js";
 import TheHeader from "./TheHeader.vue";
+import CatService from "../services/CatService";
 
 export default {
   components: {
@@ -67,7 +68,7 @@ export default {
       usertag:
         '<img class ="user-ava" src ="https://pic.onlinewebfonts.com/svg/img_561543.png" />',
       userStyle: '<div class = "user">',
-      jobs: [],
+      catPicArray: [],
     };
   },
 
@@ -106,10 +107,33 @@ export default {
         this.userMessage.includes("jobs") ||
         this.userMessage.includes("job")
       ) {
+        this.messages.push(this.botStyle + "I can help with that! </div>");
         this.messages.push(
           this.botStyle +
             '<a href="http://localhost:8080/jobSearch" target= "_blank">Open Job Search</a></div>'
         );
+      } else if (this.userMessage.includes("home")) {
+        ResponseService.getBotResponse("main", "home").then((response) => {
+          let helpMessage = response.data.messageBody;
+          this.messages.push(this.botStyle + helpMessage + "</div>");
+        });
+      } else if (
+        this.userMessage.includes("stress") ||
+        this.userMessage.includes("stressed")
+      ) {
+        CatService.catPic().then((response) => {
+          this.catPicArray = response.data;
+          let catPic = this.catPicArray[0];
+          this.messages.push(
+            this.botStyle +
+              '<img src="' +
+              catPic.url +
+              '" alt="cat pic" width="500" height="400" </div>'
+          );
+          this.messages.push(
+            this.botStyle + "Hope this helps! What else can I help with? </div>"
+          );
+        });
       } else {
         let messageToSend = {
           messageId: 0,
@@ -137,10 +161,6 @@ export default {
         this.$refs.chatContainer.scrollTop =
           this.$refs.chatContainer.scrollHeight;
       });
-      /* const element = document.getElementById("chatContainer");
-      setInterval(function () {
-        element.scrollTop = element.scrollHeight;
-      }, 1000); */
     },
 
     scrollToElement() {
@@ -161,11 +181,6 @@ export default {
           this.botStyle + this.responseMessage + nickname + "? </div>"
         );
       });
-      /* this.messages.push(
-        "<p>I can help you with:</p><ul><li>Pathway information</li><li>Curriculum</li><li>Get a motivational quote</li>Which would you like, " +
-          nickname +
-          "?"
-      ); */
       this.$nextTick(() => {
         this.$refs.chatContainer.scrollTop =
           this.$refs.chatContainer.scrollHeight;
