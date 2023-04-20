@@ -98,6 +98,9 @@ export default {
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
           this.messages.push(this.botStyle + quote + "</div>");
+           this.messages.push(
+              this.botStyle + " What else can I help you with?" + "</div>"
+            );
         });
       } else if (this.userMessage.toLowerCase().includes("assistance")) {
         this.getAssistance();
@@ -260,6 +263,7 @@ export default {
 
 .textbox {
   font-size: large;
+  overflow-wrap: break-word;
   border-width: 80%;
   margin-top: 20px;
 }
@@ -279,6 +283,7 @@ export default {
 
 .textbox >>> .user {
   background: #ecf9ec;
+  overflow-wrap: break-word;
   border-width: 3px;
   border-style: solid;
   border-radius: 10px;
