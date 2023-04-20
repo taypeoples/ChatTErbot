@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="navbar-container container">
-      <h1 class="logo">ChatTEr Bot</h1>
+      <h1 class="logo">ChatTErbot</h1>
       <input type="checkbox" id="navbar-toggle" class="navbar-toggle">
       <label for="navbar-toggle" class="hamburger-lines">
         <span class="line line1"></span>
@@ -10,7 +10,7 @@
       </label>
       <ul class="menu-items">
         <li><router-link v-bind:to="{ name: 'home' }">Home</router-link></li>
-        <li><router-link v-bind:to="{ name: 'chatBot' }">ChatTEr Bot</router-link></li>
+        <li><router-link v-bind:to="{ name: 'chatBot' }">ChatTErbot</router-link></li>
         <li><router-link v-bind:to="{ name: 'jobSearch' }">Job Search</router-link></li>
         <li v-if="$store.state.token == ''"><router-link v-bind:to="{ name: 'login' }">Login</router-link></li>
         <li v-if="$store.state.token != ''"><router-link v-bind:to="{ name: 'logout' }">Logout</router-link></li>
