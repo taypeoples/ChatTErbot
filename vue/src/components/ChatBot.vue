@@ -103,7 +103,7 @@ export default {
         this.getAssistance();
       } else if (this.userMessage.toLowerCase().includes("thanks") || this.userMessage.toLowerCase().includes("thank") && this.userMessage.toLowerCase().includes("you")) {
         this.messages.push(
-            this.botStyle + "You're welcome! What else can I help with? </div>"
+            this.botStyle + "You're welcome! What else can I help you with? </div>"
           )
       }else if (
         this.userMessage.toLowerCase().includes("job search") ||
@@ -115,7 +115,10 @@ export default {
         this.messages.push(
           this.botStyle +
             '<a href="http://localhost:8080/jobSearch" target= "_blank">Open Job Search</a></div>'
-        );
+        )
+        this.messages.push(
+            this.botStyle + "What else can I help you with? </div>"
+          );
       } else if (this.userMessage.toLowerCase().includes("home")) {
         ResponseService.getBotResponse("main", "home").then((response) => {
           let helpMessage = response.data.messageBody;
