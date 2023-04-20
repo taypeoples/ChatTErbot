@@ -252,6 +252,8 @@ export default {
   overflow-y: auto;
   max-height: 100%;
   padding: 15px 5px 10px 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
 }
 
 #chat-app > .user-input {
@@ -260,8 +262,8 @@ export default {
 
 .textbox {
   font-size: large;
-  border-width: 80%;
-  margin-top: 20px;
+  width: auto;
+  
 }
 
 .textbox >>> .bot {
@@ -279,6 +281,8 @@ export default {
 
 .textbox >>> .user {
   background: #ecf9ec;
+  overflow-wrap: break-word;
+  text-align: right;
   border-width: 3px;
   border-style: solid;
   border-radius: 10px;
@@ -286,7 +290,7 @@ export default {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   padding: 20px;
   margin-left: 25%;
-  margin-right: 50px;
+  margin-right: 25%;
 }
 
 .textbox >>> .ava {
@@ -295,7 +299,7 @@ export default {
   font-size: small;
   text-align: center;
   vertical-align: middle;
-  padding: 5px;
+  padding: 10px;
   margin-left: 50px;
 }
 
@@ -305,9 +309,9 @@ export default {
   font-size: small;
   text-align: center;
   vertical-align: middle;
-  padding: 5px;
+  padding: 10px;
   margin-left: 25%;
-  margin-right: 50px;
+  margin-right: 5px;
 }
 
 button {
