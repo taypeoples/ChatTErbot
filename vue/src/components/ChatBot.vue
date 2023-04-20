@@ -93,22 +93,31 @@ export default {
           this.userMessage +
           "</div>"
       );
-      if (this.userMessage.toLowerCase().includes("quote") || this.userMessage.toLowerCase().includes("motivation") || this.userMessage.toLowerCase().includes("motivational")) {
+      if (
+        this.userMessage.toLowerCase().includes("quote") ||
+        this.userMessage.toLowerCase().includes("motivation") ||
+        this.userMessage.toLowerCase().includes("motivational")
+      ) {
         this.isBot = true;
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
           this.messages.push(this.botStyle + quote + "</div>");
-           this.messages.push(
-              this.botStyle + " What else can I help you with?" + "</div>"
-            );
+          this.messages.push(
+            this.botStyle + " What else can I help you with?" + "</div>"
+          );
         });
       } else if (this.userMessage.toLowerCase().includes("assistance")) {
         this.getAssistance();
-      } else if (this.userMessage.toLowerCase().includes("thanks") || this.userMessage.toLowerCase().includes("thank") && this.userMessage.toLowerCase().includes("you")) {
+      } else if (
+        this.userMessage.toLowerCase().includes("thanks") ||
+        (this.userMessage.toLowerCase().includes("thank") &&
+          this.userMessage.toLowerCase().includes("you"))
+      ) {
         this.messages.push(
-            this.botStyle + "You're welcome! What else can I help you with? </div>"
-          )
-      }else if (
+          this.botStyle +
+            "You're welcome! What else can I help you with? </div>"
+        );
+      } else if (
         this.userMessage.toLowerCase().includes("job search") ||
         this.userMessage.toLowerCase().includes("open positions") ||
         this.userMessage.toLowerCase().includes("jobs") ||
@@ -118,10 +127,10 @@ export default {
         this.messages.push(
           this.botStyle +
             '<a href="http://localhost:8080/jobSearch" target= "_blank">Open Job Search</a></div>'
-        )
+        );
         this.messages.push(
-            this.botStyle + "What else can I help you with? </div>"
-          );
+          this.botStyle + "What else can I help you with? </div>"
+        );
       } else if (this.userMessage.toLowerCase().includes("home")) {
         ResponseService.getBotResponse("main", "home").then((response) => {
           let helpMessage = response.data.messageBody;
@@ -136,9 +145,9 @@ export default {
           let catPic = this.catPicArray[0];
           this.messages.push(
             this.botStyle +
-              '<img src="' +
+              '<img class="cat-pic" src="' +
               catPic.url +
-              '" alt="cat pic" width="500" height="400" </div>'
+              '" alt="cat pic"/></div>'
           );
           this.messages.push(
             this.botStyle + "Hope this helps! What else can I help with? </div>"
@@ -219,6 +228,11 @@ export default {
 .main {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   margin: 0;
+}
+
+img.cat-pic{
+  height:200px;
+  width: auto;  
 }
 
 .chat-entry {
@@ -350,29 +364,27 @@ li {
   margin-bottom: 3px;
 }
 
-
 @media (max-width: 480px) {
-.textbox >>> .bot {
-   padding: 10px;
-  margin-right: 30px;
-  margin-left: 2%;
-}
+  .textbox >>> .bot {
+    padding: 10px;
+    margin-right: 30px;
+    margin-left: 2%;
+  }
 
-.textbox >>> .ava {
-  width: 20px;
-  height: 20px;
-  font-size: small;
-  text-align: center;
-  vertical-align: middle;
-  padding: 5px;
-  margin-left: 2%;
-}
+  .textbox >>> .ava {
+    width: 20px;
+    height: 20px;
+    font-size: small;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+    margin-left: 2%;
+  }
 
-.textbox >>> .user {
-  padding: 10px;
-  margin-left: 25%;
-  margin-right: 2%;
+  .textbox >>> .user {
+    padding: 10px;
+    margin-left: 25%;
+    margin-right: 2%;
+  }
 }
-}
-
 </style>
