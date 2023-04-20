@@ -272,6 +272,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 90%;
 }
 
 .floating-card:hover {
