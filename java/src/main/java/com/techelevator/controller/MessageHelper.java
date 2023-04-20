@@ -46,12 +46,12 @@ public class MessageHelper {
             keyWords[1] = "star";
             return keyWords;
         } else if (strList.contains("cover")
-                && strList.contains("parts")) {
+                && ((strList.contains("parts") || strList.contains("part") || strList.contains("component") || strList.contains("components") || strList.contains("section") || strList.contains("sections")))) {
             keyWords[0] = "cover";
             keyWords[1] = "parts";
             return keyWords;
         } else if (strList.contains("cover")
-                && strList.contains("links")) {
+                && (strList.contains("example") || strList.contains("examples") || strList.contains("link") || strList.contains("links"))) {
             keyWords[0] = "cover";
             keyWords[1] = "links";
             return keyWords;
@@ -64,7 +64,7 @@ public class MessageHelper {
             keyWords[1] = "hunt";
             return keyWords;
         } else if (strList.contains("technical")
-                && (strList.contains("prep") || strList.contains("prepare") || strList.contains("preparation"))) {
+                && (strList.contains("prep") || strList.contains("prepare") || strList.contains("preparation") || strList.contains("preparing"))) {
             keyWords[0] = "technical";
             keyWords[1] = "prep";
             return keyWords;
@@ -74,7 +74,7 @@ public class MessageHelper {
             keyWords[1] = "explanation";
             return keyWords;
         } else if ((strList.contains("network") || strList.contains("networking"))
-                && ((strList.contains("prep") || strList.contains("prepare") || strList.contains("preparation")))) {
+                && ((strList.contains("prep") || strList.contains("prepare") || strList.contains("preparation") || strList.contains("preparing")))) {
             keyWords[0] = "networking";
             keyWords[1] = "prep";
             return keyWords;
@@ -98,12 +98,12 @@ public class MessageHelper {
             keyWords[0] = "matchmaking";
             keyWords[1] = "prep";
             return keyWords;
-        } else if (strList.contains("database")
+        } else if ((strList.contains("database") || (strList.contains("data") && strList.contains("base")))
                 && strList.contains("design")) {
             keyWords[0] = "database";
             keyWords[1] = "design";
             return keyWords;
-        } else if (strList.contains("database")
+        } else if ((strList.contains("database") || (strList.contains("data") && strList.contains("base")))
                 && strList.contains("security")) {
             keyWords[0] = "database";
             keyWords[1] = "security";
