@@ -283,6 +283,8 @@ button:hover {
   .job-card {
     min-height: 90%;
     min-width: 90%;
+    max-height: 90%;
+    max-width: 90%;
   }
 }
 

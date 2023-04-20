@@ -263,6 +263,7 @@ export default {
 
 .textbox {
   font-size: large;
+  overflow-wrap: break-word;
   border-width: 80%;
   margin-top: 20px;
 }
@@ -282,6 +283,7 @@ export default {
 
 .textbox >>> .user {
   background: #ecf9ec;
+  overflow-wrap: break-word;
   border-width: 3px;
   border-style: solid;
   border-radius: 10px;
