@@ -138,7 +138,7 @@ export default {
             this.botStyle +
               '<img src="' +
               catPic.url +
-              '" alt="cat pic" width="500" height="400" </div>'
+              '" alt="cat pic" width="500" height="400"> </div>'
           );
           this.messages.push(
             this.botStyle + "Hope this helps! What else can I help with? </div>"

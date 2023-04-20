@@ -41,7 +41,7 @@ public class MessageHelper {
             keyWords[0] = "interview";
             keyWords[1] = "outfit";
             return keyWords;
-        } else if (strList.contains("star")) {
+        } else if (strList.contains("star") || (strList.contains("interview") && strList.contains("questions"))) {
             keyWords[0] = "interview";
             keyWords[1] = "star";
             return keyWords;
