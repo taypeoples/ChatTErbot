@@ -272,6 +272,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 90%;
 }
 
 .floating-card:hover {
@@ -295,7 +296,7 @@ p {
     margin: 0 auto;
     height: 90vh;
     z-index: 1;
-    width: 100%;
+    width: 90%;
     height: 400px;
     max-width: 1300px;
     padding: 0 50px;
@@ -312,7 +313,7 @@ p {
 @media only screen and (max-width: 600px) {
   #main__img {
     text-align: center;
-    width: 100%;
+    width: 0%;
 }
 }
 
