@@ -160,6 +160,10 @@ public class MessageHelper {
             keyWords[0] = "clientserver";
             keyWords[1] = "http";
             return keyWords;
+        } else if ((strList.contains("html") && strList.contains("tags")) || strList.contains("tags"))  {
+            keyWords[0] = "frontend";
+            keyWords[1] = "tags";
+            return keyWords;
         } else if (strList.contains("html")) {
             keyWords[0] = "web";
             keyWords[1] = "html";
@@ -172,15 +176,7 @@ public class MessageHelper {
             keyWords[0] = "web";
             keyWords[1] = "vue";
             return keyWords;
-        } else if (strList.contains("html")) {
-            keyWords[0] = "web";
-            keyWords[1] = "html";
-            return keyWords;
-        } else if (strList.contains("tags")) {
-            keyWords[0] = "frontend";
-            keyWords[1] = "tags";
-            return keyWords;
-        } else if (strList.contains("css")) {
+        }  else if (strList.contains("css") || strList.contains("style") || strList.contains("styling")) {
             keyWords[0] = "frontend";
             keyWords[1] = "css";
             return keyWords;
@@ -232,7 +228,7 @@ public class MessageHelper {
             keyWords[0] = "web";
             keyWords[1] = "default";
             return keyWords;
-        } else if (strList.contains("database") || strList.contains("databases")) {
+        } else if (strList.contains("database") || strList.contains("databases") || (strList.contains("data") && strList.contains("base"))) {
             keyWords[0] = "database";
             keyWords[1] = "default";
             return keyWords;

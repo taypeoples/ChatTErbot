@@ -93,7 +93,7 @@ export default {
           this.userMessage +
           "</div>"
       );
-      if (this.userMessage.toLowerCase().includes("quote")) {
+      if (this.userMessage.toLowerCase().includes("quote") || this.userMessage.toLowerCase().includes("motivation") || this.userMessage.toLowerCase().includes("motivational")) {
         this.isBot = true;
         QuoteService.quote().then((response) => {
           let quote = response.data.quoteText + " -" + response.data.author;
