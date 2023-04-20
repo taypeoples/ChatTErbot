@@ -252,8 +252,6 @@ export default {
   overflow-y: auto;
   max-height: 100%;
   padding: 15px 5px 10px 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
 }
 
 #chat-app > .user-input {
@@ -262,8 +260,8 @@ export default {
 
 .textbox {
   font-size: large;
-  width: auto;
-  
+  border-width: 80%;
+  margin-top: 20px;
 }
 
 .textbox >>> .bot {
@@ -275,20 +273,18 @@ export default {
   border-color: #80b5ea;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   padding: 20px;
-  margin-right: 25%;
+  margin-right: 50%;
   margin-left: 50px;
 }
 
 .textbox >>> .user {
   background: #ecf9ec;
-  overflow-wrap: break-word;
-  text-align: right;
   border-width: 3px;
   border-style: solid;
   border-radius: 10px;
   border-color: #39ac39;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  padding: 20px;
+  padding: 15px;
   margin-left: 25%;
   margin-right: 25%;
 }
@@ -299,7 +295,7 @@ export default {
   font-size: small;
   text-align: center;
   vertical-align: middle;
-  padding: 10px;
+  padding: 5px;
   margin-left: 50px;
 }
 
@@ -309,7 +305,7 @@ export default {
   font-size: small;
   text-align: center;
   vertical-align: middle;
-  padding: 10px;
+  padding: 5px;
   margin-left: 25%;
   margin-right: 5px;
 }
@@ -348,4 +344,30 @@ li {
   line-height: 1.5;
   margin-bottom: 3px;
 }
+
+
+@media (max-width: 480px) {
+.textbox >>> .bot {
+   padding: 10px;
+  margin-right: 30px;
+  margin-left: 2%;
+}
+
+.textbox >>> .ava {
+  width: 20px;
+  height: 20px;
+  font-size: small;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+  margin-left: 2%;
+}
+
+.textbox >>> .user {
+  padding: 10px;
+  margin-left: 25%;
+  margin-right: 2%;
+}
+}
+
 </style>
