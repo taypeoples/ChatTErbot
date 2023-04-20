@@ -275,9 +275,9 @@ button:hover {
   /* background-image: url("/pictures/Capture3.PNG"); */
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
+  color: #3b5998;
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .job-search-form .right p {
