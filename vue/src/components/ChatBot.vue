@@ -97,6 +97,8 @@ export default {
         this.userMessage.toLowerCase().includes("quote") ||
         this.userMessage.toLowerCase().includes("motivation") ||
         this.userMessage.toLowerCase().includes("motivational")
+        ||
+        this.userMessage.toLowerCase().includes("motivated")
       ) {
         this.isBot = true;
         QuoteService.quote().then((response) => {
@@ -108,7 +110,22 @@ export default {
         });
       } else if (this.userMessage.toLowerCase().includes("assistance")) {
         this.getAssistance();
-      } else if (
+      } else if (this.userMessage.toLowerCase().includes("bye") || this.userMessage.toLowerCase().includes("goodbye")) {
+        window.location.href="https://www.techelevator.com/";
+      }else if (this.userMessage.toLowerCase().includes("joke")) {
+        this.messages.push(
+          this.botStyle +
+            "Why do most Java programmers wear glasses? </div>"
+        );
+        this.messages.push(
+          this.botStyle +
+            "They can't c#! </div>"
+        );
+        this.messages.push(
+          this.botStyle +
+            "Sorry, what else can I help you with? </div>"
+        );
+      }else if (
         this.userMessage.toLowerCase().includes("thanks") ||
         (this.userMessage.toLowerCase().includes("thank") &&
           this.userMessage.toLowerCase().includes("you"))
