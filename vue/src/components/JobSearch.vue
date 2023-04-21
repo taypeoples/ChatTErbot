@@ -99,7 +99,12 @@ export default {
       jobType: [],
       remote: false,
       updatedDescription: "",
+      title: 'Job Search'
     };
+  },
+
+  mounted(){
+    document.title = this.title;
   },
 
   created() {

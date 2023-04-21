@@ -1,4 +1,5 @@
 <template>
+
   <div id="main" class="main">
     <div id="chat-app">
       <div class="nav">
@@ -69,6 +70,7 @@ export default {
         '<img class ="user-ava" src ="https://pic.onlinewebfonts.com/svg/img_561543.png" />',
       userStyle: '<div class = "user">',
       catPicArray: [],
+      title: 'ChatTErbot'
     };
   },
 
@@ -81,6 +83,7 @@ export default {
 
   mounted() {
     this.scrollToElement();
+    document.title = this.title;
   },
 
   methods: {
